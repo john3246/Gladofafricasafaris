@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body class="flex min-h-screen flex-col">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:bg-gold focus:p-3">Skip to content</a>
+  <%- include('../partials/topbar') %>
+  <%- include('../partials/header') %>
+  <main id="main" class="flex-1">
+    <%- body %>
+  </main>
+  <%- include('../partials/footer') %>
+  <%- include('../partials/whatsapp-fab') %>
+  <script src="/js/nav.js" defer></script>
+  <script src="/js/img-fallback.js" defer></script>
+  <script src="/js/carousel.js" defer></script>
+  <script src="/js/board-filter.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+module.exports = {
+  slug: 'great-migration-calendar-tanzania',
+  title: 'Great Migration Calendar: Where Are the Herds Each Month?',
+  excerpt: 'Follow the wildebeest through the Serengeti month by month, from calving in Ndutu to river crossings in the north.',
+  category: 'Migration',
+  image: '/images/hero.webp',
+  published: '2026-05-12',
+  readMinutes: 6,
+  metaTitle: 'Great Migration Calendar Tanzania: Where Are the Herds by Month?',
+  metaDescription: 'Month-by-month Great Migration guide for the Serengeti: calving, Grumeti and Mara River crossings, and the best lodges for each period.',
+  related: ['7-days-wildebeest-migration-group-safari', '8-day-northern-serengeti-mara-river-crossing-safari', '8-day-great-migration-moments'],
+  sections: [
+    { h: 'January to March: southern Serengeti and Ndutu', p: ['The herds graze the short-grass plains and give birth. Lions, cheetahs and hyenas hunt the calves daily.'] },
+    { h: 'April to May: moving north-west', p: ['As the rains peak the herds move through the central Serengeti and the Moru Kopjes toward the western corridor.'] },
+    { h: 'June and July: Grumeti River', p: ['Herds mass and cross the Grumeti River in the western Serengeti, with crocodiles waiting at the banks.'] },
+    { h: 'July to October: northern Serengeti and Mara River', p: ['The most famous crossings happen as herds move between Tanzania and Kenya. Staying near Kogatende gives the best access.'] },
+    { h: 'November to December: heading south', p: ['The herds follow the short rains back to the southern plains, completing the loop.'] },
+    { h: 'Important note', p: ['The migration follows rainfall, not a calendar. Timings are typical but can shift by weeks. Our guides track the herds daily and adjust your route.'] },
+  ],
+};

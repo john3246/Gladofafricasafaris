@@ -1,0 +1,22 @@
+<section class="bg-sand py-10 sm:py-14 lg:py-16">
+  <div class="container-site">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="eyebrow">Discover</p>
+      <h2 class="mt-2">Explore Tanzania <em>by region</em></h2>
+      <p class="mt-3 text-ink/70">The Northern Circuit is our home ground and the classic Big Five route. The coast and the south add beach and wilderness to any journey.</p>
+    </div>
+    <div class="mx-auto mt-8 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <% regions.forEach(function (r) { %>
+        <a href="/destinations#<%= r.anchor %>" class="group relative isolate block aspect-[4/3] overflow-hidden bg-forest-900 text-white">
+          <% if (r.image) { %><img src="<%= r.image %>" alt="<%= r.title %>" width="800" height="600" loading="lazy" class="absolute inset-0 -z-10 h-full w-full object-cover transition duration-500 group-hover:scale-105"><% } %>
+          <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 p-6">
+            <p class="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-gold"><%= r.trips ? r.trips + ' trips' : 'Tailor-made trips' %></p>
+            <h3 class="mt-1 !text-white"><%= r.title %></h3>
+            <p class="mt-1 text-sm text-white/80"><%= r.text %></p>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </div>
+</section>

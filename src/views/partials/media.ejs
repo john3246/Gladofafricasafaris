@@ -1,0 +1,5 @@
+<%# Image with brand-gradient fallback. params: src, alt, eager (bool), ratio (optional tailwind aspect class) %>
+<div class="media-box <%= typeof ratio !== 'undefined' ? ratio : '' %>">
+  <img src="<%= src %>" alt="<%= alt %>" width="800" height="600" decoding="async"
+       <%- (typeof eager !== 'undefined' && eager) ? 'fetchpriority="high"' : 'loading="lazy"' %>>
+</div>

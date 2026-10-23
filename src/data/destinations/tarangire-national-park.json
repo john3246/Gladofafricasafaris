@@ -1,0 +1,24 @@
+{
+ "slug": "tarangire-national-park",
+ "circuit": "northern",
+ "sort": 2,
+ "name": "Tarangire National Park",
+ "tagline": "Giant baobabs and Tanzania's largest elephant herds",
+ "intro": [
+  "Tarangire is famous for its ancient baobab trees and large elephant herds. In the dry season thousands of animals gather along the river, making it superb for photography.",
+  "It is only two to three hours from Arusha, which makes it an ideal first stop or a standalone day trip."
+ ],
+ "bestTime": "June to October, when wildlife concentrates along the Tarangire River.",
+ "wildlife": [
+  "Elephant",
+  "Giraffe",
+  "Lion",
+  "Leopard",
+  "Python",
+  "Eland",
+  "Oryx"
+ ],
+ "image": "/images/destinations/tarangire-national-park.webp",
+ "metaTitle": "Tarangire National Park Safari | Elephants & Baobabs | Glad Of Africa",
+ "metaDescription": "Visit Tarangire for huge elephant herds and baobab landscapes, just 2-3 hours from Arusha. Day trips and multi-day northern circuit safaris."
+}

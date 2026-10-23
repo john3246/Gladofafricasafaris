@@ -1,0 +1,12 @@
+<% if (breadcrumbs.length > 1) { %>
+<nav aria-label="Breadcrumb" class="bg-cream">
+  <ol class="container-site flex flex-wrap gap-2 py-3 text-xs text-forest-800/70">
+    <% breadcrumbs.forEach(function (b, i) { %>
+      <li>
+        <% if (b.href) { %><a class="hover:text-forest-600 hover:underline" href="<%= b.href %>"><%= b.name %></a> <span aria-hidden="true">/</span>
+        <% } else { %><span aria-current="page" class="font-medium text-forest-900"><%= b.name %></span><% } %>
+      </li>
+    <% }) %>
+  </ol>
+</nav>
+<% } %>

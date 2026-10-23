@@ -1,0 +1,12 @@
+<div class="bg-forest-900 text-[12px] font-medium text-white/90">
+  <div class="container-site flex items-center justify-between gap-4 py-2">
+    <div class="flex flex-wrap items-center gap-x-5 gap-y-1">
+      <a href="tel:<%= site.phoneRaw %>" class="hover:text-gold">&#9990; <%= site.phone %></a>
+      <a href="mailto:<%= site.email %>" class="hover:text-gold">&#9993; <%= site.email %></a>
+    </div>
+    <div class="hidden items-center gap-5 md:flex">
+      <% nav.topLinks.forEach(function (l) { %><a href="<%= l.href %>" class="hover:text-gold"><%= l.label %></a><% }) %>
+      <% site.social.forEach(function (s) { %><a href="<%= s.url %>" target="_blank" rel="noopener" class="hover:text-gold" aria-label="<%= s.name %>">Follow us on <%= s.name %></a><% }) %>
+    </div>
+  </div>
+</div>

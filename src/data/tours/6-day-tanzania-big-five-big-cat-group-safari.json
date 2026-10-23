@@ -1,0 +1,95 @@
+{
+ "slug": "6-day-tanzania-big-five-big-cat-group-safari",
+ "title": "Tanzania Big Five Safari: 6-Day Big Cat Group Tour",
+ "priceFrom": 1000,
+ "description": [
+  "Embark on a thrilling 6-day group safari through Tanzania’s most celebrated wildlife destinations perfectly crafted for adventure seekers, photographers, and nature enthusiasts who want exceptional value, comfort, and unforgettable wildlife encounters. This immersive journey takes you deep into three of the country’s most iconic parks: Tarangire National Park, home to vast elephant herds and ancient baobabs; the legendary Serengeti National Park, where big cats roam the endless plains; and the breathtaking Ngorongoro Crater, a natural haven for the rare and iconic Big Five. As you travel through these diverse landscapes, you’ll witness Africa’s most powerful predators, remarkable wildlife gatherings, and dramatic scenery that defines true safari magic. Guided by experienced professionals and supported by Mix Lodge and Public Campsite, this group safari offers a fun, friendly atmosphere and delivers an authentic, immersive, and unforgettable African experience from start to finish."
+ ],
+ "highlights": [
+  "Big Five game viewing in Ngorongoro Crater",
+  "Big cat sightings in Serengeti National Park",
+  "Elephant herds and iconic baobabs in Tarangire",
+  "Maasai cultural experience and visits to local communities",
+  "Mix of lodge and public campsite accommodations for an authentic safari experience"
+ ],
+ "includes": [
+  "Airport pick-up and drop-off",
+  "All park entrance fees.",
+  "Accommodation as per itinerary.",
+  "Professional Guide",
+  "Transportation in a 4x4 safari vehicle",
+  "Bottled water",
+  "Free Wi-Fi"
+ ],
+ "excludes": [
+  "International and domestic flights",
+  "Visa and travel insurance.",
+  "Personal expenses (laundry, phone calls, drinks)",
+  "Tips and gratuities",
+  "Optional activities not mentioned in the itinerary"
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Arrival & Arusha Experience",
+   "text": "Arrive at Kilimanjaro International Airport and transfer to Arusha. Depending on your arrival time, enjoy an optional city tour, including Maasai Market, the Cultural Heritage Centre, or a local community experience such as visiting a school, orphanage, or tree-planting program.",
+   "accommodation": "Jevas Hotel"
+  },
+  {
+   "day": 2,
+   "title": "Tarangire National Park",
+   "text": "Drive 2–3 hours to Tarangire National Park. Embark on a morning game drive to spot elephants, big cats, and other wildlife. Enjoy lunch inside the park, then continue with an extended afternoon game drive. Return to your lodge for dinner and overnight.",
+   "accommodation": "Fanaka Lodge"
+  },
+  {
+   "day": 3,
+   "title": "Tarangire → Serengeti Big Cat Experience",
+   "text": "After breakfast, transfer to Central Serengeti, stopping at the Ngorongoro Crater viewpoint for panoramic photos. Visit a Maasai Boma to experience traditional dancing, songs, and attire. Arrive at Seronera and enjoy an afternoon game drive to spot lions, leopards, and cheetahs.",
+   "accommodation": "Seronera Public Campsite"
+  },
+  {
+   "day": 4,
+   "title": "Serengeti → Ngorongoro Highlands",
+   "text": "Morning game drive in the Serengeti in search of big cats. Have lunch amidst the park’s breathtaking landscapes, then continue toward the Ngorongoro Highlands, enjoying wildlife sightings along the way. Dinner and overnight at the campsite.",
+   "accommodation": ""
+  },
+  {
+   "day": 5,
+   "title": "Ngorongoro Crater – Big Five Experience",
+   "text": "After early breakfast, descend into Ngorongoro Crater for a full-day game drive in one of the world’s most wildlife-dense ecosystems. Encounter the Big Five—lion, leopard, elephant, buffalo, and rhino—along with diverse other species. Picnic lunch inside the crater. Ascend to the crater rim and return to Arusha for dinner and overnight.",
+   "accommodation": "Jevas Hotel"
+  },
+  {
+   "day": 6,
+   "title": "Departure",
+   "text": "After breakfast, transfer to Kilimanjaro International Airport for your departure flight, taking with you lasting memories of Tanzania’s wildlife, landscapes, and hospitality.",
+   "accommodation": ""
+  }
+ ],
+ "tier": "budget",
+ "days": 6,
+ "destinations": [
+  "serengeti-national-park",
+  "ngorongoro-crater",
+  "tarangire-national-park"
+ ],
+ "style": "Joining group",
+ "tags": [
+  "group",
+  "migration",
+  "budget"
+ ],
+ "priceWas": 1200,
+ "image": "/images/tours/6-day-tanzania-big-five-big-cat-group-safari.webp",
+ "gallery": [
+  "/images/tours/6-day-tanzania-big-five-big-cat-group-safari-2.webp",
+  "/images/tours/6-day-tanzania-big-five-big-cat-group-safari-3.webp",
+  "/images/tours/6-day-tanzania-big-five-big-cat-group-safari-4.webp",
+  "/images/tours/6-day-tanzania-big-five-big-cat-group-safari-5.webp"
+ ],
+ "summary": "Embark on a thrilling 6-day group safari through Tanzania’s most celebrated wildlife destinations perfectly crafted for adventure seekers, photographers, and nature enthusiasts who want…",
+ "badge": "Big Five",
+ "priceConfirmed": true,
+ "metaTitle": "Tanzania Big Five Safari: 6-Day Big Cat Group Tour | Glad Of Africa",
+ "metaDescription": "Embark on a thrilling 6-day group safari through Tanzania’s most celebrated wildlife destinations perfectly crafted for adventure seekers, photographers, a"
+}

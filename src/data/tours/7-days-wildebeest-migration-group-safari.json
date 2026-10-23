@@ -1,0 +1,102 @@
+{
+ "slug": "7-days-wildebeest-migration-group-safari",
+ "title": "7 Days Wildebeest Migration Group Safari",
+ "priceFrom": 1200,
+ "description": [
+  "Experience the awe-inspiring Wildebeest Migration on this 7-day group safari through Northern Tanzania. Explore Tarangire, Central and Northern Serengeti, and Ngorongoro Crater, spotting the Big Five, massive wildebeest herds, and predators in action. Guided by experts and staying in a mix of lodges and campsites, this safari offers immersive wildlife encounters, breathtaking landscapes, and authentic African adventure for photographers, nature enthusiasts, and safari lovers."
+ ],
+ "highlights": [
+  "Witness the Wildebeest Migration in Northern Serengeti",
+  "Big Five safari in Ngorongoro Crater",
+  "Big cat tracking in Serengeti",
+  "Elephant herds and baobabs in Tarangire",
+  "Maasai cultural visits and community experiences",
+  "Mix of lodges and public campsites for an authentic safari"
+ ],
+ "includes": [
+  "Airport pick-up and drop-off",
+  "All park entrance fees.",
+  "Accommodation as per itinerary.",
+  "Professional Guide",
+  "Transportation in a 4x4 safari vehicle",
+  "Bottled water",
+  "free wifi"
+ ],
+ "excludes": [
+  "International and domestic flights",
+  "Visa and travel insurance.",
+  "Personal expenses (laundry, phone calls, drinks)",
+  "Tips and gratuities",
+  "Optional activities not mentioned in the itinerary"
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Arrival & Arusha Experience",
+   "text": "Arrive at Kilimanjaro Airport and transfer to Arusha. Depending on your arrival time, enjoy an optional city tour visiting Maasai Market, the Cultural Heritage Centre, and Arusha local market. Additional cultural activities include school visits, orphanage programs, or tree-planting initiatives.",
+   "accommodation": "Jevas Hotel"
+  },
+  {
+   "day": 2,
+   "title": "Tarangire National Park",
+   "text": "Drive 2–3 hours to Tarangire National Park. Enjoy a morning game drive exploring the park’s elephant herds, big cats, and other wildlife. Lunch inside the park, then continue with an extended afternoon game drive.",
+   "accommodation": "Fanaka Lodge"
+  },
+  {
+   "day": 3,
+   "title": "Tarangire → Central Serengeti Big Cat Safari",
+   "text": "After breakfast, transfer to Central Serengeti via Ngorongoro Highlands, stopping at the crater viewpoint for panoramic photos. Visit a Maasai Boma to experience traditional dancing and attire. Arrive in Seronera and enjoy an afternoon game drive spotting lions, leopards, and cheetahs.",
+   "accommodation": "Seronera Public Campsite"
+  },
+  {
+   "day": 4,
+   "title": "Northern Serengeti – Follow the Migration",
+   "text": "Full-day safari in Northern Serengeti to witness the Wildebeest Migration. Observe millions of wildebeest, zebras, and gazelles, along with dramatic predator-prey interactions. Your guide will take you to the best spots for river crossings and wildlife photography.",
+   "accommodation": "Seronera Public Campsite"
+  },
+  {
+   "day": 5,
+   "title": "Central Serengeti → Ngorongoro Highlands",
+   "text": "Morning game drive in Central Serengeti for big cat sightings. After lunch, continue a guided drive toward Ngorongoro Highlands, enjoying wildlife encounters along the way. Dinner and overnight at the campsite.",
+   "accommodation": ""
+  },
+  {
+   "day": 6,
+   "title": "Ngorongoro Crater – Big Five Safari",
+   "text": "Early breakfast, then descend into Ngorongoro Crater for a full-day game drive. Spot the Big Five—lion, leopard, elephant, buffalo, and rhino—plus other wildlife. Picnic lunch inside the crater. Ascend the crater rim and return to Arusha for dinner and overnight.",
+   "accommodation": "Jevas Hotel"
+  },
+  {
+   "day": 7,
+   "title": "Departure",
+   "text": "After breakfast, transfer to Kilimanjaro International Airport for your departure, taking home unforgettable memories of Tanzania’s wildlife and landscapes.",
+   "accommodation": ""
+  }
+ ],
+ "tier": "budget",
+ "days": 7,
+ "destinations": [
+  "serengeti-national-park",
+  "ngorongoro-crater",
+  "tarangire-national-park"
+ ],
+ "style": "Joining group",
+ "tags": [
+  "group",
+  "migration",
+  "budget"
+ ],
+ "priceWas": 1400,
+ "image": "/images/tours/7-days-wildebeest-migration-group-safari.webp",
+ "gallery": [
+  "/images/tours/7-days-wildebeest-migration-group-safari-2.webp",
+  "/images/tours/7-days-wildebeest-migration-group-safari-3.webp",
+  "/images/tours/7-days-wildebeest-migration-group-safari-4.webp",
+  "/images/tours/7-days-wildebeest-migration-group-safari-5.webp"
+ ],
+ "summary": "Experience the awe-inspiring Wildebeest Migration on this 7-day group safari through Northern Tanzania.",
+ "badge": "Migration",
+ "priceConfirmed": true,
+ "metaTitle": "7 Days Wildebeest Migration Group Safari | Glad Of Africa",
+ "metaDescription": "Experience the awe-inspiring Wildebeest Migration on this 7-day group safari through Northern Tanzania. Explore Tarangire, Central and Northern Serengeti, "
+}

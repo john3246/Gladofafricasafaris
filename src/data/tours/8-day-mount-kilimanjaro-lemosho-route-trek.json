@@ -1,0 +1,126 @@
+{
+ "slug": "8-day-mount-kilimanjaro-lemosho-route-trek",
+ "title": "8-Day Mount Kilimanjaro Lemosho Route Trek",
+ "priceFrom": 3500,
+ "description": [
+  "The Lemosho Route is widely regarded as one of the most scenic and successful routes to the summit of Mount Kilimanjaro (5,895m). Approaching the mountain from the remote western side, this route offers a quieter start, excellent acclimatization, and breathtaking landscapes throughout the climb.",
+  "Beginning in lush rainforest, the trail crosses the expansive Shira Plateau, passes dramatic valleys and alpine desert, and culminates in an unforgettable sunrise summit at Uhuru Peak, the highest point in Africa. With its gradual ascent and well-spaced camps, the Lemosho Route provides exceptional comfort and one of the highest summit success rates before descending through verdant rainforest to Mweka Gate.",
+  "Excellent acclimatization profile and high summit success rate",
+  "Traverse rainforest, heath, moorland, alpine desert, and glacial zones"
+ ],
+ "highlights": [
+  "One of the most scenic and least crowded Kilimanjaro routes",
+  "Excellent acclimatization profile and high summit success rate",
+  "Traverse rainforest, heath, moorland, alpine desert, and glacial zones",
+  "Cross the vast Shira Plateau",
+  "Climb the iconic Barranco Wall",
+  "Sunrise summit at Uhuru Peak (5,895m)",
+  "Professional guides, full crew support, and quality meals"
+ ],
+ "includes": [
+  "Airport transfers",
+  "Pre-climb briefing and full equipment check",
+  "Park fees, camping fees, and conservation fees",
+  "Kilimanjaro rescue and emergency support fees",
+  "Professional, certified mountain guide(s)",
+  "Pre-climb briefing and full equipment check",
+  "Park fees, camping fees, and conservation fees",
+  "Kilimanjaro rescue and emergency support fees",
+  "Professional, certified mountain guide(s)",
+  "Full mountain crew (assistant guides, cook, and porters)",
+  "All meals on the mountain as specified in the itinerary",
+  "Clean, safe drinking water throughout the trek",
+  "Quality tents and sleeping mattresses",
+  "Dining tent with tables and chairs",
+  "All government taxes and VAT",
+  "Summit certificate (green or gold certificate upon successful ascent)"
+ ],
+ "excludes": [
+  "nternational and domestic flights",
+  "Tanzania visa fees",
+  "Travel and medical insurance (mandatory)",
+  "Optional equipment rental (available on request)",
+  "Tips for mountain crew (guides, cooks, and porters)",
+  "Personal expenses (laundry, phone calls, souvenirs)",
+  "Meals not mentioned in the itinerary (mainly in Arusha)",
+  "Additional accommodation before or after the trek (unless specified)"
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Arrival – Kilimanjaro International Airport to Arusha",
+   "text": "Upon arrival at Kilimanjaro International Airport, you will be warmly welcomed and transferred to your hotel in Arusha. Later in the day, meet your professional mountain guide for a detailed briefing, safety instructions, and a full equipment check to ensure you are well prepared for the climb.",
+   "accommodation": "ArushaMeals: Dinner"
+  },
+  {
+   "day": 2,
+   "title": "Arusha – Lemosho Gate – Mti Mkubwa (Big Tree) Camp",
+   "text": "After breakfast, drive to Lemosho Gate for registration, then continue to the trek’s starting point. Begin hiking through pristine rainforest, rich with birdlife and colobus monkeys. The trail gently ascends to Mti Mkubwa Camp, your first night on the mountain.Hiking Time: 3–4 hours",
+   "accommodation": "Mti Mkubwa CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 3,
+   "title": "Mti Mkubwa Camp – Shira 1 Camp",
+   "text": "Leave the rainforest behind and climb steadily into the heath and moorland zone. Enjoy expanding views as vegetation changes and Mount Meru appears in the distance. Cross onto the vast Shira Plateau before reaching Shira 1 Camp.Hiking Time: 5–6 hours",
+   "accommodation": "Shira 1 CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 4,
+   "title": "Shira 1 Camp – Shira 2 Camp",
+   "text": "A gentle trek across the Shira Plateau with minimal altitude gain, allowing excellent acclimatization. Enjoy spectacular views of Kibo Peak and the surrounding plains as you continue to Shira 2 Camp.Hiking Time: 3–4 hours",
+   "accommodation": "Shira 2 CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 5,
+   "title": "Shira 2 Camp – Lava Tower – Barranco Camp",
+   "text": "This is a key acclimatization day. Hike uphill to Lava Tower (4,630m), then descend into the dramatic Barranco Valley. The “climb high, sleep low” strategy helps your body adapt to altitude while offering stunning scenery beneath the Breach Wall.Hiking Time: 6–8 hours",
+   "accommodation": "Barranco CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 6,
+   "title": "Barranco Camp – Karanga Camp",
+   "text": "Begin the day by climbing the famous Barranco Wall, a fun and rewarding scramble with incredible panoramic views. Continue across rolling alpine terrain to Karanga Camp, where you rest and acclimatize further.Hiking Time: 4–5 hours",
+   "accommodation": "Karanga CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 7,
+   "title": "Karanga Camp – Barafu Camp",
+   "text": "A steady ascent leads to Barafu Camp, your base camp for the summit attempt. Spend the afternoon resting, hydrating, and mentally preparing for the midnight climb.Hiking Time: 3–4 hours",
+   "accommodation": "Barafu CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 8,
+   "title": "Barafu Camp – Uhuru Peak – Mweka Camp",
+   "text": "Begin your summit attempt around midnight, trekking slowly under the stars to Stella Point, then onward to Uhuru Peak (5,895m). After celebrating and taking photos at the summit, descend carefully to Mweka Camp for a well-earned rest.Hiking Time: 10–14 hours",
+   "accommodation": "Mweka CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 9,
+   "title": "Mweka Camp – Mweka Gate – Arusha",
+   "text": "After breakfast, descend through lush rainforest to Mweka Gate, where you will receive your summit certificates. Transfer back to Arusha for relaxation and celebration.Hiking Time: 3–4 hours",
+   "accommodation": "ArushaMeals: Breakfast"
+  }
+ ],
+ "tier": "midrange",
+ "days": 8,
+ "destinations": [
+  "mount-kilimanjaro"
+ ],
+ "style": "Trek",
+ "tags": [
+  "trekking"
+ ],
+ "priceWas": null,
+ "image": "/images/tours/8-day-mount-kilimanjaro-lemosho-route-trek.webp",
+ "gallery": [
+  "/images/tours/8-day-mount-kilimanjaro-lemosho-route-trek-2.webp",
+  "/images/tours/8-day-mount-kilimanjaro-lemosho-route-trek-3.webp",
+  "/images/tours/8-day-mount-kilimanjaro-lemosho-route-trek-4.webp",
+  "/images/tours/8-day-mount-kilimanjaro-lemosho-route-trek-5.webp"
+ ],
+ "summary": "The Lemosho Route is widely regarded as one of the most scenic and successful routes to the summit of Mount Kilimanjaro (5,895m).",
+ "badge": "",
+ "priceConfirmed": true,
+ "metaTitle": "8-Day Mount Kilimanjaro Lemosho Route Trek | Glad Of Africa",
+ "metaDescription": "The Lemosho Route is widely regarded as one of the most scenic and successful routes to the summit of Mount Kilimanjaro (5,895m). Approaching the mountain "
+}

@@ -1,0 +1,26 @@
+<footer class="bg-[#091d13] text-white/75">
+  <div class="container-site grid gap-10 py-14 md:grid-cols-4">
+    <div class="md:col-span-2">
+      <img src="<%= site.logoWhite %>" alt="<%= site.name %>" width="190" height="64" class="h-14 w-auto" loading="lazy">
+      <p class="mt-4 max-w-md text-sm leading-relaxed">We offer Kilimanjaro treks, wildlife safaris, and Zanzibar beach holidays in Tanzania with a dedicated team committed to quality service and safety.</p>
+      <p class="mt-5 text-xs uppercase tracking-widest text-white/50">We accept</p>
+      <p class="mt-2 flex gap-2 text-xs font-bold"><span class="rounded bg-white/10 px-3 py-1.5">Visa</span><span class="rounded bg-white/10 px-3 py-1.5">Mastercard</span><span class="rounded bg-white/10 px-3 py-1.5">Pesapal</span></p>
+    </div>
+    <div>
+      <h2 class="mb-4 font-mono text-[11px] font-bold uppercase tracking-[0.18em] !text-gold">Important Links</h2>
+      <ul class="space-y-2 text-sm">
+        <% nav.footerLinks.forEach(function (l) { %><li><a class="hover:text-gold" href="<%= l.href %>"><%= l.label %></a></li><% }) %>
+      </ul>
+    </div>
+    <div>
+      <h2 class="mb-4 font-mono text-[11px] font-bold uppercase tracking-[0.18em] !text-gold">Contact Info</h2>
+      <address class="space-y-2 text-sm not-italic">
+        <p><%= site.address.street %>-<%= site.address.city %>, <%= site.address.countryName %></p>
+        <p><a class="hover:text-gold" href="tel:<%= site.phoneRaw %>"><%= site.phone %></a></p>
+        <p><a class="hover:text-gold" href="mailto:<%= site.email %>"><%= site.email %></a></p>
+        <p><a class="hover:text-gold" href="<%= site.whatsapp %>" rel="noopener" target="_blank">WhatsApp us</a></p>
+      </address>
+    </div>
+  </div>
+  <div class="bg-[#1e1e1e] py-5 text-center text-xs text-white/60">&copy; <%= new Date().getFullYear() %> Glad Of Africa. All Rights Reserved.</div>
+</footer>

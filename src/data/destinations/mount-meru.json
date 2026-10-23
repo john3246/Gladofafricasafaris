@@ -1,0 +1,21 @@
+{
+ "slug": "mount-meru",
+ "circuit": "trekking",
+ "sort": 12,
+ "name": "Mount Meru",
+ "tagline": "The perfect Kilimanjaro warm-up",
+ "intro": [
+  "At 4,566 metres Mount Meru is Tanzania's second highest peak and a rewarding 3-4 day trek with an armed ranger escort through wildlife-rich forest.",
+  "Many climbers do Meru first to prepare for Kilimanjaro."
+ ],
+ "bestTime": "June to February.",
+ "wildlife": [
+  "Buffalo",
+  "Giraffe",
+  "Colobus monkey",
+  "Leopard"
+ ],
+ "image": "/images/destinations/mount-meru.webp",
+ "metaTitle": "Mount Meru Trek Tanzania | 3-4 Day Climb | Glad Of Africa",
+ "metaDescription": "Trek Mount Meru, Tanzania's second highest peak, with an armed ranger and expert guides. Ideal Kilimanjaro acclimatisation."
+}

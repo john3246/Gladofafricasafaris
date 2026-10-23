@@ -1,0 +1,15 @@
+<section class="on-dark bg-forest-900 py-10 text-white sm:py-14 lg:py-16">
+  <div class="container-site">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow">Hiking &amp; trekking</p>
+        <h2 class="mt-2">Climb <em>Kilimanjaro</em></h2>
+        <p class="mt-3 max-w-2xl text-white/80">Fully supported climbs on the Marangu, Machame and Lemosho routes with experienced mountain guides and itineraries built for acclimatisation.</p>
+      </div>
+      <a href="/tanzania-safaris/trekking" class="btn-gold">Kilimanjaro climbing</a>
+    </div>
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+      <% treks.forEach(function (tour) { %><%- include('partials/tour-card', { tour: tour }) %><% }) %>
+    </div>
+  </div>
+</section>

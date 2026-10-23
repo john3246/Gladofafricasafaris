@@ -1,0 +1,96 @@
+{
+ "slug": "7-days-western-serengeti-safari",
+ "title": "7 Days Western Serengeti Safari | Ultimate Tanzania Wildlife Adventure",
+ "priceFrom": 2500,
+ "description": [
+  "Experience Tanzania’s wildlife at its most dramatic on this 7-day Western Serengeti Safari, taking you to the famous Western Corridor, home to the spectacular Gurumeti River Crossing during the Great Migration (June–July).",
+  "Begin your journey in Arusha, then explore the elephant-rich landscapes of Tarangire National Park, known for its ancient baobab trees and impressive wildlife density. Continue your Western Serengeti Safari to the Gurumeti region, where tens of thousands of wildebeest and zebras gather as they prepare to cross the crocodile-inhabited Gurumeti River. Lions, hyenas, and cheetahs patrol the plains, creating intense predator-prey action and unforgettable wildlife moments.",
+  "The safari concludes in the breathtaking Ngorongoro Highlands, with a descent into the Ngorongoro Crater for close encounters with the Big Five in one of Africa’s most wildlife-dense environments. This Western Serengeti Safari combines iconic migration sightings, diverse landscapes, and extraordinary wildlife encounters.",
+  "Accompanied by expert Italian-speaking guides, this itinerary delivers thrilling migration moments, remarkable scenery, and unforgettable African experiences — ideal for photographers, adventure seekers, and wildlife enthusiasts."
+ ],
+ "highlights": [],
+ "includes": [
+  "Airport pick-up and drop-off",
+  "All park entrance fees.",
+  "Accommodation as per itinerary.",
+  "Professional Guide",
+  "Meals as specified (breakfast, lunch, dinner)",
+  "Bottled water",
+  "Free Wi-Fi"
+ ],
+ "excludes": [
+  "International and domestic flights",
+  "Visa and travel insurance.",
+  "Personal expenses (laundry, phone calls, drinks)",
+  "Tips and gratuities",
+  "Optional activities (e.g. hot air balloon safari )"
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Arrival in Arusha",
+   "text": "Arrive at Kilimanjaro International Airport (JRO) or Arusha Airport. Meet your Italian-speaking guide and transfer to your lodge. Relax after your flight or enjoy a short city tour depending on your arrival time.",
+   "accommodation": "Arusha"
+  },
+  {
+   "day": 2,
+   "title": "Arusha to Tarangire National Park",
+   "text": "After breakfast, drive to Tarangire National Park. Famous for its massive elephant herds and towering baobab trees, the park offers excellent wildlife viewing opportunities including lions, giraffes, zebras, buffaloes, antelopes, and diverse birdlife. A perfect introduction to Tanzania’s safari experience.",
+   "accommodation": "Tarangire / Mto wa Mbu area"
+  },
+  {
+   "day": 3,
+   "title": "Tarangire → Western Serengeti (Gurumeti Region)",
+   "text": "After breakfast, journey toward the Western Serengeti. Enjoy scenic stops and wildlife sightings along the way. Arrive in the Gurumeti region for an afternoon game drive, where migratory herds begin to gather near the river systems.",
+   "accommodation": "Western Serengeti Lodge or Camp"
+  },
+  {
+   "day": 4,
+   "title": "Full-Day Gurumeti River Crossing Experience",
+   "text": "Spend a full day exploring the Gurumeti River area. Witness one of the most dramatic phases of the Great Migration as wildebeest and zebras attempt river crossings while massive Nile crocodiles lie in wait. Predators such as lions, hyenas, and cheetahs patrol nearby, creating intense wildlife encounters. Your Italian-speaking guide will share expert knowledge on migration timing, herd behavior, and predator strategies.",
+   "accommodation": "Western Serengeti Lodge or Camp"
+  },
+  {
+   "day": 5,
+   "title": "Western Serengeti → Ngorongoro Highlands",
+   "text": "After a final morning game drive, depart for the Ngorongoro Conservation Area. Optional visit to a Maasai village to learn about traditional culture. Ascend to your lodge on the crater rim and enjoy panoramic views over the world’s largest intact volcanic caldera.",
+   "accommodation": "Ngorongoro Crater Rim Lodge"
+  },
+  {
+   "day": 6,
+   "title": "Ngorongoro Crater Safari → Arusha",
+   "text": "Descend early into the Ngorongoro Crater for a full-day wildlife safari. This UNESCO World Heritage Site offers excellent opportunities to spot the Big Five, hippos, hyenas, flamingos, and abundant birdlife. After your crater tour and picnic lunch, ascend and drive back to Arusha.",
+   "accommodation": "Arusha"
+  },
+  {
+   "day": 7,
+   "title": "Arusha – Departure",
+   "text": "After breakfast, enjoy a relaxed morning or optional shopping in Arusha before your private transfer to Arusha Airport or Kilimanjaro International Airport for your departure flight.",
+   "accommodation": ""
+  }
+ ],
+ "tier": "midrange",
+ "days": 7,
+ "destinations": [
+  "serengeti-national-park",
+  "ngorongoro-crater",
+  "tarangire-national-park"
+ ],
+ "style": "Private",
+ "tags": [
+  "migration"
+ ],
+ "priceWas": null,
+ "image": "/images/tours/7-days-western-serengeti-safari.webp",
+ "gallery": [
+  "/images/tours/7-days-western-serengeti-safari-2.webp",
+  "/images/tours/7-days-western-serengeti-safari-3.webp",
+  "/images/tours/7-days-western-serengeti-safari-4.webp",
+  "/images/tours/7-days-western-serengeti-safari-5.webp"
+ ],
+ "summary": "Experience Tanzania’s wildlife at its most dramatic on this 7-day Western Serengeti Safari, taking you to the famous Western Corridor, home to the spectacular Gurumeti River Crossing during the…",
+ "badge": "Top Pick",
+ "priceConfirmed": true,
+ "metaTitle": "7 Days Western Serengeti Safari | Ultimate Tanzania Wildlife Adventure | Glad Of Africa",
+ "metaDescription": "Experience Tanzania’s wildlife at its most dramatic on this 7-day Western Serengeti Safari, taking you to the famous Western Corridor, home to the spectacu"
+}

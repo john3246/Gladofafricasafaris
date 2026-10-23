@@ -1,0 +1,16 @@
+<nav id="mobile-nav" aria-label="Mobile" class="hidden max-h-[75vh] overflow-y-auto border-t border-ink/10 bg-white lg:hidden">
+  <ul class="container-site space-y-1 py-4 text-sm font-medium">
+    <li><a class="block py-2 font-bold" href="/">Home</a></li>
+    <li>
+      <a class="block py-2 font-bold" href="/tanzania-safaris">Tours</a>
+      <ul class="mb-2 border-l-2 border-forest-400 pl-4"><% nav.tourStyles.forEach(function (s) { %><li><a class="block py-1.5" href="<%= s.href %>"><%= s.label %></a></li><% }) %></ul>
+    </li>
+    <li>
+      <a class="block py-2 font-bold" href="/destinations">Destinations</a>
+      <ul class="mb-2 border-l-2 border-forest-400 pl-4"><% nav.destinationGroups.forEach(function (g) { %><li><a class="block py-1.5" href="<%= g.href %>"><%= g.title %></a></li><% }) %></ul>
+    </li>
+    <li><a class="block py-2 font-bold" href="/tanzania-safaris/group">Group Safaris</a></li>
+    <% nav.pages.forEach(function (p) { %><li><a class="block py-2 font-bold" href="<%= p.href %>"><%= p.label %></a></li><% }) %>
+    <li class="pt-2"><a href="/get-a-quote" class="btn-primary w-full">Get a Quote</a></li>
+  </ul>
+</nav>

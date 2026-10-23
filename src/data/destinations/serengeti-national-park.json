@@ -1,0 +1,25 @@
+{
+ "slug": "serengeti-national-park",
+ "circuit": "northern",
+ "sort": 0,
+ "name": "Serengeti National Park",
+ "tagline": "Endless plains, the Great Migration and the big cats",
+ "intro": [
+  "The Serengeti is the heart of any northern Tanzania safari. More than 1.5 million wildebeest and hundreds of thousands of zebra and gazelle follow the rains across its plains in a circular journey that never truly stops.",
+  "Its central Seronera valley holds some of Africa's most reliable big cat sightings, while the remote Northern Serengeti around Kogatende is where the dramatic Mara River crossings take place from roughly July to October."
+ ],
+ "bestTime": "Year-round. Jan-Mar calving in the south, Jun-Oct for Mara River crossings in the north.",
+ "wildlife": [
+  "Lion",
+  "Leopard",
+  "Cheetah",
+  "Elephant",
+  "Wildebeest",
+  "Zebra",
+  "Hippo",
+  "Crocodile"
+ ],
+ "image": "/images/destinations/serengeti-national-park.webp",
+ "metaTitle": "Serengeti Safari Tanzania | Migration & Big Cats | Glad Of Africa",
+ "metaDescription": "Plan a Serengeti safari with local Arusha experts. Great Migration, Mara River crossings and big cats, from budget camping to luxury fly-in lodges."
+}

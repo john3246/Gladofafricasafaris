@@ -1,0 +1,24 @@
+<% if (groupTour) { %>
+<section class="on-dark relative isolate overflow-hidden bg-forest-950 text-white">
+  <img src="<%= groupTour.image %>" alt="" width="1600" height="600" loading="lazy" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-40">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-forest-950/90 to-forest-950/40"></div>
+  <div class="container-site grid items-center gap-8 py-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:py-16">
+    <div>
+      <p class="eyebrow">Join a group safari</p>
+      <h2 class="mt-2"><%= groupTour.title %></h2>
+      <p class="mt-2 font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold"><%= groupTour.days %> days &middot; from USD <%= groupTour.priceFrom.toLocaleString('en-US') %> per person<% if (groupTour.priceWas) { %> (was <%= groupTour.priceWas.toLocaleString('en-US') %>)<% } %></p>
+      <p class="mt-4 max-w-xl text-white/85"><%= groupTour.summary %></p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/tanzania-safaris/group" class="btn-light">View open departures</a>
+        <a href="/get-a-quote?tour=<%= encodeURIComponent(groupTour.title) %>" class="btn-primary">Book this safari</a>
+      </div>
+    </div>
+    <div class="border border-white/15 bg-black/30 p-6 backdrop-blur">
+      <p class="eyebrow">Shared vehicle &middot; small group</p>
+      <ul class="check-list mt-4 space-y-2 text-sm text-white/90">
+        <% groupTour.highlights.slice(0, 4).forEach(function (h) { %><li><%= h %></li><% }) %>
+      </ul>
+    </div>
+  </div>
+</section>
+<% } %>

@@ -1,0 +1,108 @@
+{
+ "slug": "6-day-tanzania-beyond-experience",
+ "title": "6-Day Tanzania Beyond Experience",
+ "priceFrom": 2200,
+ "description": [
+  "Tanzania Beyond Experience is more than a safari it is a journey into the heart of Tanzania, combining unforgettable wildlife moments, breathtaking landscapes, authentic culture, and meaningful local experiences.",
+  "Explore the endless plains of the Serengeti, witness the Great Wildebeest Migration, encounter Africa’s Big Five and incredible big cats, and experience the beauty of Ngorongoro and Tarangire.",
+  "Go beyond the traditional safari by connecting with local communities, discovering Tanzania’s natural wonders, experiencing local traditions, and seeing the country from a deeper and more authentic perspective.",
+  "From the vibrant streets and markets of Arusha to the wildlife-rich landscapes of Tarangire, the endless Serengeti plains, the Ngorongoro Crater, and the cultural landscapes around Materuni, every day offers a different side of Tanzania."
+ ],
+ "highlights": [
+  "Discover Tanzania beyond the traditional safari experience.",
+  "Explore Arusha’s local markets, Maasai Market, and Cultural Heritage Centre.",
+  "Experience authentic local culture and everyday community life.",
+  "Enjoy a full-day wildlife experience in Tarangire National Park.",
+  "Encounter large elephant herds and magnificent baobab trees.",
+  "Explore the legendary Serengeti National Park.",
+  "Search for lions, cheetahs, leopards, hyenas, and jackals.",
+  "Experience the Great Wildebeest Migration, depending on the seasonal location of the herds.",
+  "Enjoy a full day of wildlife exploration in the Serengeti.",
+  "Search for the Big Five across Tanzania’s iconic wildlife areas.",
+  "Descend into the spectacular Ngorongoro Crater.",
+  "Search for black rhinos, elephants, buffalo, lions, hippos, zebras, and wildebeest.",
+  "Enjoy an authentic Tanzanian coffee experience.",
+  "Visit Materuni Village and hike to Materuni Waterfall.",
+  "Enjoy views of Mount Kilimanjaro, weather permitting.",
+  "Travel with a professional safari guide throughout the journey."
+ ],
+ "includes": [
+  "Airport pick-up and drop-off",
+  "All park entrance fees.",
+  "Accommodation as per itinerary.",
+  "Professional Guide",
+  "Meals as specified (breakfast, lunch, dinner)",
+  "Bottled water",
+  "Free Wi-Fi",
+  "All transport in a 4x4 safari vehicle"
+ ],
+ "excludes": [
+  "International and domestic flights",
+  "Visa and travel insurance.",
+  "Personal expenses (laundry, phone calls, drinks)",
+  "Tips and gratuities",
+  "Optional activities (e.g. hot air balloon safari )"
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Arrival in Arusha – City & Cultural Experience",
+   "text": "Welcome to Tanzania! Upon arrival in Arusha, meet your local representative and begin your introduction to the city. Visit the Maasai Market, where you can discover traditional crafts, handmade souvenirs, fabrics, and artwork. Continue to the Cultural Heritage Centre to experience Tanzania’s rich artistic and cultural history, followed by a visit to a local Arusha market to see everyday life and interact with the local community. You will also visit the Arusha Clock Tower, one of the city’s well-known landmarks. In the evening, meet your tour consultant for a safari briefing and introduction to your professional safari guide, who will accompany you throughout your safari.",
+   "accommodation": ""
+  },
+  {
+   "day": 2,
+   "title": "Arusha to Tarangire National Park",
+   "text": "After breakfast, depart Arusha and drive to Tarangire National Park, famous for its large elephant herds, magnificent baobab trees, and diverse wildlife. Enjoy a full-day game drive through the park, searching for elephants, lions, giraffes, zebras, wildebeest, buffalo, and many species of birds. Your guide will help you understand the wildlife, landscapes, and animal behavior as you explore the park. Later, continue to your accommodation for dinner and an overnight stay.",
+   "accommodation": ""
+  },
+  {
+   "day": 3,
+   "title": "Tarangire to Serengeti – Big Cats & Carnivores",
+   "text": "After breakfast, begin your journey toward the legendary Serengeti National Park. As you enter the Serengeti, the landscape opens into vast golden plains filled with wildlife. Begin your game drive with a focus on the park’s famous predators and carnivores, including lions, cheetahs, and leopards, while also looking for hyenas, jackals, wildebeest, zebras, and other herbivores. Your experienced guide will follow wildlife activity and look for opportunities to observe natural predator-prey interactions. Continue to your Serengeti accommodation for dinner and overnight",
+   "accommodation": ""
+  },
+  {
+   "day": 4,
+   "title": "Full-Day Serengeti – Great Migration & Big Cats",
+   "text": "Spend a full day exploring the Serengeti with a focus on the Great Wildebeest Migration and big cats. Depending on the seasonal location of the herds, your guide will follow areas where wildebeest and zebras are concentrated. The day may bring encounters with large herds, lions resting on the plains, cheetahs hunting, or leopards hidden among trees. With a full day available, there is flexibility to follow wildlife activity rather than rushing between locations. Enjoy a picnic lunch in the wilderness before continuing your afternoon game drive and returning to camp or lodge.",
+   "accommodation": ""
+  },
+  {
+   "day": 5,
+   "title": "Ngorongoro Crater – Wildlife Experience & Drive to Arusha",
+   "text": "After breakfast, depart Serengeti and travel toward the Ngorongoro Conservation Area. Descend into the Ngorongoro Crater for an unforgettable game drive inside this spectacular natural amphitheater. The crater is home to a remarkable concentration of wildlife, offering opportunities to see lions, elephants, buffalo, zebras, wildebeest, hippos, and, with some luck, black rhinos. Enjoy a picnic lunch in the crater before beginning your drive back toward Arusha. Arrive in the evening and relax at your accommodation.",
+   "accommodation": ""
+  },
+  {
+   "day": 6,
+   "title": "Coffee Experience, Materuni Waterfall & Kilimanjaro Airport",
+   "text": "After breakfast, begin your final Tanzanian experience with a local coffee tour, learning how coffee is traditionally grown, harvested, processed, roasted, and prepared. Continue to Materuni Village for a guided hike through the beautiful landscape to Materuni Waterfall. Enjoy the natural surroundings and the impressive waterfall before returning to the village. You will also have the opportunity to enjoy views of Mount Kilimanjaro, weather permitting, before continuing to Kilimanjaro International Airport for your departure flight. We recommend booking a late-evening flight from 7:00 PM onward, allowing enough time to enjoy the coffee experience, Materuni waterfall hike, and final activities without rushing.",
+   "accommodation": ""
+  }
+ ],
+ "tier": "midrange",
+ "days": 6,
+ "destinations": [
+  "serengeti-national-park",
+  "ngorongoro-crater",
+  "tarangire-national-park"
+ ],
+ "style": "Private",
+ "tags": [
+  "signature"
+ ],
+ "priceWas": null,
+ "image": "/images/tours/6-day-tanzania-beyond-experience.webp",
+ "gallery": [
+  "/images/tours/6-day-tanzania-beyond-experience-2.webp",
+  "/images/tours/6-day-tanzania-beyond-experience-3.webp",
+  "/images/tours/6-day-tanzania-beyond-experience-4.webp",
+  "/images/tours/6-day-tanzania-beyond-experience-5.webp"
+ ],
+ "summary": "Tanzania Beyond Experience is more than a safari it is a journey into the heart of Tanzania, combining unforgettable wildlife moments, breathtaking landscapes, authentic culture, and meaningful…",
+ "badge": "Beyond Safari",
+ "priceConfirmed": true,
+ "metaTitle": "6-Day Tanzania Beyond Experience | Glad Of Africa",
+ "metaDescription": "Tanzania Beyond Experience is more than a safari it is a journey into the heart of Tanzania, combining unforgettable wildlife moments, breathtaking landsca"
+}

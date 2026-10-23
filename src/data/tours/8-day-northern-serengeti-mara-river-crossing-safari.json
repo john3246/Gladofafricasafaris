@@ -1,0 +1,106 @@
+{
+ "slug": "8-day-northern-serengeti-mara-river-crossing-safari",
+ "title": "8 Day Northern Serengeti Mara River Crossing Safari",
+ "priceFrom": 2850,
+ "description": [
+  "Experience one of Africa’s most spectacular wildlife events on this 8-day safari, centered around the iconic Mara River crossings. From July to September, witness vast herds of wildebeest and zebras brave crocodile-infested waters while lions, leopards, and cheetahs hunt nearby. Beginning in Arusha, the safari explores Tarangire National Park, Ngorongoro Crater, Central Serengeti, and Northern Serengeti, offering unparalleled opportunities to see the Great Migration and the Big Five in dramatic landscapes. Guided by experienced professionals and staying in a mix of lodges and campsites, this safari delivers an immersive and unforgettable African adventure."
+ ],
+ "highlights": [
+  "Witness the Great Migration and Mara River crossings",
+  "Big Five safari in Ngorongoro Crater",
+  "Big cat sightings in Central and Northern Serengeti",
+  "Elephant herds and baobabs in Tarangire",
+  "Maasai cultural visit at a traditional boma",
+  "Mix of lodges and campsites for an authentic safari experience"
+ ],
+ "includes": [
+  "Airport pick-up and drop-off",
+  "All park entrance fees.",
+  "Accommodation as per itinerary.",
+  "Professional Guide",
+  "Meals as specified (breakfast, lunch, dinner)",
+  "Bottled water",
+  "free Wi-Fi"
+ ],
+ "excludes": [
+  "International and domestic flights",
+  "Visa and travel insurance.",
+  "Personal expenses (laundry, phone calls, drinks)",
+  "Tips and gratuities",
+  "Optional activities (e.g. hot air balloon safari )"
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Arrival & Arusha Experience",
+   "text": "Arrive at Kilimanjaro or Arusha Airport and transfer to your hotel. Explore Arusha with a guided city tour including Maasai Market, local markets, and cultural sites. Attend a safari briefing in the evening.",
+   "accommodation": "Arusha Lodge"
+  },
+  {
+   "day": 2,
+   "title": "Tarangire National Park",
+   "text": "Drive 2–3 hours to Tarangire National Park for a full-day game drive. Spot large elephant herds, lions, leopards, cheetahs, zebras, giraffes, and abundant birdlife. Enjoy lunch in the park before an extended afternoon game drive.",
+   "accommodation": "Tarangire Lodge / Camp"
+  },
+  {
+   "day": 3,
+   "title": "Tarangire → Central Serengeti – Big Cat Safari",
+   "text": "Journey through the Ngorongoro Highlands, stopping at the crater viewpoint for panoramic photos and visiting a Maasai Boma. Arrive in Central Serengeti for lunch and enjoy an afternoon game drive searching for lions, leopards, and cheetahs.",
+   "accommodation": "Central Serengeti Lodge / Camp"
+  },
+  {
+   "day": 4,
+   "title": "Northern Serengeti – Migration Safari",
+   "text": "Drive to Northern Serengeti, following the wildebeest herds. Witness predator-prey interactions and capture river crossing moments, while enjoying the vast, wildlife-rich plains. Evening game drive before returning to camp or lodge.",
+   "accommodation": "Northern Serengeti"
+  },
+  {
+   "day": 5,
+   "title": "Mara River Crossing Experience",
+   "text": "Full-day guided game drives in Northern Serengeti, focusing on the Mara River crossings. Watch thousands of wildebeest and zebras navigate crocodile-infested waters while lions, leopards, and cheetahs hunt in the area. Picnic lunch inside the park.",
+   "accommodation": "Northern Serengeti"
+  },
+  {
+   "day": 6,
+   "title": "Northern Serengeti → Central Serengeti",
+   "text": "Follow the migration across Northern Serengeti, spotting big cats and other wildlife. Transfer back to Central Serengeti with stops for wildlife photography. Conclude with a sunset game drive in Central Serengeti.",
+   "accommodation": "Central Serengeti Lodge / Camp"
+  },
+  {
+   "day": 7,
+   "title": "Ngorongoro Crater – Big Five Safari",
+   "text": "Descend into Ngorongoro Crater for a full-day game drive. Spot the Big Five—lion, leopard, elephant, buffalo, and black rhino—alongside zebras, hyenas, and other wildlife. Ascend the crater rim and transfer to Arusha for dinner and overnight.",
+   "accommodation": "Arusha Lodge"
+  },
+  {
+   "day": 8,
+   "title": "Departure",
+   "text": "After breakfast, transfer to Kilimanjaro Airport for your departure, taking home memories of Tanzania’s wildlife, landscapes, and warm hospitality. Complimentary airport pick-up and drop-off included.",
+   "accommodation": ""
+  }
+ ],
+ "tier": "midrange",
+ "days": 8,
+ "destinations": [
+  "serengeti-national-park",
+  "ngorongoro-crater",
+  "tarangire-national-park"
+ ],
+ "style": "Private",
+ "tags": [
+  "migration"
+ ],
+ "priceWas": 3000,
+ "image": "/images/tours/8-day-northern-serengeti-mara-river-crossing-safari.webp",
+ "gallery": [
+  "/images/tours/8-day-northern-serengeti-mara-river-crossing-safari-2.webp",
+  "/images/tours/8-day-northern-serengeti-mara-river-crossing-safari-3.webp",
+  "/images/tours/8-day-northern-serengeti-mara-river-crossing-safari-4.webp",
+  "/images/tours/8-day-northern-serengeti-mara-river-crossing-safari-5.webp"
+ ],
+ "summary": "Experience one of Africa’s most spectacular wildlife events on this 8-day safari, centered around the iconic Mara River crossings.",
+ "badge": "Best Value",
+ "priceConfirmed": true,
+ "metaTitle": "8 Day Northern Serengeti Mara River Crossing Safari | Glad Of Africa",
+ "metaDescription": "Experience one of Africa’s most spectacular wildlife events on this 8-day safari, centered around the iconic Mara River crossings. From July to September, "
+}

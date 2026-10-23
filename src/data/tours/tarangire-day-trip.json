@@ -1,0 +1,55 @@
+{
+ "slug": "tarangire-day-trip",
+ "title": "Tarangire Day Trip",
+ "priceFrom": 250,
+ "description": [
+  "Tarangire Day Trip is the perfect way to enjoy a peaceful and personalized safari in the beautiful Tarangire National Park, just a short drive from Arusha. Known for its large elephant herds and iconic baobab trees, the park offers stunning scenery and rich wildlife. As you explore, you may spot lions, giraffes, zebras, and many other animals, all in a calm and less crowded environment.",
+  "With your own private guide, you can move at your own pace, spend more time where you like, and enjoy close wildlife encounters. The park is also a paradise for bird lovers, with hundreds of colorful species to see. A picnic lunch in nature adds to the experience, making this day trip simple, relaxing, and truly unforgettable."
+ ],
+ "highlights": [],
+ "includes": [
+  "Pickup and Drop off Service",
+  "Meals according to the itinerary",
+  "All mentioned activities",
+  "National park fees",
+  "Transportation in a 4x4 safari vehicle",
+  "Bottled water",
+  "Free Wi-Fi"
+ ],
+ "excludes": [
+  "International and domestic flights",
+  "Visa and travel insurance.",
+  "Personal expenses (laundry, phone calls, drinks)",
+  "Tips and gratuities for guide and ranger"
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Departure-Return",
+   "text": "Morning: Departure from Arusha7:00 AM – Pick up from your hotel in Arusha and enjoy a scenic drive to Tarangire National Park, passing through beautiful countryside along the way. Mid-Morning: Game DriveAround 10:00 AM – Arrive and start your safari. Explore the park, famous for large elephant herds, and see animals like lions, giraffes, zebras, buffaloes, and wildebeests. Lunch Break12:30 PM – Enjoy a picnic lunch inside the park surrounded by nature. Afternoon & Return1:30 PM – Continue the game drive, especially near the Tarangire River where many animals gather.4:00–6:30 PM – Drive back to Arusha and arrive at your hotel in the evening.",
+   "accommodation": ""
+  }
+ ],
+ "tier": "budget",
+ "days": 1,
+ "destinations": [
+  "tarangire-national-park"
+ ],
+ "style": "Day trip",
+ "tags": [
+  "day-trips"
+ ],
+ "priceWas": null,
+ "image": "/images/tours/tarangire-day-trip.webp",
+ "gallery": [
+  "/images/tours/tarangire-day-trip-2.webp",
+  "/images/tours/tarangire-day-trip-3.webp",
+  "/images/tours/tarangire-day-trip-4.webp",
+  "/images/tours/tarangire-day-trip-5.webp"
+ ],
+ "summary": "Tarangire Day Trip is the perfect way to enjoy a peaceful and personalized safari in the beautiful Tarangire National Park, just a short drive from Arusha.",
+ "badge": "Popular",
+ "priceConfirmed": true,
+ "metaTitle": "Tarangire Day Trip | Glad Of Africa",
+ "metaDescription": "Tarangire Day Trip is the perfect way to enjoy a peaceful and personalized safari in the beautiful Tarangire National Park, just a short drive from Arusha."
+}

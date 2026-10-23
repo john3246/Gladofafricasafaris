@@ -1,0 +1,112 @@
+{
+ "slug": "6-day-mount-kilimanjaro-machame-route",
+ "title": "6-Day Mount Kilimanjaro Machame Route",
+ "priceFrom": 2700,
+ "description": [
+  "The Machame Route, also known as the “Whiskey Route,” is one of the most scenic and popular paths to the summit of Mount Kilimanjaro (5,895m). This route offers excellent acclimatization through gradual altitude gain and diverse landscapes, including lush rainforest, open moorland, alpine desert, and glacial terrain.",
+  "Trekkers enjoy breathtaking views of the Shira Plateau, Barranco Wall, and Kibo Peak before making the unforgettable midnight ascent to Uhuru Peak, the highest point in Africa. The descent follows the Mweka Route, completing a rewarding and well-balanced Kilimanjaro adventure with a high summit success rate."
+ ],
+ "highlights": [
+  "One of the most scenic routes on Mount Kilimanjaro",
+  "Excellent acclimatization profile and high summit success rate",
+  "Traverse rainforest, moorland, alpine desert, and glacial zones",
+  "Iconic features including Shira Plateau and Barranco Wall",
+  "Sunrise summit at Uhuru Peak (5,895m)",
+  "Professional guides, quality meals, and full crew supportDescent via the scenic Mweka Route"
+ ],
+ "includes": [
+  "Airport transfers (Kilimanjaro International Airport – Arusha hotel – return)",
+  "Pre-climb briefing and full equipment check",
+  "Park fees, camping fees, and conservation fees",
+  "Professional, certified mountain guide(s)",
+  "Full mountain crew (assistant guides, cook, and porters)",
+  "All meals on the mountain as specified in the itinerary",
+  "Clean, safe drinking water throughout the trek",
+  "Quality tents and sleeping mattresses",
+  "All government taxes and VAT",
+  "Summit certificate (green or gold certificate upon successful ascent)"
+ ],
+ "excludes": [
+  "International and domestic flights",
+  "Tanzania visa fees",
+  "Travel and medical insurance (mandatory)",
+  "Personal trekking gear (sleeping bags, hiking boots, clothing, etc.)",
+  "Optional equipment rental (available on request)",
+  "Tips for mountain crew (guides, cooks, and porters)",
+  "Personal expenses (laundry, phone calls, souvenirs)",
+  "Meals not mentioned in the itinerary",
+  "Additional accommodation before or after the trek (unless specified)"
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Arrival – Kilimanjaro International Airport to Arusha",
+   "text": "Upon arrival at Kilimanjaro International Airport, you will be met by our representative and transferred to your hotel in Arusha. Later in the day, you will receive a detailed trek briefing from your professional mountain guide, including safety procedures, altitude awareness, and a full equipment check.",
+   "accommodation": "ArushaMeals: Dinner"
+  },
+  {
+   "day": 2,
+   "title": "Arusha – Machame Gate – Machame Camp",
+   "text": "After breakfast, drive to Machame Gate for registration and meet your trekking crew. Begin the climb through dense rainforest rich in birdlife, towering trees, and colobus monkeys. The trail steadily ascends to Machame Camp, where you rest and acclimatize.Hiking Time: 5–7 hours",
+   "accommodation": "Machame CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 3,
+   "title": "Machame Camp – Shira Camp",
+   "text": "Leave the rainforest behind and enter the moorland zone, where the vegetation becomes sparse and views open toward Mount Meru and Kibo Peak. Cross the scenic Shira Plateau before reaching Shira Camp.Hiking Time: 4–6 hours",
+   "accommodation": "Shira CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 4,
+   "title": "Shira Camp – Lava Tower – Barranco Camp",
+   "text": "This is a crucial acclimatization day. Trek uphill to Lava Tower (4,630m), then descend into the stunning Barranco Valley. The “climb high, sleep low” approach helps your body adjust to altitude while offering spectacular views of the Breach Wall and glaciers.Hiking Time: 6–8 hours",
+   "accommodation": "Barranco CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 5,
+   "title": "Barranco Camp – Karanga Camp – Barafu Camp",
+   "text": "After breakfast, climb the famous Barranco Wall, a fun and rewarding scramble with panoramic views. Continue across ridges and valleys to Karanga Camp, then proceed to Barafu Camp, your base camp for the summit attempt. Spend the afternoon resting, hydrating, and preparing for the climb.Hiking Time: 6–8 hours",
+   "accommodation": "Barafu CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 6,
+   "title": "Barafu Camp – Uhuru Peak – Mweka Camp",
+   "text": "Begin the summit attempt around midnight. Trek slowly under the stars to Stella Point, then continue to Uhuru Peak (5,895m), the highest point in Africa, arriving at sunrise. After photos and celebration, descend carefully to Mweka Camp for a well-earned rest.Hiking Time: 10–14 hours",
+   "accommodation": "Mweka CampMeals: Breakfast, Lunch, Dinner"
+  },
+  {
+   "day": 7,
+   "title": "Mweka Camp – Mweka Gate – Arusha",
+   "text": "After breakfast, descend through lush rainforest to Mweka Gate, where you will receive your summit certificates. Transfer back to Arusha for relaxation and celebration.Hiking Time: 3–4 hours",
+   "accommodation": "ArushaMeals: Breakfast"
+  },
+  {
+   "day": 8,
+   "title": "Departure – Kilimanjaro International Airport",
+   "text": "Depending on your flight schedule, transfer to Kilimanjaro International Airport for your onward journey home, marking the end of your Mount Kilimanjaro adventure.Meals: Breakfast",
+   "accommodation": ""
+  }
+ ],
+ "tier": "midrange",
+ "days": 6,
+ "destinations": [
+  "mount-kilimanjaro"
+ ],
+ "style": "Trek",
+ "tags": [
+  "trekking"
+ ],
+ "priceWas": null,
+ "image": "/images/tours/6-day-mount-kilimanjaro-machame-route.webp",
+ "gallery": [
+  "/images/tours/6-day-mount-kilimanjaro-machame-route-2.webp",
+  "/images/tours/6-day-mount-kilimanjaro-machame-route-3.webp",
+  "/images/tours/6-day-mount-kilimanjaro-machame-route-4.webp",
+  "/images/tours/6-day-mount-kilimanjaro-machame-route-5.webp"
+ ],
+ "summary": "The Machame Route, also known as the “Whiskey Route,” is one of the most scenic and popular paths to the summit of Mount Kilimanjaro (5,895m).",
+ "badge": "",
+ "priceConfirmed": true,
+ "metaTitle": "6-Day Mount Kilimanjaro Machame Route | Glad Of Africa",
+ "metaDescription": "The Machame Route, also known as the “Whiskey Route,” is one of the most scenic and popular paths to the summit of Mount Kilimanjaro (5,895m). This route o"
+}

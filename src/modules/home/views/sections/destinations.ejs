@@ -1,0 +1,14 @@
+<section class="section">
+  <div class="container-site">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow">Northern circuit</p>
+        <h2 class="mt-2">Top Tanzania safari destinations</h2>
+      </div>
+      <a href="/destinations" class="text-sm font-bold text-forest-600 hover:underline">All destinations &rarr;</a>
+    </div>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <% destinations.forEach(function (d) { %><%- include('../../../../views/partials/destination-card', { d: d }) %><% }) %>
+    </div>
+  </div>
+</section>

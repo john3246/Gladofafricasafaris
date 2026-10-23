@@ -1,0 +1,14 @@
+<section class="section">
+  <div class="container-site">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow">Signature journeys</p>
+        <h2 class="mt-2">Popular Tanzania safari packages</h2>
+      </div>
+      <a href="/tanzania-safaris" class="text-sm font-bold text-forest-600 hover:underline">All safaris &rarr;</a>
+    </div>
+    <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <% featured.forEach(function (tour) { %><%- include('../../../../views/partials/tour-card', { tour: tour }) %><% }) %>
+    </div>
+  </div>
+</section>

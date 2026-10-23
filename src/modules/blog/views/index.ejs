@@ -1,0 +1,7 @@
+<%- include('partials/page-hero', { title: 'Travel tips <em>and advice</em>', sub: 'Essential tips to help you travel smarter, stay comfortable, and make the most of your trip: costs, seasons, the Great Migration and northern circuit planning.', image: '/images/blog/great-migration-safari.webp' }) %>
+<section class="bg-stone py-12">
+  <div class="container-site grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <% posts.forEach(function (post) { %><%- include('partials/post-card', { post: post }) %><% }) %>
+  </div>
+</section>
+<%- include('partials/cta-band') %>

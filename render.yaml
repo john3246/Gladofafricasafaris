@@ -1,0 +1,45 @@
+# Render Blueprint: New > Blueprint > pick this repo. Creates web service + Postgres + Redis (Key Value).
+# Free plans are for testing: the free web service sleeps when idle and free Postgres expires after 30 days.
+# Switch `plan` to starter (web, database, keyvalue) before going live.
+services:
+  - type: web
+    name: glad-of-africa-safari
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci --include=dev && npm run build
+    # migrate + seed are idempotent (CREATE IF NOT EXISTS / upsert), so they are safe on every boot.
+    startCommand: npm run migrate && npm run seed && npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22
+      - key: USE_DB
+        value: "true"
+      - key: SITE_URL
+        sync: false # set to your public URL, e.g. https://gladofafricasafari.com
+      - key: DATABASE_URL
+        fromDatabase:
+          name: glad-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: glad-redis
+          property: connectionString
+
+  - type: keyvalue
+    name: glad-redis
+    plan: free
+    region: frankfurt
+    maxmemoryPolicy: allkeys-lru
+    ipAllowList: [] # internal connections only
+
+databases:
+  - name: glad-db
+    plan: free
+    region: frankfurt
+    databaseName: glad_safari
+    user: glad

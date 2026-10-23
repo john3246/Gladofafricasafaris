@@ -1,0 +1,75 @@
+{
+ "slug": "3-day-luxury-fly-in-safari",
+ "title": "3 Day Luxury Fly-In Safari",
+ "priceFrom": 2400,
+ "description": [
+  "Embark on an exclusive, all-inclusive 3-day safari adventure that leaps you directly into the wild heart of Serengeti National Park, followed by a thrilling descent into the majestic Ngorongoro Crater all without spending hours on dusty roads. After a scenic bush flight into the Serengeti, you enjoy game drives among roaming lions, elephants, giraffes, and vast herds of wildebeest. Stay in hand-picked luxury lodges offering gourmet dining, private decks and premium service. On day two you journey to the Ngorongoro highlands, with a vantage-point stay overlooking the crater, and end the safari with a crater game drive on day three giving you the chance to see rhinos, hippos, big cats, and a rich diversity of wildlife. Every detail is taken care of: transport, lodging, park permits, guides, and more. This package delivers maximum wildlife exposure with minimal travel time ideal for travelers who want comfort, convenience, and unforgettable African safari memories in a short timeframe."
+ ],
+ "highlights": [
+  "Bush flight into Serengeti for quick access to wildlife-rich areas",
+  "Game drives in Serengeti: chance to see lions, elephants, giraffes, wildebeest and more",
+  "Luxury lodge accommodations private decks, gourmet dining, comfort & service",
+  "Visit to Ngorongoro Crater with crater-view lodge stay",
+  "Crater game drive (hippo pool, rhinos, big cats, diverse wildlife)",
+  "All main logistics included: transport, park fees, 4×4 jeep, guide, water, taxes, emergency fly-doctor cover"
+ ],
+ "includes": [
+  "Airport pick-up and drop-off",
+  "All park entrance fees.",
+  "Accommodation as per itinerary.",
+  "Professional Guide",
+  "Meals as specified (breakfast, lunch, dinner)",
+  "Bottled water",
+  "Free Wi-Fi",
+  "Flight into serengeti"
+ ],
+ "excludes": [
+  "International flights",
+  "Visa and travel insurance.",
+  "Personal expenses (souvenirs, tips, phone calls, etc.)",
+  "Tips and gratuities for guide and lodge staff"
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Fly into Serengeti",
+   "text": "Take a scenic bush flight into Serengeti National Park. Meet your guide and begin an exciting game drive across the wildlife-rich plains, home to lions, elephants, giraffes, zebras, and wildebeest.Enjoy an afternoon and sunset game drive before checking into your luxury lodge for a relaxing evening and gourmet dinner.",
+   "accommodation": "Luxury Serengeti LodgeMeal Plan: Lunch & Dinner"
+  },
+  {
+   "day": 2,
+   "title": "Serengeti Morning Game Drive – Transfer to Ngorongoro",
+   "text": "After breakfast, head out for a morning game drive as wildlife activity peaks. Later, depart Serengeti and travel to the Ngorongoro Highlands. Arrive at your crater-rim lodge with stunning views of the Ngorongoro Crater.",
+   "accommodation": "Luxury Crater-Rim LodgeMeal Plan: Breakfast, Lunch & Dinner"
+  },
+  {
+   "day": 3,
+   "title": "Ngorongoro Crater Game Drive – Departure",
+   "text": "Descend into the Ngorongoro Crater for a memorable game drive, with opportunities to spot elephants, buffalo, lions, hippos, and possibly the black rhino. After a picnic lunch, ascend the crater and transfer to the airstrip or Arusha for your onward journey. Meal Plan: Breakfast & Lunch",
+   "accommodation": ""
+  }
+ ],
+ "tier": "luxury",
+ "days": 3,
+ "destinations": [
+  "serengeti-national-park",
+  "ngorongoro-crater"
+ ],
+ "style": "Private fly-in",
+ "tags": [
+  "luxury"
+ ],
+ "priceWas": null,
+ "image": "/images/tours/3-day-luxury-fly-in-safari.webp",
+ "gallery": [
+  "/images/tours/3-day-luxury-fly-in-safari-2.webp",
+  "/images/tours/3-day-luxury-fly-in-safari-3.webp",
+  "/images/tours/3-day-luxury-fly-in-safari-4.webp",
+  "/images/tours/3-day-luxury-fly-in-safari-5.webp"
+ ],
+ "summary": "Embark on an exclusive, all-inclusive 3-day safari adventure that leaps you directly into the wild heart of Serengeti National Park, followed by a thrilling descent into the majestic Ngorongoro…",
+ "badge": "VIP Safari",
+ "priceConfirmed": true,
+ "metaTitle": "3 Day Luxury Fly-In Safari | Glad Of Africa",
+ "metaDescription": "Embark on an exclusive, all-inclusive 3-day safari adventure that leaps you directly into the wild heart of Serengeti National Park, followed by a thrillin"
+}

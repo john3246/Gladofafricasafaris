@@ -1,0 +1,40 @@
+<header class="sticky top-0 z-50 bg-stone shadow-md">
+  <div class="container-site flex h-[76px] items-center justify-between gap-6">
+    <a href="/" aria-label="<%= site.name %> home" class="shrink-0">
+      <img src="<%= site.logo %>" alt="<%= site.name %>" width="170" height="56" class="h-12 w-auto">
+    </a>
+
+    <nav aria-label="Primary" class="hidden h-full lg:block">
+      <ul class="flex h-full items-stretch gap-1 text-[13px] font-bold uppercase tracking-wider text-ink">
+        <li class="flex"><a href="/" class="flex items-center px-4 hover:text-forest-500 <%= currentPath === '/' ? 'text-forest-500' : '' %>">Home</a></li>
+
+        <li class="group flex">
+          <a href="/tanzania-safaris" class="flex items-center px-4 hover:text-forest-500">Tours <span class="ml-1 text-[9px]">&#9660;</span></a>
+          <%- include('mega-tours') %>
+        </li>
+
+        <li class="group flex">
+          <a href="/destinations" class="flex items-center px-4 hover:text-forest-500">Destinations <span class="ml-1 text-[9px]">&#9660;</span></a>
+          <%- include('mega-destinations') %>
+        </li>
+
+        <li class="flex"><a href="/tanzania-safaris/group" class="flex items-center px-4 hover:text-forest-500">Group Safaris</a></li>
+
+        <li class="group relative flex">
+          <a href="/about-us" class="flex items-center px-4 hover:text-forest-500">Pages <span class="ml-1 text-[9px]">&#9660;</span></a>
+          <ul class="invisible absolute left-0 top-full w-52 bg-white py-2 text-[13px] normal-case tracking-normal opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+            <% nav.pages.forEach(function (p) { %><li><a class="block px-5 py-2 font-medium hover:bg-sand hover:text-forest-500" href="<%= p.href %>"><%= p.label %></a></li><% }) %>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="/get-a-quote" class="btn-primary hidden !py-2.5 lg:inline-flex">Get a Quote</a>
+      <button id="nav-toggle" class="lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <%- include('mobile-nav') %>
+</header>

@@ -1,0 +1,20 @@
+{
+ "slug": "mount-kilimanjaro",
+ "circuit": "trekking",
+ "sort": 11,
+ "name": "Mount Kilimanjaro",
+ "tagline": "Africa's highest peak at 5,895 metres",
+ "intro": [
+  "Kilimanjaro is the highest free-standing mountain in the world and a non-technical trek, but altitude is the challenge. Longer routes give a far higher summit success rate.",
+  "Our guides and porters are locally employed and paid fairly, and every trek can be paired with a safari in the Serengeti or Ngorongoro Crater."
+ ],
+ "bestTime": "January to March and June to October.",
+ "wildlife": [
+  "Colobus monkey",
+  "Blue monkey",
+  "Alpine birdlife"
+ ],
+ "image": "/images/destinations/mount-kilimanjaro.webp",
+ "metaTitle": "Kilimanjaro Climbing Tours | Machame Route | Glad Of Africa",
+ "metaDescription": "Climb Mount Kilimanjaro with responsible local guides. Machame and other routes, plus safari combinations from Arusha."
+}

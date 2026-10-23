@@ -1,0 +1,111 @@
+{
+ "slug": "7-day-february-calving-season-safari",
+ "title": "7-Day February Calving Season Safari",
+ "priceFrom": 2600,
+ "description": [
+  "Experience the spectacular Great Wildebeest Migration during February’s calving season in the Southern Serengeti, with a special focus on the Ndutu Area. This 7-day safari is designed for travelers who want to spend more time in the heart of the calving grounds rather than moving between different regions of the Serengeti.",
+  "Explore the Ndutu plains and surrounding Southern Serengeti, following large wildebeest herds and searching for newborn calves, while also looking for lions, cheetahs, hyenas, and other predators attracted to the area. With several days dedicated to game drives around Ndutu, you have more time to observe the migration, wildlife behavior, and unforgettable moments of the calving season.",
+  "The safari also includes Tarangire National Park for a memorable large-elephant experience and the Ngorongoro Crater, offering an opportunity to explore its remarkable wildlife and search for the Big Five, including the chance to see rhinos.",
+  "This carefully designed journey combines the February calving season, wildebeest migration, newborns, big cats, elephants, and the Ngorongoro Crater for an immersive Northern Tanzania wildlife experience."
+ ],
+ "highlights": [
+  "Experience the Great Wildebeest Migration during February’s calving season.",
+  "Spend extended time exploring the Ndutu Area and Southern Serengeti.",
+  "Search for newborn wildebeest calves across the open plains.",
+  "Follow large migrating herds and observe their natural behavior.",
+  "Search for lions, cheetahs, hyenas, and other predators.",
+  "Enjoy two full days of game drives in Ndutu.",
+  "Experience Tarangire National Park and its impressive large elephant herds.",
+  "See Tarangire’s iconic baobab trees and diverse wildlife.",
+  "Explore the spectacular Ngorongoro Crater.",
+  "Search for the Big Five, including lions, elephants, buffalo, and rhinos.",
+  "Look for hippos, zebras, wildebeest, flamingos, and many other species.",
+  "Enjoy photography and extended wildlife observation throughout the safari.",
+  "Travel with a professional safari guide who follows wildlife movements and recent sightings."
+ ],
+ "includes": [
+  "Airport pick-up and drop-off",
+  "All park entrance fees.",
+  "Accommodation as per itinerary.",
+  "Professional Guide",
+  "Meals as specified (breakfast, lunch, dinner)",
+  "Bottled water",
+  "Free Wi-Fi",
+  "Basic first-aid kit and emergency support"
+ ],
+ "excludes": [
+  "International and domestic flights",
+  "Visa and travel insurance.",
+  "Personal expenses (laundry, phone calls, drinks)",
+  "Tips and gratuities",
+  "Optional activities (e.g. hot air balloon safari )"
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Arrival in Arusha – Welcome & safari Briefing",
+   "text": "Upon arrival in Arusha, you will meet our professional driver at the airport and transfer to your hotel. After check-in, you will have time to relax and prepare for your safari. You will also meet our safari consultant for a detailed safari briefing and meet your professional safari guide, who will introduce you to the safari program and provide important information about the journey ahead.",
+   "accommodation": "Arusha"
+  },
+  {
+   "day": 2,
+   "title": "Arusha – Tarangire National Park – wildlife experience",
+   "text": "After breakfast, depart from Arusha and drive to Tarangire National Park for your first wildlife experience. Enjoy a game drive through the park, famous for its large elephant herds, impressive baobab trees, and diverse wildlife. Your guide will search for elephants, giraffes, zebras, wildebeest, antelopes, birds, and, with luck, predators such as lions and cheetahs. Enjoy a picnic lunch during the day before continuing with your game drive. Later, proceed to your accommodation for dinner and overnight.",
+   "accommodation": "Tarangire Area"
+  },
+  {
+   "day": 3,
+   "title": "Tarangire – Southern Serengeti – Migration & Big Cats",
+   "text": "After breakfast, depart toward the Southern Serengeti and Ndutu Area. The journey takes you through changing landscapes as you approach the heart of the February calving season. Once you reach the Southern Serengeti, begin your game drive with a focus on following the Great Wildebeest Migration and searching for big cats. Look for large wildebeest herds, lions, cheetahs, hyenas, and other wildlife that gather around the migration.",
+   "accommodation": "Southern Serengeti / Ndutu Area"
+  },
+  {
+   "day": 4,
+   "title": "Full Day in Ndutu – Newborns & Great Migration",
+   "text": "Today is dedicated entirely to exploring the Ndutu Area during the spectacular calving season. Spend the full day following the migrating wildebeest herds and searching for newborn calves across the open plains. February is an exciting time to observe the interaction between the young animals and the predators that follow the herds. Your guide will search for lions, cheetahs, hyenas, and other wildlife while giving you plenty of time for photography and wildlife observation. Enjoy a full-day game drive with a picnic lunch in the wilderness before returning to your accommodation for dinner and overnight.",
+   "accommodation": "Ndutu Area"
+  },
+  {
+   "day": 5,
+   "title": "full day in ndutu – migration & big cats",
+   "text": "Enjoy another full day exploring the Ndutu Area, allowing you to experience the migration from different areas and follow the movement of the herds. Your main focus today will be the Great Wildebeest Migration and big cats. Search for lions, cheetahs, and hyenas while following the wildebeest and observing their behavior during the calving season. Having a second full day in Ndutu gives you more time to explore different areas and increases your opportunities for memorable wildlife moments.",
+   "accommodation": "Ndutu Area"
+  },
+  {
+   "day": 6,
+   "title": "ndutu – ngorongoro crater – arusha",
+   "text": "After an early breakfast, drive toward the Ngorongoro Crater and descend into the crater for an unforgettable wildlife experience. Explore the crater floor while searching for the Big Five, including lions, elephants, buffalo, and, with luck, black rhinos. You may also encounter hippos, zebras, wildebeest, flamingos, and many other species within this unique ecosystem. After the crater game drive, ascend from the crater and continue to Arusha for your final overnight.",
+   "accommodation": "Arusha"
+  },
+  {
+   "day": 7,
+   "title": "departure – airport transfer",
+   "text": "Enjoy your final morning in Arusha according to your flight schedule. Depending on the time of your departure, you may have time to relax, explore Arusha, or enjoy breakfast before your transfer. We provide a complimentary airport drop-off according to your flight schedule to Kilimanjaro International Airport (JRO) or Arusha Airport (ARK). Safari ends: Airport transfer for your onward flight.",
+   "accommodation": ""
+  }
+ ],
+ "tier": "midrange",
+ "days": 7,
+ "destinations": [
+  "serengeti-national-park",
+  "ngorongoro-crater",
+  "tarangire-national-park"
+ ],
+ "style": "Private",
+ "tags": [
+  "signature"
+ ],
+ "priceWas": null,
+ "image": "/images/tours/7-day-february-calving-season-safari.webp",
+ "gallery": [
+  "/images/tours/7-day-february-calving-season-safari-2.webp",
+  "/images/tours/7-day-february-calving-season-safari-3.webp",
+  "/images/tours/7-day-february-calving-season-safari-4.webp",
+  "/images/tours/7-day-february-calving-season-safari-5.webp"
+ ],
+ "summary": "Experience the spectacular Great Wildebeest Migration during February’s calving season in the Southern Serengeti, with a special focus on the Ndutu Area.",
+ "badge": "Calving Season",
+ "priceConfirmed": true,
+ "metaTitle": "7-Day February Calving Season Safari | Glad Of Africa",
+ "metaDescription": "Experience the spectacular Great Wildebeest Migration during February’s calving season in the Southern Serengeti, with a special focus on the Ndutu Area. T"
+}

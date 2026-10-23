@@ -1,0 +1,107 @@
+{
+ "slug": "7-days-central-serengeti-safari",
+ "title": "7 Days Central Serengeti Safari",
+ "priceFrom": 2500,
+ "description": [
+  "The 7 Days Central Serengeti Safari is a thrilling wildlife adventure designed for travelers who want to experience Tanzania’s iconic landscapes, incredible wildlife, and the dramatic action of the Great Migration. This safari takes you through some of the country’s most famous parks, including Tarangire National Park, the Central Serengeti, and the Ngorongoro Crater.",
+  "Your 7 Days Central Serengeti Safari begins in Arusha before heading to Tarangire National Park, a destination famous for its giant baobab trees and large herds of elephants. Here, enjoy exciting game drives while spotting wildlife such as lions, giraffes, zebras, and numerous bird species.",
+  "The journey continues to the legendary plains of the Central Serengeti, the heart of Tanzania’s wildlife ecosystem. During this 7 Days Central Serengeti Safari, you will explore one of the best areas for spotting predators, including lions, leopards, and cheetahs that closely follow the migrating herds of wildebeest and zebras. The best time to witness this incredible movement of wildlife is between April–May and October–December.",
+  "Your 7 Days Central Serengeti Safari also takes you through the scenic Ngorongoro Highlands before descending into the spectacular Ngorongoro Crater, a UNESCO World Heritage Site known for its dense wildlife population and one of the best places in Africa to see the Big Five.",
+  "This unforgettable 7 Days Central Serengeti Safari concludes with your return to Arusha, leaving you with incredible memories of Tanzania’s wildlife, landscapes, and thrilling safari experiences.",
+  "Explore Tarangire National Park, famous for elephants and baobab trees.",
+  "Discover the predator-rich plains on a Central Serengeti Safari.",
+  "Witness the Great Migration in the Central Serengeti (seasonal)."
+ ],
+ "highlights": [
+  "Explore Tarangire National Park, famous for elephants and baobab trees.",
+  "Discover the predator-rich plains on a Central Serengeti Safari.",
+  "Spot lions, leopards, and cheetahs in their natural habitat.",
+  "Witness the Great Migration in the Central Serengeti (seasonal).",
+  "Descend into the wildlife-rich Ngorongoro Crater.",
+  "Enjoy breathtaking landscapes and unforgettable game drives."
+ ],
+ "includes": [
+  "Airport pick-up and drop-off",
+  "All park entrance fees.",
+  "Accommodation as per itinerary.",
+  "Professional Guide",
+  "Meals as specified (breakfast, lunch, dinner)",
+  "Bottled water",
+  "Free Wi-Fi"
+ ],
+ "excludes": [
+  "International flights",
+  "Visa and travel insurance.",
+  "Personal expenses (laundry, phone calls, drinks)",
+  "Tips and gratuities",
+  "Optional activities (e.g. hot air balloon safari )"
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Arrival in Arusha",
+   "text": "Arrive at Kilimanjaro International Airport (JRO) or Arusha Airport, where your Italian-speaking guide will warmly welcome you. Transfer to your lodge for relaxation after your flight. Depending on your arrival time, enjoy a short orientation tour of Arusha town.",
+   "accommodation": "Arusha"
+  },
+  {
+   "day": 2,
+   "title": "Day 2: Arusha → Tarangire National Park",
+   "text": "After breakfast, drive to Tarangire National Park. Famous for its enormous baobab trees and large elephant populations, the park offers excellent wildlife viewing. Enjoy a full-day game drive spotting lions, giraffes, zebras, buffaloes, antelopes, and diverse birdlife. Tarangire provides a beautiful and less crowded introduction to Tanzania’s safari circuit.",
+   "accommodation": "Tarangire / Mto wa Mbu area"
+  },
+  {
+   "day": 3,
+   "title": "Tarangire → Central Serengeti Plains",
+   "text": "After breakfast, drive through the lush Ngorongoro Highlands en route to the Central Serengeti. Arrive in time for an afternoon game drive in the famous Seronera Valley, one of the best areas in Africa to see lions, leopards, cheetahs, and seasonal migration herds.",
+   "accommodation": "Central Serengeti Lodge or Camp"
+  },
+  {
+   "day": 4,
+   "title": "Full-Day Central Serengeti – Big Cats & Migration",
+   "text": "Spend a full day exploring the endless Serengeti plains. Track lions hunting, leopards resting in acacia trees, and cheetahs scanning the horizon. Depending on the season, witness vast herds of wildebeest and zebras moving across the savannah. Your Italian-speaking guide will explain predator-prey dynamics, migration ecology, and big cat territorial behavior.",
+   "accommodation": "Central Serengeti Lodge or Camp"
+  },
+  {
+   "day": 5,
+   "title": "Central Serengeti → Ngorongoro Highlands",
+   "text": "Enjoy a final morning game drive in the Serengeti before heading toward the Ngorongoro Conservation Area. Optional visit to a Maasai village to learn about traditional culture. Ascend to your lodge on the crater rim and enjoy panoramic views over the world’s largest intact volcanic caldera.",
+   "accommodation": "Ngorongoro Crater Rim Lodge"
+  },
+  {
+   "day": 6,
+   "title": "Ngorongoro Crater Tour → Arusha",
+   "text": "Descend early into the Ngorongoro Crater for a spectacular wildlife safari. This natural wildlife amphitheater is home to the Big Five, hippos, hyenas, flamingos, and abundant birdlife. After a picnic lunch inside the crater, ascend and drive back to Arusha for a relaxing evening.",
+   "accommodation": "Arusha"
+  },
+  {
+   "day": 7,
+   "title": "Arusha – Departure",
+   "text": "Enjoy breakfast at your lodge and a relaxed morning before your private transfer to Arusha Airport or Kilimanjaro International Airport for your departure flight.",
+   "accommodation": ""
+  }
+ ],
+ "tier": "midrange",
+ "days": 7,
+ "destinations": [
+  "serengeti-national-park",
+  "ngorongoro-crater",
+  "tarangire-national-park"
+ ],
+ "style": "Private",
+ "tags": [
+  "migration"
+ ],
+ "priceWas": null,
+ "image": "/images/tours/7-days-central-serengeti-safari.webp",
+ "gallery": [
+  "/images/tours/7-days-central-serengeti-safari-2.webp",
+  "/images/tours/7-days-central-serengeti-safari-3.webp",
+  "/images/tours/7-days-central-serengeti-safari-4.webp",
+  "/images/tours/7-days-central-serengeti-safari-5.webp"
+ ],
+ "summary": "The 7 Days Central Serengeti Safari is a thrilling wildlife adventure designed for travelers who want to experience Tanzania’s iconic landscapes, incredible wildlife, and the dramatic action of…",
+ "badge": "Popular",
+ "priceConfirmed": true,
+ "metaTitle": "7 Days Central Serengeti Safari | Glad Of Africa",
+ "metaDescription": "The 7 Days Central Serengeti Safari is a thrilling wildlife adventure designed for travelers who want to experience Tanzania’s iconic landscapes, incredibl"
+}

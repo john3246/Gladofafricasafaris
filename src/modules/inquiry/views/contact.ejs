@@ -1,0 +1,18 @@
+<%- include('partials/page-hero', { title: 'Get a free <em>Tanzania safari quote</em>', sub: 'Tell us a little about your trip. A local Arusha expert replies within 24 hours.', image: '/images/destinations/serengeti-national-park.webp' }) %>
+<section class="bg-sand py-12">
+  <div class="container-site grid gap-8 lg:grid-cols-5">
+    <div class="bg-white p-6 shadow-sm md:p-8 lg:col-span-3">
+      <%- include('partials/form') %>
+    </div>
+    <aside class="h-fit bg-white p-6 shadow-sm lg:col-span-2">
+      <p class="eyebrow">Contact info</p>
+      <h2 class="mt-1 !text-3xl">Talk to us directly</h2>
+      <address class="mt-4 space-y-2 text-sm not-italic">
+        <p><%= site.address.street %>-<%= site.address.city %>, <%= site.address.countryName %></p>
+        <p><a class="font-bold text-forest-500" href="tel:<%= site.phoneRaw %>"><%= site.phone %></a></p>
+        <p><a class="font-bold text-forest-500" href="mailto:<%= site.email %>"><%= site.email %></a></p>
+      </address>
+      <a href="<%= site.whatsapp %>" target="_blank" rel="noopener" class="btn-primary mt-5 w-full">Chat on WhatsApp</a>
+    </aside>
+  </div>
+</section>

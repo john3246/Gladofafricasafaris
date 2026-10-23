@@ -1,0 +1,15 @@
+<section class="bg-white p-6 shadow-sm md:p-8">
+  <p class="eyebrow">Itinerary</p>
+  <h2 class="mt-1 !text-3xl"><%= nights(tour.days) %> &middot; day to day</h2>
+  <p class="mt-2 text-ink/70">Each day is paced for game drives, transfers, and a proper night in camp or lodge.</p>
+  <ol class="mt-6 space-y-4">
+    <% tour.itinerary.forEach(function (d) { %>
+      <li class="border-l-4 border-forest-500 bg-sand/60 p-5">
+        <p class="eyebrow">Day <%= d.day %></p>
+        <h3 class="mt-1 !text-xl"><%= d.title %></h3>
+        <p class="mt-2 text-[15px] leading-relaxed"><%= d.text %></p>
+        <% if (d.accommodation) { %><p class="mt-2 text-sm"><strong class="text-forest-900">Overnight:</strong> <%= d.accommodation %></p><% } %>
+      </li>
+    <% }) %>
+  </ol>
+</section>

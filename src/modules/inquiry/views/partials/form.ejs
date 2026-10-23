@@ -1,0 +1,34 @@
+<% const v = values || {}; const err = errors || {}; %>
+<form method="post" action="/inquiry" class="grid gap-4 sm:grid-cols-2" novalidate>
+  <div class="hidden" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+  <% [
+    { n: 'name', l: 'Full name', t: 'text', r: true },
+    { n: 'email', l: 'Email', t: 'email', r: true },
+    { n: 'phone', l: 'Phone / WhatsApp', t: 'tel' },
+    { n: 'travelMonth', l: 'Travel month', t: 'text' },
+    { n: 'travellers', l: 'Number of travellers', t: 'number' }
+  ].forEach(function (f) { %>
+    <div>
+      <label class="mb-1 block text-sm font-medium" for="f-<%= f.n %>"><%= f.l %><%= f.r ? ' *' : '' %></label>
+      <input class="input" id="f-<%= f.n %>" name="<%= f.n %>" type="<%= f.t %>" value="<%= v[f.n] || '' %>" <%= f.r ? 'required' : '' %>>
+      <% if (err[f.n]) { %><p class="mt-1 text-xs text-red-700"><%= err[f.n] %></p><% } %>
+    </div>
+  <% }) %>
+  <div>
+    <label class="mb-1 block text-sm font-medium" for="f-tier">Safari style</label>
+    <select class="input" id="f-tier" name="tier">
+      <% [['not-sure','Not sure yet'],['luxury','Luxury'],['midrange','Midrange'],['budget','Budget']].forEach(function (o) { %>
+        <option value="<%= o[0] %>" <%= v.tier === o[0] ? 'selected' : '' %>><%= o[1] %></option>
+      <% }) %>
+    </select>
+  </div>
+  <div class="sm:col-span-2">
+    <label class="mb-1 block text-sm font-medium" for="f-tour">Tour of interest</label>
+    <input class="input" id="f-tour" name="tour" type="text" value="<%= v.tour || '' %>">
+  </div>
+  <div class="sm:col-span-2">
+    <label class="mb-1 block text-sm font-medium" for="f-message">Your message</label>
+    <textarea class="input" id="f-message" name="message" rows="5"><%= v.message || '' %></textarea>
+  </div>
+  <div class="sm:col-span-2"><button class="btn-gold" type="submit">Send my request</button></div>
+</form>

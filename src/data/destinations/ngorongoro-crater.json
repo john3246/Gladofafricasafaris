@@ -1,0 +1,24 @@
+{
+ "slug": "ngorongoro-crater",
+ "circuit": "northern",
+ "sort": 1,
+ "name": "Ngorongoro Crater",
+ "tagline": "A natural amphitheatre packed with Africa's wildlife",
+ "intro": [
+  "The world's largest intact volcanic caldera is about 600 metres deep and 260 square kilometres wide. Its floor holds permanent water, grassland and forest, so animals stay in the crater all year.",
+  "It is one of the best places in Tanzania to look for the endangered black rhino, and a half-day descent is easily combined with the Serengeti, Tarangire and Lake Manyara."
+ ],
+ "bestTime": "Year-round. Dry season (Jun-Oct) gives the easiest game viewing; Nov-May is greener and quieter.",
+ "wildlife": [
+  "Black rhino",
+  "Lion",
+  "Hyena",
+  "Elephant",
+  "Buffalo",
+  "Flamingo",
+  "Hippo"
+ ],
+ "image": "/images/destinations/ngorongoro-crater.webp",
+ "metaTitle": "Ngorongoro Crater Safari | Black Rhino & Big Five | Glad Of Africa",
+ "metaDescription": "Descend into Ngorongoro Crater with an expert guide. Black rhino, lions and thousands of animals in one caldera. Budget to luxury Tanzania safaris."
+}

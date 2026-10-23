@@ -1,0 +1,30 @@
+<div class="invisible absolute inset-x-0 top-full border-t border-ink/10 bg-white opacity-0 shadow-2xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+  <div class="container-site grid grid-cols-12 gap-8 py-8 text-[13px] normal-case tracking-normal">
+    <div class="col-span-3">
+      <p class="eyebrow mb-3">Safari styles</p>
+      <ul class="space-y-2 font-medium">
+        <li><a class="hover:text-forest-500" href="/tanzania-safaris">Browse all safaris &rarr;</a></li>
+        <% nav.tourStyles.forEach(function (s) { %><li><a class="hover:text-forest-500" href="<%= s.href %>"><%= s.label %></a></li><% }) %>
+      </ul>
+    </div>
+    <div class="col-span-5">
+      <p class="eyebrow mb-3">Signature journeys</p>
+      <ul class="space-y-3">
+        <% navTours.forEach(function (t) { %>
+          <li>
+            <a class="block hover:text-forest-500" href="/tours/<%= t.slug %>">
+              <span class="block font-serif text-base font-bold text-forest-900"><%= t.title %></span>
+              <span class="text-xs text-ink/60"><%= nights(t.days) %> &middot; From <%= usd(t.priceFrom) %> pp</span>
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+    <% if (navTours[0]) { %>
+    <a href="/tours/<%= navTours[0].slug %>" class="col-span-4 block overflow-hidden bg-forest-900 text-white">
+      <div class="media-box aspect-[16/9]"><img src="<%= navTours[0].image %>" alt="<%= navTours[0].title %>" width="400" height="225" loading="lazy"></div>
+      <div class="p-4"><p class="eyebrow !text-gold">Featured journey</p><p class="mt-1 font-serif text-lg font-bold"><%= navTours[0].title %></p></div>
+    </a>
+    <% } %>
+  </div>
+</div>

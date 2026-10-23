@@ -1,0 +1,20 @@
+module.exports = {
+  slug: 'tanzania-safari-cost',
+  title: 'How Much Does a Tanzania Safari Cost? Budget, Midrange & Luxury (2027)',
+  excerpt: 'A realistic breakdown of Tanzania safari prices per day, what drives the cost, and how to get the best value in each tier.',
+  category: 'Planning',
+  image: '/images/tours/6-day-tanzania-big-five-big-cat-group-safari.webp',
+  published: '2026-04-20',
+  readMinutes: 6,
+  metaTitle: 'Tanzania Safari Cost 2027: Budget, Midrange & Luxury Prices',
+  metaDescription: 'How much is a safari in Tanzania? Daily price ranges for budget, midrange and luxury northern circuit safaris and what is included.',
+  related: ['6-day-tanzania-big-five-big-cat-group-safari', '3-day-luxury-fly-in-safari', '9-day-get-to-know-tanzania'],
+  sections: [
+    { h: 'The short answer', p: ['Most travellers spend between $200 and $800 per person per day on a Tanzania safari. Budget camping safaris sit at the bottom, midrange lodges in the middle and luxury fly-in camps at the top. Figures here are indicative; ask for a quote for exact dates.'] },
+    { h: 'What drives the price', p: ['Park fees are the biggest line item and apply to everyone, including budget travellers. Serengeti and Ngorongoro are the most expensive parks. Accommodation level, group size and number of days make up most of the rest.', 'Travelling in a small group splits the vehicle and guide cost, which is why joining a group safari is the cheapest way to see the Serengeti.'] },
+    { h: 'Budget safaris', p: ['Camping or basic lodges, shared group departures, cooked meals. You see the same wildlife as luxury guests, but with simpler comfort.'] },
+    { h: 'Midrange safaris', p: ['Comfortable lodges and tented camps, private vehicle and guide, and the freedom to choose your itinerary. This is the most popular option for couples and families.'] },
+    { h: 'Luxury safaris', p: ['Boutique camps, private airstrip flights and exclusive guiding save time and add comfort. Camps in the northern Serengeti during river crossing season are the most in demand and should be booked many months ahead.'] },
+    { h: 'How to save without losing the experience', p: ['Travel in shoulder months (April-May and November), pick a group departure, or shorten the Serengeti stay. Ask us for a tailored comparison across all three tiers.'] },
+  ],
+};

@@ -1,0 +1,14 @@
+<aside class="h-fit bg-white p-6 shadow-sm lg:sticky lg:top-28">
+  <p class="eyebrow">At a glance</p>
+  <h2 class="mt-1 !text-3xl">Plan this trip</h2>
+  <dl class="mt-5 divide-y divide-ink/10 text-sm">
+    <div class="flex justify-between gap-4 py-3"><dt class="text-ink/60">Duration</dt><dd class="text-right font-bold"><%= nights(tour.days) %></dd></div>
+    <% if (tour.destinations.length) { %><div class="flex justify-between gap-4 py-3"><dt class="text-ink/60">Places</dt><dd class="text-right font-bold"><%= route(tour.destinations) %></dd></div><% } %>
+    <div class="flex justify-between gap-4 py-3"><dt class="text-ink/60">Style</dt><dd class="text-right font-bold"><%= tour.style %></dd></div>
+    <div class="flex justify-between gap-4 py-3"><dt class="text-ink/60">Level</dt><dd class="text-right font-bold capitalize"><%= tour.tier %></dd></div>
+    <div class="flex justify-between gap-4 py-3"><dt class="text-ink/60">Price per person</dt>
+      <dd class="text-right font-bold"><% if (tour.priceWas) { %><s class="font-normal text-ink/45">USD <%= tour.priceWas.toLocaleString('en-US') %></s> <% } %>USD <%= tour.priceFrom.toLocaleString('en-US') %></dd></div>
+  </dl>
+  <a href="/get-a-quote?tour=<%= encodeURIComponent(tour.title) %>" class="btn-dark mt-5 w-full !bg-black">Book this safari</a>
+  <a href="<%= site.whatsapp %>" target="_blank" rel="noopener" class="btn-outline mt-3 w-full">Ask on WhatsApp</a>
+</aside>

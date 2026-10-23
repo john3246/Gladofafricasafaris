@@ -1,0 +1,15 @@
+<div class="invisible absolute inset-x-0 top-full border-t border-ink/10 bg-white opacity-0 shadow-2xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+  <div class="container-site py-8 text-[13px] normal-case tracking-normal">
+    <div class="grid grid-cols-4 gap-8">
+      <% nav.destinationGroups.forEach(function (g) { %>
+        <div>
+          <a href="<%= g.href %>" class="eyebrow mb-3 block hover:underline"><%= g.title %></a>
+          <ul class="space-y-2 font-medium">
+            <% g.items.forEach(function (i) { %><li><a class="hover:text-forest-500" href="<%= i.href %>"><%= i.label %></a></li><% }) %>
+          </ul>
+        </div>
+      <% }) %>
+    </div>
+    <p class="mt-6 border-t border-ink/10 pt-4"><a class="font-bold text-forest-500 hover:underline" href="/destinations">Browse all destinations &rarr;</a></p>
+  </div>
+</div>

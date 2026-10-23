@@ -1,0 +1,23 @@
+<%- include('partials/page-hero', { title: 'Personal, responsible, <em>expertly guided</em>', sub: 'Glad Of Africa Safari & Tours is a trusted Tanzania tour operator built around one idea: your journey should feel written for you, not sold to you.', image: '/images/experiences/1.webp' }) %>
+<section class="bg-white py-12 md:py-16">
+  <div class="container-site grid items-center gap-10 lg:grid-cols-2">
+    <div class="prose-site">
+      <p class="eyebrow">About us</p>
+      <p>Every itinerary is shaped by local guides who know which valley holds the pride at 6am, and which camp pours the best coffee at dusk, so every detail exceeds what you pictured.</p>
+      <h2>What we believe</h2>
+      <ul>
+        <li><strong>Personalized itineraries.</strong> No two trips are the same.</li>
+        <li><strong>Responsible travel.</strong> Fair pay and respect for people and wildlife.</li>
+        <li><strong>Expert local guiding.</strong> Licensed guides with deep knowledge of the Serengeti, Ngorongoro and Tarangire.</li>
+      </ul>
+      <h2>Our commitment</h2>
+      <p>We don't sell safaris. We build the experience you'll talk about for the rest of your life.</p>
+      <h2>Visit us</h2>
+      <p><%= site.address.street %>-<%= site.address.city %>, <%= site.address.countryName %></p>
+      <a href="/get-a-quote" class="btn-primary mt-4">Plan your safari</a>
+    </div>
+    <div class="media-box aspect-[4/3]"><img src="/images/experiences/2.webp" alt="Great Migration in the Serengeti" width="900" height="680" loading="lazy"></div>
+  </div>
+</section>
+<%- include('partials/reviews') %>
+<%- include('partials/cta-band') %>

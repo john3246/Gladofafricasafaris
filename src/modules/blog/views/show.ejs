@@ -1,0 +1,24 @@
+<%- include('partials/page-hero', { title: post.title, sub: '', image: post.image }) %>
+<article class="section bg-white">
+  <div class="container-site max-w-3xl">
+    <p class="font-mono text-[11px] uppercase tracking-wider text-ink/55">Glad &middot; <time datetime="<%= post.published %>"><%= longDate(post.published) %></time> &middot; <%= post.readMinutes %> min read</p>
+    <div class="prose-site mt-6">
+      <% post.sections.forEach(function (s) { %>
+        <% if (s.h) { %><h2><%= s.h %></h2><% } %>
+        <% s.p.forEach(function (p) { %><p><%= p %></p><% }) %>
+      <% }) %>
+    </div>
+  </div>
+</article>
+<% if (tours.length) { %>
+<section class="bg-sand py-12">
+  <div class="container-site">
+    <p class="eyebrow">Related safaris</p>
+    <h2 class="mt-2">Ready to <em>go?</em></h2>
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+      <% tours.forEach(function (tour) { %><%- include('partials/tour-card', { tour: tour }) %><% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+<%- include('partials/cta-band') %>

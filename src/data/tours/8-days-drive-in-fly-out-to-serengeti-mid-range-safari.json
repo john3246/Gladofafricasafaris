@@ -1,0 +1,101 @@
+{
+ "slug": "8-days-drive-in-fly-out-to-serengeti-mid-range-safari",
+ "title": "8 Days Drive in & Fly-Out to Serengeti Mid-Range Safari",
+ "priceFrom": 3800,
+ "description": [
+  "Embark on an unforgettable 8-day journey through Tanzania’s most iconic wildlife destinations, combining classic game drives with seamless fly-out convenience from the Serengeti. This itinerary takes you from the elephant-rich landscapes of Tarangire and the lush habitats of Lake Manyara to the endless plains of the Serengeti, where you’ll follow the Great Wildebeest Migration across different regions of the park. You’ll also explore the world-famous Ngorongoro Crater, home to an incredible concentration of wildlife. Designed for comfort, scenery, and maximum wildlife encounters, this tour offers a well-balanced and beautifully curated Northern Circuit experience."
+ ],
+ "highlights": [
+  "Witness the Great Wildebeest Migration in Serengeti",
+  "Explore Tarangire’s baobabs, elephants, and diverse wildlife",
+  "Visit Lake Manyara’s forests, flamingos & varied ecosystems",
+  "Full-day game drives across central and northern Serengeti",
+  "Discover Ngorongoro Crater — the world’s largest intact caldera",
+  "Scenic fly-out from Serengeti to end your safari comfortably"
+ ],
+ "includes": [
+  "Airport pick-up and drop-off",
+  "All park entrance fees.",
+  "Accommodation as per itinerary.",
+  "Professional Guide",
+  "Transportation in a 4x4 safari vehicle",
+  "Bottled mineral water",
+  "free Wi-Fi"
+ ],
+ "excludes": [],
+ "itinerary": [
+  {
+   "day": 1,
+   "title": "Arrival → Arusha",
+   "text": "Arrive at Kilimanjaro or Arusha Airport, where your driver-guide will warmly welcome you. Transfer to your hotel in Arusha for rest and safari briefing.",
+   "accommodation": ""
+  },
+  {
+   "day": 2,
+   "title": "Arusha → Tarangire National Park",
+   "text": "Depart after breakfast for Tarangire, famous for large elephant herds and ancient baobab trees. Enjoy a full game drive with lunch inside the park.Dinner and overnight in Tarangire or Karatu.",
+   "accommodation": ""
+  },
+  {
+   "day": 3,
+   "title": "Tarangire → Ngorongoro Crater",
+   "text": "After breakfast, drive to the Ngorongoro Conservation Area. Descend into the crater for a stunning game drive—home to the Big Five and rich wildlife.",
+   "accommodation": ""
+  },
+  {
+   "day": 4,
+   "title": "Ngorongoro → Central Serengeti",
+   "text": "Travel through the Ngorongoro highlands into the Serengeti. Enjoy game viewing en route as you enter Central Serengeti, known for lions, leopards, and endless plains.Dinner and overnight in Central Serengeti.",
+   "accommodation": ""
+  },
+  {
+   "day": 5,
+   "title": "Full Day in Central Serengeti",
+   "text": "Spend a full day exploring Central Serengeti, focusing on big cats and other wildlife. Picnic lunch in the park, followed by an afternoon game drive.",
+   "accommodation": ""
+  },
+  {
+   "day": 6,
+   "title": "Central Serengeti → Northern Serengeti",
+   "text": "After breakfast, head north, enjoying game drives along the way. Reach the Northern Serengeti, famous for river crossings during the Great Migration season.Dinner and overnight in Northern Serengeti.",
+   "accommodation": ""
+  },
+  {
+   "day": 7,
+   "title": "Full Day in Northern Serengeti",
+   "text": "Enjoy a full day following the Great Migration herds and searching for Big Cats. Explore the Mara River area, where dramatic wildlife action unfolds during the migration period.",
+   "accommodation": ""
+  },
+  {
+   "day": 8,
+   "title": "Northern Serengeti → Fly Out to Zanzibar/Arusha",
+   "text": "After breakfast, drive to the airstrip for your scheduled flight to Zanzibar or Arusha. End of your unforgettable safari adventure.",
+   "accommodation": ""
+  }
+ ],
+ "tier": "midrange",
+ "days": 8,
+ "destinations": [
+  "serengeti-national-park",
+  "ngorongoro-crater",
+  "tarangire-national-park",
+  "lake-manyara-national-park"
+ ],
+ "style": "Private fly-in",
+ "tags": [
+  "luxury"
+ ],
+ "priceWas": null,
+ "image": "/images/tours/8-days-drive-in-fly-out-to-serengeti-mid-range-safari.webp",
+ "gallery": [
+  "/images/tours/8-days-drive-in-fly-out-to-serengeti-mid-range-safari-2.webp",
+  "/images/tours/8-days-drive-in-fly-out-to-serengeti-mid-range-safari-3.webp",
+  "/images/tours/8-days-drive-in-fly-out-to-serengeti-mid-range-safari-4.webp",
+  "/images/tours/8-days-drive-in-fly-out-to-serengeti-mid-range-safari-5.webp"
+ ],
+ "summary": "Embark on an unforgettable 8-day journey through Tanzania’s most iconic wildlife destinations, combining classic game drives with seamless fly-out convenience from the Serengeti.",
+ "badge": "",
+ "priceConfirmed": true,
+ "metaTitle": "8 Days Drive in & Fly-Out to Serengeti Mid-Range Safari | Glad Of Africa",
+ "metaDescription": "Embark on an unforgettable 8-day journey through Tanzania’s most iconic wildlife destinations, combining classic game drives with seamless fly-out convenie"
+}

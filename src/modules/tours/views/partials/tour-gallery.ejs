@@ -1,0 +1,13 @@
+<% if (tour.gallery && tour.gallery.length) { %>
+<section class="bg-white p-6 shadow-sm md:p-8">
+  <p class="eyebrow">Gallery</p>
+  <h2 class="mt-1 !text-3xl">Moments on this route</h2>
+  <div class="mt-4 grid gap-3 sm:grid-cols-2">
+    <% tour.gallery.forEach(function (g, i) { %>
+      <div class="media-box aspect-[16/10] <%= i === 0 && tour.gallery.length % 2 === 1 ? 'sm:col-span-2' : '' %>">
+        <img src="<%= g %>" alt="<%= tour.title %> photo <%= i + 1 %>" width="900" height="560" loading="lazy" decoding="async">
+      </div>
+    <% }) %>
+  </div>
+</section>
+<% } %>

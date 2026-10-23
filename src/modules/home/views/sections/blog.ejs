@@ -1,0 +1,15 @@
+<section class="bg-stone py-10 sm:py-14 lg:py-16">
+  <div class="container-site">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="font-serif text-xl italic text-forest-600">Our blog</p>
+        <h2 class="mt-1">Travel tips <em>and advice</em></h2>
+        <p class="mt-3 max-w-2xl text-ink/75">Essential tips to help you travel smarter, stay comfortable, and make the most of your trip, from planning and packing to safety and budgeting.</p>
+      </div>
+      <a href="/blog" class="btn-dark">Explore all our posts</a>
+    </div>
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+      <% posts.forEach(function (post) { %><%- include('partials/post-card', { post: post }) %><% }) %>
+    </div>
+  </div>
+</section>
