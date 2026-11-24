@@ -1,5 +1,7 @@
 <%- include('partials/page-hero', { title: heading, sub: intro, image: '/images/hero.webp' }) %>
 
+<% if (locals.departures) { %><%- include('partials/departures', { departures: departures }) %><% } %>
+<% if (locals.quickFacts) { %><%- include('partials/quick-facts', { facts: quickFacts }) %><% } %>
 <section class="bg-white py-8 text-center">
   <div class="container-site max-w-3xl">
     <h2 class="!text-2xl md:!text-3xl">Private &amp; group safaris across Tanzania's most celebrated parks</h2>
@@ -25,35 +27,48 @@
     </div>
 
     <div class="mt-6 grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)]">
-      <aside class="h-fit space-y-6 border border-ink/10 bg-white p-5 lg:sticky lg:top-28">
-        <h3 class="!text-lg uppercase tracking-wider">Filter safaris</h3>
-        <label class="block text-sm font-bold">Sort by
-          <select data-sort class="input mt-1">
-            <option value="popular">Most popular</option>
-            <option value="price-asc">Price: low to high</option>
-            <option value="price-desc">Price: high to low</option>
-            <option value="days-asc">Shortest first</option>
-            <option value="days-desc">Longest first</option>
-          </select>
-        </label>
-        <label class="block text-sm font-bold">Budget per person: <span data-price-label class="font-normal">Any</span>
-          <input data-max-price type="range" min="250" max="6000" step="50" value="6000" class="mt-2 w-full accent-forest-500">
-        </label>
-        <label class="block text-sm font-bold">Trip length
-          <select data-length class="input mt-1">
-            <option value="1">Any length</option><option value="3">3+ days</option><option value="5">5+ days</option><option value="7">7+ days</option><option value="9">9+ days</option>
-          </select>
-        </label>
-        <fieldset class="text-sm">
-          <legend class="mb-2 font-bold">Trip type</legend>
-          <% [['luxury', 'Luxury fly-in'], ['midrange', 'Midrange'], ['budget', 'Budget']].forEach(function (t) { %>
-            <label class="flex items-center gap-2 py-1"><input type="checkbox" data-tier-filter value="<%= t[0] %>" class="accent-forest-500"> <%= t[1] %></label>
-          <% }) %>
-        </fieldset>
+      <aside class="h-fit border border-ink/10 bg-white lg:sticky lg:top-28">
+        <details data-filter-panel open>
+          <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-bold uppercase tracking-wider lg:hidden"><span>Filter safaris <span data-active-count class="ml-1 rounded-full bg-forest-500 px-2 py-0.5 text-[11px] text-white" hidden>0</span></span><span aria-hidden="true">&#9662;</span></summary>
+          <div class="space-y-6 p-5 pt-1 lg:pt-5">
+            <h3 class="hidden !text-lg uppercase tracking-wider lg:block">Filter safaris</h3>
+            <label class="block text-sm font-bold">Sort by
+              <select data-sort class="input mt-1">
+                <option value="popular">Most popular</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+                <option value="days-asc">Shortest first</option>
+                <option value="days-desc">Longest first</option>
+              </select>
+            </label>
+            <% if (styleFilters.length) { %>
+            <fieldset class="text-sm">
+              <legend class="mb-2 font-bold">Safari style</legend>
+              <div class="max-h-72 space-y-0.5 overflow-y-auto pr-1">
+                <% styleFilters.forEach(function (st) { %>
+                  <label class="flex cursor-pointer items-center gap-2 py-1"><input type="checkbox" data-style-filter value="<%= st.name %>" class="h-4 w-4 shrink-0 accent-forest-500"> <span class="flex-1"><%= st.name %></span><span class="text-xs text-ink/45"><%= st.count %></span></label>
+                <% }) %>
+              </div>
+            </fieldset>
+            <% } %>
+            <label class="block text-sm font-bold">Budget per person: <span data-price-label class="font-normal">Any</span>
+              <input data-max-price type="range" min="250" max="<%= priceCeil %>" step="50" value="<%= priceCeil %>" class="mt-2 w-full accent-forest-500">
+            </label>
+            <label class="block text-sm font-bold">Tour length
+              <select data-length class="input mt-1">
+                <option value="1">Any length</option><option value="3">3+ days</option><option value="5">5+ days</option><option value="7">7+ days</option><option value="9">9+ days</option>
+              </select>
+            </label>
+            <button type="button" data-clear-filters class="text-sm font-semibold text-forest-500 underline" hidden>Clear all filters</button>
+          </div>
+        </details>
       </aside>
 
+      <div>
+      <p data-empty hidden class="mb-4 border border-ink/10 bg-white p-5 text-center text-sm">No safari matches every filter. <button type="button" data-clear-filters class="font-bold text-forest-500 underline">Clear the filters</button></p>
       <div data-grid class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
         <% tours.forEach(function (tour) { %><%- include('partials/tour-card', { tour: tour }) %><% }) %>
+      </div>
       </div>
     </div>
   </div>

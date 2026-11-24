@@ -1,0 +1,7 @@
+<div class="mb-5"><h1>Search</h1><p class="text-sm text-ink/55"><%= q ? `${results.length} result${results.length === 1 ? '' : 's'} for "${q}"` : 'Type at least two characters in the search box above.' %></p></div>
+<div class="a-card divide-y divide-ink/5">
+  <% results.forEach(function (r) { %>
+    <a href="<%= r.href %>" class="flex items-center justify-between gap-3 px-5 py-3 hover:bg-mist/40"><span class="min-w-0"><span class="block truncate font-semibold"><%= r.title %></span><span class="block truncate text-xs text-ink/50"><%= r.sub %></span></span><span class="a-badge-gray shrink-0"><%= r.type %></span></a>
+  <% }) %>
+  <% if (q && !results.length) { %><p class="p-8 text-center text-ink/50">No matches.</p><% } %>
+</div>

@@ -10,6 +10,9 @@ module.exports = {
         sand: '#f4ecdc',
         stone: '#d9d4cc',
         ink: '#151f18',
+        // CMS neutrals: one cool, green-tinted family (page < card < inset) so nothing glares or clashes
+        canvas: '#e3eae5',
+        mist: { DEFAULT: '#edf3ef', dark: '#dde7e0' },
       },
       fontFamily: {
         display: ['"Bebas Neue"', 'Impact', 'sans-serif'],

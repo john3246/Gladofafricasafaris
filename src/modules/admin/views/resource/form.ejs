@@ -1,0 +1,77 @@
+<%
+  const key = def.collection.keyField;
+  const action = isNew ? `${base}/new` : `${base}/${encodeURIComponent(doc[key])}`;
+  const valueOf = (f) => (f.type === 'status' ? (doc.draft ? 'draft' : 'published') : toInput(f, doc[f.name]));
+  const main = def.sections.filter((s) => !s.side);
+  const side = def.sections.filter((s) => s.side);
+  const publicHref = !isNew && def.publicUrl ? def.publicUrl(doc) : '';
+  const anchor = (t) => 's-' + t.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+%>
+<div class="mb-6 flex flex-wrap items-start justify-between gap-3">
+  <div>
+    <nav class="mb-1 flex items-center gap-1.5 text-[13px] text-ink/50" aria-label="Breadcrumb">
+      <a class="hover:text-forest-500" href="/admin">Dashboard</a><span>/</span><a class="hover:text-forest-500" href="<%= base %>"><%= def.label %></a><span>/</span><span class="text-ink/80"><%= isNew ? 'New' : 'Edit' %></span>
+    </nav>
+    <h1 class="flex flex-wrap items-center gap-3"><%= isNew ? `New ${def.singular.toLowerCase()}` : titleOf(doc) %>
+      <% if (!isNew && publishing) { %><span class="<%= doc.draft ? 'a-badge-amber' : 'a-badge-green' %>"><%= doc.draft ? 'Draft' : 'Published' %></span><% } %></h1>
+  </div>
+  <% if (publicHref) { %><a class="a-btn-ghost" target="_blank" rel="noopener" href="<%= publicHref %>"><%- include('../partials/icon', { n: 'external', s: 16 }) %> View on website</a><% } %>
+</div>
+
+<form id="resource-form" method="post" action="<%= action %>" class="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_320px]" data-dirty-guard novalidate>
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <div class="space-y-6 pb-20 xl:pb-0">
+    <% if (Object.keys(errors).length) { %><p role="alert" class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800">Please fix the highlighted fields below.</p><% } %>
+    <% main.forEach(function (s) { %>
+      <section id="<%= anchor(s.title) %>" class="a-card scroll-mt-24 p-5 md:p-6">
+        <h2 class="mb-5 flex items-center gap-2 border-b border-ink/5 pb-3"><%= s.title %></h2>
+        <div class="grid gap-x-5 sm:grid-cols-2">
+          <% s.fields.forEach(function (f) { %><%- include('../partials/field', { f, value: valueOf(f), errors, opts, isNew }) %><% }) %>
+        </div>
+      </section>
+    <% }) %>
+  </div>
+
+  <aside class="space-y-5 xl:sticky xl:top-20">
+    <section class="a-card p-5">
+      <% side.forEach(function (s) { s.fields.forEach(function (f) { %><%- include('../partials/field', { f, value: valueOf(f), errors, opts, isNew }) %><% }) }) %>
+      <button type="submit" class="a-btn-primary w-full"><%- include('../partials/icon', { n: 'check', s: 16 }) %> <%= isNew ? `Create ${def.singular.toLowerCase()}` : 'Save changes' %></button>
+      <a href="<%= base %>" class="a-btn-ghost mt-2 w-full">Cancel</a>
+      <p class="mt-3 text-center text-[11px] text-ink/40">Tip: press <kbd class="rounded border border-ink/15 px-1">Ctrl</kbd> + <kbd class="rounded border border-ink/15 px-1">S</kbd> to save</p>
+    </section>
+
+    <% if (main.length > 2) { %>
+    <section class="a-card hidden p-5 xl:block">
+      <h2 class="mb-3 text-sm">On this page</h2>
+      <ul class="space-y-0.5 text-sm"><% main.forEach(function (s) { %><li><a data-toc href="#<%= anchor(s.title) %>" class="block rounded-md px-2.5 py-1.5 text-ink/65 hover:bg-mist hover:text-forest-600"><%= s.title %></a></li><% }) %></ul>
+    </section>
+    <% } %>
+
+    <% if (!isNew) { %>
+    <section class="a-card p-5 text-sm">
+      <h2 class="mb-3 text-sm">More actions</h2>
+      <div class="space-y-2">
+        <% if (def.previewUrl) { %><a class="a-btn-ghost w-full" target="_blank" rel="noopener" href="<%= def.previewUrl(doc) %>"><%- include('../partials/icon', { n: 'eye', s: 16 }) %> Preview (works for drafts)</a><% } %>
+        <% if (canCreate && def.canDuplicate !== false) { %><button form="dup-form" class="a-btn-ghost w-full"><%- include('../partials/icon', { n: 'copy', s: 16 }) %> Duplicate as draft</button><% } %>
+        <a class="a-btn-ghost w-full" href="<%= base %>/<%= encodeURIComponent(doc[key]) %>/history"><%- include('../partials/icon', { n: 'history', s: 16 }) %> Version history</a>
+        <% if (canDelete && !isLocked(doc)) { %><button form="del-form" class="a-btn-danger w-full" data-confirm="Delete this <%= def.singular.toLowerCase() %>? You can restore it from Revisions / Audit Log."><%- include('../partials/icon', { n: 'trash', s: 16 }) %> Delete</button><% } %>
+      </div>
+      <% if (history.length) { %>
+        <h3 class="mb-2 mt-5 text-[11px] font-bold uppercase tracking-wider text-ink/45">Recent activity</h3>
+        <ul class="space-y-2 text-xs text-ink/65">
+          <% history.slice(0, 4).forEach(function (h) { %><li class="flex gap-2"><span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-forest-400"></span><span><strong class="capitalize"><%= h.action %></strong> by <%= h.user %><br><span class="text-ink/45"><%= new Date(h.at).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' }) %></span></span></li><% }) %>
+        </ul>
+      <% } %>
+    </section>
+    <% } %>
+  </aside>
+
+  <div class="fixed inset-x-0 bottom-0 z-20 flex gap-2 border-t border-ink/10 bg-white/95 p-3 backdrop-blur xl:hidden">
+    <a href="<%= base %>" class="a-btn-ghost flex-1">Cancel</a><button class="a-btn-primary flex-[2]"><%= isNew ? 'Create' : 'Save changes' %></button>
+  </div>
+</form>
+
+<% if (!isNew) { %>
+  <form id="dup-form" method="post" action="<%= base %>/<%= encodeURIComponent(doc[key]) %>/duplicate"><input type="hidden" name="_csrf" value="<%= csrf %>"></form>
+  <form id="del-form" method="post" action="<%= base %>/<%= encodeURIComponent(doc[key]) %>/delete"><input type="hidden" name="_csrf" value="<%= csrf %>"></form>
+<% } %>

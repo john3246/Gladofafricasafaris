@@ -1,6 +1,6 @@
 <div class="invisible absolute inset-x-0 top-full border-t border-ink/10 bg-white opacity-0 shadow-2xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
   <div class="container-site py-8 text-[13px] normal-case tracking-normal">
-    <div class="grid grid-cols-4 gap-8">
+    <div class="grid gap-8" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
       <% nav.destinationGroups.forEach(function (g) { %>
         <div>
           <a href="<%= g.href %>" class="eyebrow mb-3 block hover:underline"><%= g.title %></a>

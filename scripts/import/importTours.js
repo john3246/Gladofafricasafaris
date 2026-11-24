@@ -5,6 +5,7 @@ const { parseProduct } = require('./parseProduct');
 const { LISTINGS, classify } = require('./classify');
 const { saveWebp } = require('./images');
 const { text } = require('./html');
+const { shortSummary } = require('./text');
 
 const OUT = path.join(__dirname, '..', '..', 'src', 'data', 'tours');
 const productLinks = (html) => [...new Set([...html.matchAll(/href="(https:\/\/gladofafricasafari\.com\/product\/[^"]+)"/g)].map((m) => m[1]))];
@@ -33,16 +34,6 @@ async function collect() {
     map.get(m[2].split('/product/')[1].replace(/\/$/, '').replace(/-2$/, '')).badge = m[1];
   });
   return map;
-}
-
-/** Whole sentences up to ~200 chars; falls back to a word-boundary cut with an ellipsis. */
-function shortSummary(para) {
-  let out = '';
-  for (const s of para.split(/(?<=[.!?])\s+/)) {
-    if (`${out} ${s}`.trim().length > 200) break;
-    out = `${out} ${s}`.trim();
-  }
-  return out || `${para.slice(0, 197).replace(/\s+\S*$/, '')}…`;
 }
 
 async function importTours() {

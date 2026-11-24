@@ -1,0 +1,8 @@
+<% if (d.posts.length) { %>
+<section class="<%= b.t.cls %> py-10 sm:py-14 lg:py-16">
+  <div class="container-site">
+    <%- include('_head', { b: b }) %>
+    <div class="mt-8 grid gap-5 md:grid-cols-3" data-i18n-skip lang="en"><% d.posts.forEach(function (post) { %><%- include('../partials/post-card', { post: post }) %><% }) %></div>
+  </div>
+</section>
+<% } %>

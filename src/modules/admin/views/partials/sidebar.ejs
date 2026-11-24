@@ -1,0 +1,73 @@
+<%
+  const groups = [
+    { title: '', items: [['dashboard', '/admin', 'Dashboard', 'dashboard'], ['analytics', '/admin/analytics', 'Analytics', 'chart']] },
+    { title: 'Content management', items: [
+      ['tours', '/admin/tours', 'Tours & Packages', 'map', '', [['All tours', '/admin/tours'], ['Add new tour', '/admin/tours/new']]],
+      ['best-sellers', '/admin/best-sellers', 'Best-selling safaris', 'star'],
+      ['offers', '/admin/offers', 'Offers and where clients come from', 'star'],
+      ['categories', '/admin/categories', 'Tour Categories', 'map'],
+      ['destinations', '/admin/destinations', 'Destinations', 'pin'],
+      ['regions', '/admin/regions', 'Regions', 'globe'],
+      ['departures', '/admin/departures', 'Group departures', 'map'],
+      ['accommodations', '/admin/accommodations', 'Accommodations', 'pin'],
+      ['accommodation-photos', '/admin/accommodation-photos', 'Accommodation photos', 'image'],
+      ['translations', '/admin/translations', 'Translations (IT, FR, DE)', 'globe'],
+      ['blog', '/admin/blog', 'Blog', 'edit'],
+      ['pages', '/admin/pages', 'Pages & Website Content', 'file'],
+      ['policies', '/admin/policies', 'Policy pages (insurance)', 'file'],
+      ['media', '/admin/media', 'Media Library', 'image'],
+      ['reviews', '/admin/reviews', 'Testimonials & Reviews', 'star'],
+      ['faqs', '/admin/faqs', 'FAQs', 'help'],
+      ['menus', '/admin/menus', 'Menus & Navigation', 'menu'],
+      ['seo', '/admin/seo', 'SEO', 'globe'],
+      ['redirects', '/admin/redirects', 'Redirects & 404s', 'link'],
+    ] },
+    { title: 'Operations', items: [
+      ['inquiries', '/admin/inquiries', 'Inquiries', 'mail', newInquiries || ''],
+      ['bookings', '/admin/bookings', 'Bookings', 'calendar'],
+      ['customers', '/admin/customers', 'Customers', 'users'],
+      ['subscribers', '/admin/subscribers', 'Subscribers', 'send'],
+    ] },
+  ];
+  if (isAdmin) groups.push({ title: 'System', items: [
+    ['users', '/admin/users', 'Users & Roles', 'user'],
+    ['audit', '/admin/audit', 'Revisions / Audit Log', 'clock'],
+    ['backup', '/admin/backup', 'Backup & Restore', 'database'],
+    ['mail', '/admin/mail', 'Email settings', 'mail'],
+    ['email-templates', '/admin/email-templates', 'Email templates', 'file'],
+    ['custom-fields', '/admin/custom-fields', 'Custom Fields', 'settings'],
+    ['settings', '/admin/settings', 'Site Settings', 'settings'],
+  ] });
+%>
+<div class="flex items-center gap-2.5 px-4 py-5">
+  <img src="/images/logo-white.png" alt="Glad Of Africa" width="150" height="50" class="h-9 w-auto sb-logo">
+  <span class="sb-label rounded bg-white/10 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-gold">CMS</span>
+  <button id="sidebar-close" type="button" class="ml-auto rounded-lg p-1.5 text-white/70 hover:bg-white/10 hover:text-white lg:hidden" aria-label="Close menu"><%- include('icon', { n: 'x', s: 20 }) %></button>
+</div>
+<nav class="flex-1 space-y-5 px-3 pb-4" aria-label="CMS">
+  <% groups.forEach(function (g) { %>
+    <div>
+      <% if (g.title) { %><p class="sb-label mb-1.5 px-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-gold/80"><%= g.title %></p><% } %>
+      <ul class="space-y-0.5">
+        <% g.items.forEach(function (it) { const on = active === it[0]; %>
+          <li>
+            <a href="<%= it[1] %>" title="<%= it[2] %>" class="a-nav <%= on ? 'a-nav-active' : '' %>">
+              <%- include('icon', { n: it[3] }) %><span class="sb-label flex-1"><%= it[2] %></span>
+              <% if (it[4]) { %><span class="sb-label rounded-full bg-gold px-2 py-0.5 text-[10px] font-bold text-forest-950"><%= it[4] %></span><% } %>
+            </a>
+            <% if (it[5] && on) { %>
+              <ul class="sb-label ml-9 mt-1 space-y-0.5 border-l border-white/10 pl-3 text-[13px]">
+                <% it[5].forEach(function (s) { %><li><a class="block rounded px-2 py-1 text-white/65 hover:text-white" href="<%= s[1] %>"><%= s[0] %></a></li><% }) %>
+              </ul>
+            <% } %>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  <% }) %>
+</nav>
+<div class="sb-label m-3 rounded-xl border border-white/10 bg-white/5 p-4 text-sm">
+  <p class="flex items-center gap-2 font-semibold text-white"><span class="h-2 w-2 rounded-full bg-green-400"></span> Website online</p>
+  <p class="mt-1 text-xs text-white/60">Live and synced with the CMS.</p>
+  <a href="/" target="_blank" rel="noopener" class="a-btn mt-3 w-full border border-white/20 text-white hover:bg-white/10">View website <%- include('icon', { n: 'external', s: 15 }) %></a>
+</div>

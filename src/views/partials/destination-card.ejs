@@ -1,9 +1,10 @@
-<a href="/destinations/<%= d.slug %>" class="card-tour group">
-  <div class="media-box aspect-[4/3]">
-    <% if (d.image) { %><img src="<%= d.image %>" alt="<%= d.name %>" width="640" height="480" loading="lazy" decoding="async" class="transition duration-500 group-hover:scale-105"><% } %>
+<a href="/destinations/<%= d.slug %>" class="card-tour">
+  <div class="media-box aspect-[16/10]">
+    <% if (d.image) { %><img src="<%= d.image %>" alt="<%= d.name %>" width="640" height="480" loading="lazy" decoding="async"><% } %>
   </div>
-  <div class="p-5">
-    <h3 class="font-serif text-xl font-bold group-hover:text-forest-500"><%= d.name %></h3>
+  <div class="card-body">
+    <h3 class="card-title"><%= d.name %></h3>
     <% if (d.tagline) { %><p class="mt-1 line-clamp-2 text-sm text-ink/70"><%= d.tagline %></p><% } %>
+    <span class="card-cta line-clamp-2">Explore <%= d.name %> and its safaris &rarr;</span>
   </div>
 </a>

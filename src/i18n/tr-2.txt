@@ -1,0 +1,130 @@
+131¦Un anfiteatro naturale pieno della fauna africana¦Un amphithéâtre naturel peuplé de la faune africaine¦Ein natürliches Amphitheater voller afrikanischer Tierwelt
+132¦Chi siamo¦À propos¦Über uns
+133¦Adulti¦Adultes¦Erwachsene
+134¦C'è altro che dovremmo sapere?¦Y a-t-il autre chose que nous devrions savoir ?¦Gibt es noch etwas, das wir wissen sollten?
+135¦apr¦avr¦Apr
+136¦Data di arrivo¦Date d'arrivée¦Anreisedatum
+137¦ago¦août¦Aug
+138¦Più venduto¦Meilleure vente¦Bestseller
+139¦Posso scegliere tra safari privati e di gruppo?¦Puis-je choisir entre un safari privé et un safari en groupe ?¦Kann ich zwischen Privat- und Gruppensafaris wählen?
+140¦Scrivici su WhatsApp¦Discutez avec nous sur WhatsApp¦Schreiben Sie uns auf WhatsApp
+141¦Bambini (sotto i 12 anni)¦Enfants (moins de 12 ans)¦Kinder (unter 12 Jahren)
+142¦Scegli le date di arrivo e partenza¦Choisissez les dates d'arrivée et de départ¦Wählen Sie An- und Abreisedatum
+143¦Colobi, Monte Meru e safari a piedi¦Colobes, mont Meru et safaris à pied¦Stummelaffen, Mount Meru und Fußsafaris
+144¦Informazioni di contatto¦Coordonnées¦Kontaktdaten
+145¦Le giornate prevedono di solito game drive all'alba, il pranzo nella savana o al lodge e game drive nel pomeriggio o al tramonto.¦Les journées comprennent généralement un safari à l'aube, un déjeuner en brousse ou au lodge, puis un safari l'après-midi ou au coucher du soleil.¦Ein Tag umfasst meist eine frühe Pirschfahrt, das Mittagessen im Busch oder in der Lodge sowie eine Pirschfahrt am Nachmittag oder zum Sonnenuntergang.
+146¦dic¦déc¦Dez
+147¦Data di partenza¦Date de départ¦Abreisedatum
+148¦E-mail *¦E-mail *¦E-Mail *
+149¦Pianure infinite, la Grande Migrazione e i grandi felini¦Plaines infinies, Grande Migration et grands félins¦Endlose Ebenen, die Große Migration und die Raubkatzen
+150¦feb¦févr¦Feb
+151¦Meno adulti¦Moins d'adultes¦Weniger Erwachsene
+152¦Meno bambini (sotto i 12 anni)¦Moins d'enfants (moins de 12 ans)¦Weniger Kinder (unter 12 Jahren)
+153¦Domande¦Questions¦Häufig gestellte
+154¦Nome e cognome *¦Nom et prénom *¦Vollständiger Name *
+155¦Baobab giganti e le più grandi mandrie di elefanti della Tanzania¦Baobabs géants et les plus grands troupeaux d'éléphants de Tanzanie¦Riesige Affenbrotbäume und Tansanias größte Elefantenherden
+156¦Di quanti giorni ho bisogno per un buon safari?¦De combien de jours ai-je besoin pour un bon safari ?¦Wie viele Tage brauche ich für eine gute Safari?
+157¦Non ho ancora date precise¦Je n'ai pas encore de dates précises¦Ich habe noch keine genauen Daten
+158¦gen¦janv¦Jan
+159¦lug¦juil¦Jul
+160¦giu¦juin¦Jun
+161¦mar¦mars¦Mär
+162¦mag¦mai¦Mai
+163¦Più adulti¦Plus d'adultes¦Mehr Erwachsene
+164¦Più bambini (sotto i 12 anni)¦Plus d'enfants (moins de 12 ans)¦Mehr Kinder (unter 12 Jahren)
+165¦Le mie date sono flessibili di qualche giorno¦Mes dates sont flexibles de quelques jours¦Meine Daten sind um einige Tage flexibel
+166¦Non ne sono ancora sicuro: aiutatemi a scegliere¦Je ne sais pas encore : aidez-moi à choisir¦Noch unsicher: Helfen Sie mir bei der Auswahl
+167¦nov¦nov¦Nov
+168¦ott¦oct¦Okt
+169¦Telefono / WhatsApp¦Téléphone / WhatsApp¦Telefon / WhatsApp
+170¦Scegli il giorno di arrivo. Se hai scelto un safari, aggiungiamo noi la sua durata.¦Choisissez le jour d'arrivée. Si vous avez choisi un safari, nous ajoutons sa durée.¦Wählen Sie Ihren Anreisetag. Wenn Sie eine Safari gewählt haben, fügen wir deren Dauer hinzu.
+171¦domande frequenti¦fréquemment posées¦Fragen
+172¦Safari¦Safari¦Safari
+173¦Invia la mia richiesta¦Envoyer ma demande¦Meine Anfrage senden
+174¦set¦sept¦Sep
+175¦Offerte speciali¦Offres spéciales¦Sonderangebote
+176¦Parla direttamente con noi¦Parlez-nous directement¦Sprechen Sie direkt mit uns
+177¦Safari Big Five in Tanzania: tour di gruppo di 6 giorni con i grandi felini¦Safari Big Five en Tanzanie : circuit de groupe de 6 jours sur les traces des grands félins¦Big-Five-Safari in Tansania: 6-Tage-Gruppentour zu den Raubkatzen
+178¦La Tanzania offre parchi di fama mondiale come il Serengeti, il Cratere di Ngorongoro, Tarangire e il Lago Manyara, con una varietà di fauna senza pari.¦La Tanzanie offre des parcs de renommée mondiale comme le Serengeti, le cratère du Ngorongoro, Tarangire et le lac Manyara, avec une diversité animale inégalée.¦Tansania bietet weltberühmte Parks wie die Serengeti, den Ngorongoro-Krater, Tarangire und den Manyarasee mit einer unvergleichlichen Tiervielfalt.
+179¦Raccontaci qualcosa del tuo viaggio. Un esperto locale di Arusha risponde entro 24 ore.¦Parlez-nous un peu de votre voyage. Un expert local d'Arusha vous répond sous 24 heures.¦Erzählen Sie uns von Ihrer Reise. Ein Experte aus Arusha antwortet innerhalb von 24 Stunden.
+180¦Tra i più visitati ci sono il Serengeti, il Cratere di Ngorongoro, Tarangire, Selous/Nyerere e il Lago Manyara.¦Parmi les plus visités : le Serengeti, le cratère du Ngorongoro, Tarangire, Selous/Nyerere et le lac Manyara.¦Zu den meistbesuchten gehören die Serengeti, der Ngorongoro-Krater, Tarangire, Selous/Nyerere und der Manyarasee.
+181¦Date di viaggio¦Dates du voyage¦Reisedaten
+182¦Mese di viaggio¦Mois du voyage¦Reisemonat
+183¦Leoni che si arrampicano sugli alberi, fenicotteri e foresta di falda¦Lions grimpeurs, flamants roses et forêt de nappe phréatique¦Baumkletternde Löwen, Flamingos und Grundwasserwald
+184¦Rispondiamo entro 24 ore. I tuoi dati servono solo a pianificare il viaggio.¦Nous répondons sous 24 heures. Vos données ne servent qu'à planifier votre voyage.¦Wir antworten innerhalb von 24 Stunden. Ihre Daten werden nur zur Planung Ihrer Reise verwendet.
+185¦Sito web¦Site web¦Webseite
+186¦Com'è una tipica giornata di safari?¦À quoi ressemble une journée de safari type ?¦Wie sieht ein typischer Safaritag aus?
+187¦Perché la Tanzania è una delle migliori destinazioni per un safari?¦Qu'est-ce qui fait de la Tanzanie l'une des meilleures destinations de safari ?¦Was macht Tansania zu einem der besten Safari-Ziele?
+188¦In che mese vorresti viaggiare?¦Quel mois souhaitez-vous voyager ?¦In welchem Monat möchten Sie reisen?
+189¦Quali sono i parchi nazionali più popolari?¦Quels sont les parcs nationaux les plus populaires ?¦Welche Nationalparks sind am beliebtesten?
+190¦Perché visitarlo¦Pourquoi y aller¦Warum hinfahren
+191¦Sì. Puoi prenotare un safari completamente privato o unirti a un piccolo gruppo, in base a disponibilità e preferenze.¦Oui. Vous pouvez réserver un safari entièrement privé ou rejoindre un petit groupe selon les disponibilités et vos préférences.¦Ja. Sie können eine rein private Safari buchen oder sich je nach Verfügbarkeit und Wunsch einer kleinen Gruppe anschließen.
+192¦Tracce della fauna e escursione di un giorno sul Kilimangiaro: 10 giorni¦Sur les traces de la faune et randonnée d'une journée au Kilimandjaro : 10 jours¦10 Tage Tierspuren und Kilimandscharo-Tageswanderung
+193¦Avventura sul Kilimangiaro e safari sulla Migrazione nel Serengeti: 13 giorni¦Aventure au Kilimandjaro et safari de la Migration au Serengeti : 13 jours¦13 Tage Kilimandscharo-Abenteuer und Migrations-Safari in der Serengeti
+194¦Safari di 2 giorni a Tarangire, Lago Manyara e villaggio masai¦Safari de 2 jours à Tarangire, au lac Manyara et dans un village masaï¦2-Tage-Safari: Tarangire, Manyarasee und Massai-Dorf
+195¦Tour di 2 giorni: Tarangire, villaggio masai, cascata di Materuni e caffè¦Circuit de 2 jours : Tarangire, village masaï, chute de Materuni et café¦2-Tage-Tour: Tarangire, Massai-Dorf, Materuni-Wasserfall und Kaffee
+196¦Safari di 2 giorni a Tarangire, Cratere di Ngorongoro e villaggio masai¦Safari de 2 jours à Tarangire, au cratère du Ngorongoro et dans un village masaï¦2-Tage-Safari: Tarangire, Ngorongoro-Krater und Massai-Dorf
+197¦Safari di lusso di 3 giorni con voli interni¦Safari de luxe de 3 jours en avion¦3-Tage-Luxus-Flugsafari
+198¦Trekking di 3 giorni sul Monte Meru | Avventura panoramica ad Arusha, Tanzania¦Trek de 3 jours sur le mont Meru | Randonnée panoramique à Arusha, Tanzanie¦3-Tage-Trekking am Mount Meru | Landschaftliches Wanderabenteuer in Arusha, Tansania
+199¦Trekking di 3 giorni all'Ol Donyo Lengai (Natron) e cultura del Lago Eyasi¦Trek de 3 jours à l'Ol Donyo Lengai (Natron) et culture du lac Eyasi¦3-Tage-Trekking zum Ol Doinyo Lengai (Natron) und Kultur am Eyasisee
+200¦Safari di 3 giorni con voli interni nel Serengeti e nel Cratere di Ngorongoro¦Safari de 3 jours en avion au Serengeti et au cratère du Ngorongoro¦3-Tage-Flugsafari: Serengeti und Ngorongoro-Krater
+201¦Trekking di 4 giorni sul Monte Meru¦Trek de 4 jours sur le mont Meru¦4-Tage-Trekking am Mount Meru
+202¦Tour di 4 giorni con campeggio privato: Tarangire, Serengeti e Cratere di Ngorongoro¦Circuit de 4 jours en camping privé : Tarangire, Serengeti et cratère du Ngorongoro¦4-Tage-Privatcamping-Tour: Tarangire, Serengeti und Ngorongoro-Krater
+203¦Esperienza di 4 giorni nel Serengeti con voli di andata e ritorno¦Expérience de 4 jours au Serengeti en avion aller-retour¦4-Tage-Serengeti-Erlebnis mit Hin- und Rückflug
+204¦Safari di 4 giorni con volo nel nord del Serengeti¦Safari de 4 jours avec vol vers le nord du Serengeti¦4-Tage-Safari mit Flug in die nördliche Serengeti
+205¦Trekking di 4 giorni al vulcano Ol Doinyo Lengai e grande safari nella natura selvaggia¦Trek de 4 jours au volcan Ol Doinyo Lengai et grand safari sauvage¦4-Tage-Trekking zum Vulkan Ol Doinyo Lengai und große Wildnis-Safari
+206¦49 pacchetti safari con prezzo sul circuito del Nord, safari di gruppo, trekking ed escursioni di un giorno, con prezzi a persona.¦49 forfaits safari avec prix sur le circuit du Nord, safaris en groupe, treks et excursions d'une journée, tarifs par personne.¦49 Safari-Pakete mit Preisen auf der Nordrunde, Gruppensafaris, Trekkingtouren und Tagesausflüge, Preise pro Person.
+207¦Tour di 5 giorni con campeggio privato: Tarangire, Serengeti e Cratere di Ngorongoro¦Circuit de 5 jours en camping privé : Tarangire, Serengeti et cratère du Ngorongoro¦5-Tage-Privatcamping-Tour: Tarangire, Serengeti und Ngorongoro-Krater
+208¦Safari di lusso di 6 giorni con volo per l'attraversamento del fiume Mara¦Safari de luxe de 6 jours en avion pour la traversée de la rivière Mara¦6-Tage-Luxussafari mit Flug zur Mara-Flussüberquerung
+209¦Safari di 7 giorni in campeggio privato e lodge in Tanzania¦Safari de 7 jours en camping privé et lodges en Tanzanie¦7-Tage-Safari in Tansania mit Privatcamping und Lodges
+210¦Safari di 7 giorni nel Serengeti occidentale | La grande avventura nella fauna della Tanzania¦Safari de 7 jours dans l'ouest du Serengeti | L'ultime aventure animalière en Tanzanie¦7-Tage-Safari in der westlichen Serengeti | Das ultimative Tierabenteuer in Tansania
+211¦Safari di gruppo di 7 giorni sulla Migrazione degli gnu¦Safari de groupe de 7 jours sur la Migration des gnous¦7-Tage-Gruppensafari zur Gnu-Migration
+212¦Migrazione degli gnu nel Serengeti del nord, fascia media: 7 giorni¦Migration des gnous dans le nord du Serengeti, catégorie moyenne : 7 jours¦Gnu-Migration in der nördlichen Serengeti, Mittelklasse: 7 Tage
+213¦Salita al Monte Meru e al sacro Ol Donyo Lengai: trekking di 7 giorni¦Ascension du mont Meru et du sacré Ol Donyo Lengai : trek de 7 jours¦Mount-Meru-Gipfel und heiliger Ol Doinyo Lengai: 7-Tage-Trekking
+214¦Safari di 8 giorni nel Serengeti del nord: l'attraversamento del fiume Mara¦Safari de 8 jours dans le nord du Serengeti : la traversée de la rivière Mara¦8-Tage-Safari in der nördlichen Serengeti: Mara-Flussüberquerung
+215¦Safari di 8 giorni di fascia media nel Serengeti: andata in auto, ritorno in volo¦Safari de 8 jours catégorie moyenne au Serengeti : aller en voiture, retour en avion¦8-Tage-Mittelklasse-Safari in der Serengeti: Anreise per Auto, Rückflug¦
+216¦Campeggio privato di 8 giorni: Tarangire, Serengeti e Cratere di Ngorongoro¦8 jours en camping privé : Tarangire, Serengeti et cratère du Ngorongoro¦8 Tage Privatcamping: Tarangire, Serengeti und Ngorongoro-Krater
+217¦Esperienza privata di 8 giorni all'attraversamento del fiume Mara¦Expérience privée de 8 jours à la traversée de la rivière Mara¦8-Tage-Privaterlebnis an der Mara-Flussüberquerung
+218¦Attraversamento del fiume Mara nel Serengeti, privato e di fascia media: 8 giorni¦Traversée de la rivière Mara au Serengeti, privé et catégorie moyenne : 8 jours¦Mara-Flussüberquerung in der Serengeti, privat und Mittelklasse: 8 Tage
+219¦Safari di 9 giorni: Migrazione nel Serengeti, grandi felini e rinoceronte nero¦Safari de 9 jours : Migration au Serengeti, grands félins et rhinocéros noir¦9-Tage-Safari: Migration in der Serengeti, Raubkatzen und Spitzmaulnashorn
+220¦Una persona vera risponde alle tue domande prima della prenotazione. Durante il viaggio il nostro team è raggiungibile al telefono e su WhatsApp, così l'aiuto non è mai lontano.¦Une vraie personne répond à vos questions avant la réservation. Pendant le voyage, notre équipe reste joignable par téléphone et WhatsApp : l'aide n'est jamais loin.¦Ein echter Mensch beantwortet Ihre Fragen vor der Buchung. Während der Reise ist unser Team telefonisch und über WhatsApp erreichbar, sodass Hilfe nie weit ist.
+221¦Un safari costruito¦Un safari conçu¦Eine Safari, die sich¦
+222¦Un safari costruito intorno a te¦Un safari conçu autour de vous¦Eine Safari, die sich nach Ihnen richtet
+223¦Chi è Glad Of Africa: tour operator safari di Arusha a gestione locale¦À propos de Glad Of Africa : opérateur de safari local à Arusha¦Über Glad Of Africa: Safari-Veranstalter aus Arusha in lokaler Hand
+224¦Le nostre¦Nos¦Unsere
+225¦La vetta più alta dell'Africa, a 5.895 metri¦Le plus haut sommet d'Afrique, à 5 895 mètres¦Afrikas höchster Gipfel auf 5.895 Metern
+226¦Tutti¦Tous¦Alle
+227¦Tutte le salite e i trekking¦Toutes les ascensions et treks¦Alle Besteigungen und Treks
+228¦Tutte le destinazioni¦Toutes les destinations¦Alle Reiseziele
+229¦Tutte le FAQ¦Toutes les FAQ¦Alle FAQ
+230¦Tutte le guide di viaggio¦Tous les guides de voyage¦Alle Reiseführer
+231¦Qualsiasi¦Tous¦Alle
+232¦Qualsiasi durata¦Toutes durées¦Beliebige Dauer
+233¦I safari vanno bene per chi viaggia in Africa per la prima volta?¦Les safaris conviennent-ils aux voyageurs qui viennent pour la première fois ?¦Eignen sich Safaris für Erstreisende?
+234¦intorno a te¦autour de vous¦nach Ihnen richtet
+235¦Più venduto¦Meilleure vente¦Bestseller
+236¦Miglior rapporto qualità-prezzo¦Meilleur rapport qualité-prix¦Bestes Preis-Leistungs-Verhältnis
+237¦Safari più venduti¦Safaris les plus vendus¦Beliebteste Safaris
+238¦Oltre il safari¦Au-delà du safari¦Mehr als Safari
+239¦Oltre l'ordinario¦Au-delà de l'ordinaire¦Über das Gewöhnliche hinaus
+240¦Le nascite raggiungono di solito il picco a febbraio, a partire da fine gennaio fino a marzo. I campi intorno a Ndutu sono piccoli e si riempiono presto: prenota in anticipo per le tue date.¦Les naissances atteignent généralement leur pic en février, de fin janvier jusqu'en mars. Les camps autour de Ndutu sont petits et se remplissent tôt : réservez à l'avance pour vos dates.¦Die Geburten erreichen meist im Februar ihren Höhepunkt, von Ende Januar bis in den März. Die Camps rund um Ndutu sind klein und früh ausgebucht: Buchen Sie rechtzeitig für Ihre Reisedaten.
+241¦Sfoglia i safari in Tanzania¦Parcourir les safaris en Tanzanie¦Tansania-Safaris durchstöbern
+242¦Economico¦Économique¦Günstig
+243¦Economico e campeggio¦Économique et camping¦Günstig und Camping
+244¦Budget per persona:¦Budget par personne :¦Budget pro Person:
+245¦Stagione dei parti e¦Saison des naissances et¦Geburtensaison und
+246¦Safari nella stagione dei parti¦Safaris de la saison des naissances¦Safaris zur Geburtensaison
+247¦Safari nella stagione dei parti e vacanze safari e mare, scelti dal nostro team. Prezzi a persona; ogni itinerario può essere personalizzato.¦Safaris de la saison des naissances et vacances safari-plage, choisis par notre équipe. Prix par personne ; chaque itinéraire peut être adapté.¦Safaris zur Geburtensaison und Safari-Strandurlaube, ausgewählt von unserem Team. Preise pro Person; jede Route kann angepasst werden.
+248¦Safari nella stagione dei parti nel Serengeti meridionale e vacanze safari e mare, scelti dal nostro team. Ognuno può essere adattato alle tue date.¦Safaris de la saison des naissances dans le sud du Serengeti et vacances safari-plage, choisis par notre équipe. Chacun peut être adapté à vos dates.¦Safaris zur Geburtensaison im südlichen Serengeti und Safari-Strandurlaube, ausgewählt von unserem Team. Jedes Angebot lässt sich an Ihre Termine anpassen.
+249¦Le nascite raggiungono di solito il picco a febbraio e i campi intorno a Ndutu si riempiono presto. Prenota in anticipo per le tue date.¦Les naissances atteignent généralement leur pic en février et les camps autour de Ndutu se remplissent tôt. Réservez à l'avance pour vos dates.¦Die Geburten erreichen meist im Februar ihren Höhepunkt, und die Camps rund um Ndutu sind früh ausgebucht. Buchen Sie rechtzeitig für Ihre Reisedaten.
+250¦Posso adattare un'offerta alle mie date?¦Puis-je adapter une offre à mes dates ?¦Kann ich ein Angebot an meine Reisedaten anpassen?
+251¦L'isola di Chole è una piccola isola tranquilla dell'arcipelago di Mafia, al largo della costa meridionale della Tanzania¦L'île de Chole est une petite île paisible de l'archipel de Mafia, au large de la côte sud de la Tanzanie¦Chole ist eine kleine, ruhige Insel im Mafia-Archipel vor der Südküste Tansanias
+252¦Il Parco corallino dell'isola di Chumbe è uno dei segreti meglio custoditi della Tanzania. Si trova poco al largo di Zanzibar, vicino a S¦Le parc corallien de l'île de Chumbe est l'un des secrets les mieux gardés de Tanzanie. Situé juste au large de Zanzibar, près de S¦Der Korallenpark der Insel Chumbe ist eines der bestgehüteten Geheimnisse Tansanias. Er liegt knapp vor Sansibar, nahe S
+253¦Cancella tutti i filtri¦Effacer tous les filtres¦Alle Filter zurücksetzen
+254¦Cancella i filtri¦Effacer les filtres¦Filter zurücksetzen
+255¦Scala¦Gravissez¦Besteigen Sie den
+256¦Scala il Kilimangiaro¦Gravissez le Kilimandjaro¦Besteigen Sie den Kilimandscharo
+257¦Comfort senza complicazioni¦Du confort sans tracas¦Komfort ohne Aufwand
+258¦Contatta Glad Of Africa Safari & Tours, Arusha¦Contactez Glad Of Africa Safari & Tours, Arusha¦Kontakt zu Glad Of Africa Safari & Tours, Arusha
+259¦Costi, periodo migliore per partire, calendario della Grande Migrazione e cosa mettere in valigia.¦Coûts, meilleure période pour partir, calendrier de la Grande Migration et que mettre dans sa valise.¦Kosten, die beste Reisezeit, der Kalender der Großen Migration und was ins Gepäck gehört.
+260¦Escursioni di un giorno da Arusha¦Excursions d'une journée depuis Arusha¦Tagesausflüge ab Arusha

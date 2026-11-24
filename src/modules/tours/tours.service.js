@@ -1,14 +1,16 @@
 const repo = require('./tours.repository');
 const destinationsRepo = require('../destinations/destinations.repository');
-const { categories } = require('./tours.categories');
+const categoriesService = require('./categories.service');
 
 const list = () => repo.findAll();
 const bySlug = (slug) => repo.findBySlug(slug);
 
 async function byCategory(slug) {
-  const cat = categories[slug];
+  const cat = await categoriesService.bySlug(slug);
   if (!cat) return null;
-  return { category: { slug, ...cat }, tours: (await list()).filter(cat.filter) };
+  const picked = (await list()).filter(categoriesService.matcher(cat));
+  if (cat.ruleType === 'bestseller') picked.sort((a, b) => (a.bestSellerOrder ?? 9999) - (b.bestSellerOrder ?? 9999));
+  return { category: cat, tours: picked };
 }
 
 const signature = async (limit = 5) => (await list()).filter((t) => t.tags.includes('signature')).slice(0, limit);
@@ -19,8 +21,6 @@ const bySlugs = async (slugs) => {
   const all = await list();
   return slugs.map((s) => all.find((t) => t.slug === s)).filter(Boolean);
 };
-
-const zanzibar = async (limit = 3) => (await list()).filter((t) => /zanzibar/i.test(t.title)).slice(0, limit);
 
 /** Tours that include at least one destination of the given circuit (northern/southern/zanzibar...). */
 async function countForCircuit(circuit) {
@@ -38,4 +38,4 @@ async function related(tour, limit = 4) {
 
 const forDestination = async (destSlug) => (await list()).filter((t) => t.destinations.includes(destSlug));
 
-module.exports = { list, bySlug, byCategory, signature, byTag, bySlugs, zanzibar, countForCircuit, related, forDestination };
+module.exports = { list, bySlug, byCategory, signature, byTag, bySlugs, countForCircuit, related, forDestination };

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" class="cms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title><%= typeof pageTitle !== 'undefined' ? pageTitle : 'CMS' %> · Glad Of Africa CMS</title>
+  <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&display=swap">
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/vendor/quill/quill.snow.css">
+</head>
+<body class="admin bg-canvas font-sans text-ink/90" data-csrf="<%= csrf %>">
+  <div id="sidebar-backdrop" class="fixed inset-0 z-30 hidden bg-black/50 lg:hidden"></div>
+  <div class="flex min-h-screen">
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 flex w-64 -translate-x-full flex-col overflow-y-auto overflow-x-hidden bg-forest-950 text-white transition-transform lg:sticky lg:top-0 lg:h-screen lg:translate-x-0">
+      <%- include('partials/sidebar') %>
+    </aside>
+    <div class="flex min-w-0 flex-1 flex-col">
+      <%- include('partials/topbar') %>
+      <main class="flex-1 p-4 lg:p-6 2xl:p-8">
+        <%- include('partials/flash') %>
+        <%- body %>
+      </main>
+      <footer class="px-6 pb-6 text-xs text-ink/45">Glad Of Africa CMS &middot; changes publish to the live website instantly &middot; press <kbd class="rounded border border-ink/15 px-1">Ctrl</kbd>+<kbd class="rounded border border-ink/15 px-1">K</kbd> to search</footer>
+    </div>
+  </div>
+
+  <div id="palette" class="fixed inset-0 z-[80] hidden items-start justify-center bg-black/50 p-4 pt-[12vh]" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="w-full max-w-xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+      <div class="flex items-center gap-3 border-b border-ink/10 px-4"><%- include('partials/icon', { n: 'search', s: 18 }) %><input id="palette-input" autocomplete="off" placeholder="Type to search pages and content..." class="w-full border-0 bg-transparent py-4 text-[15px] focus:outline-none"><kbd class="rounded border border-ink/15 px-1.5 py-0.5 text-[11px] text-ink/45">Esc</kbd></div>
+      <ul id="palette-list" class="max-h-[50vh] overflow-y-auto p-2"></ul>
+      <p class="border-t border-ink/10 px-4 py-2 text-[11px] text-ink/45">&uarr; &darr; to move &middot; Enter to open</p>
+    </div>
+  </div>
+  <script src="/vendor/quill/quill.js" defer></script>
+  <script src="/js/admin.js" defer></script>
+  <script src="/js/admin-live.js" defer></script>
+  <script src="/js/admin-richtext.js" defer></script>
+  <script src="/js/admin-seo.js" defer></script>
+  <script src="/js/admin-blocks.js" defer></script>
+  <div hidden data-live="/admin/live/badge" data-interval="15000"><span data-alert="<%= typeof newInquiries === 'undefined' ? 0 : newInquiries %>"></span></div>
+</body>
+</html>

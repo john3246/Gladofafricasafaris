@@ -1,7 +1,10 @@
 const logger = require('../utils/logger');
 const { env } = require('../config');
 
+const analytics = require('../services/analytics');
+
 const notFound = (req, res) => {
+  analytics.track404(req);
   res.status(404).render('pages/error', {
     seo: { title: 'Page not found', description: 'The page you are looking for does not exist.', noindex: true },
     code: 404,

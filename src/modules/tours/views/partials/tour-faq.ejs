@@ -1,12 +1,5 @@
-<%
-  const tourFaqs = [
-    { q: `How much does the ${tour.title} cost?`, a: `The ${tour.title} starts from USD ${tour.priceFrom.toLocaleString('en-US')} per person. Request a free quote for your exact dates and group size.` },
-    { q: `How long is the ${tour.title}?`, a: `It is ${nights(tour.days)}${tour.destinations.length ? ' and covers ' + route(tour.destinations) : ''}.` },
-    { q: 'Can this safari be tailored?', a: 'Yes. Every itinerary can be adjusted for your dates, pace, accommodation level and budget by our Arusha team.' },
-  ];
-%>
 <section class="bg-white p-6 shadow-sm md:p-8">
   <p class="eyebrow">FAQ</p>
   <h2 class="mt-1 mb-5 !text-3xl">Questions about this safari</h2>
-  <%- include('partials/faq-list', { faqs: tourFaqs }) %>
+  <%- include('partials/faq-list', { faqs: faqs }) %>
 </section>

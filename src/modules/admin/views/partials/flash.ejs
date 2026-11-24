@@ -1,0 +1,10 @@
+<%# Messages become toasts (top right) that fade out by themselves. %>
+<div id="toasts" class="pointer-events-none fixed right-4 top-4 z-[70] w-[min(92vw,380px)] space-y-2" aria-live="polite">
+  <% (flash || []).forEach(function (f) { %>
+    <div data-toast role="status" class="pointer-events-auto flex items-start gap-3 rounded-xl border bg-white px-4 py-3 text-sm shadow-xl <%= f.type === 'error' ? 'border-red-200' : 'border-green-200' %>">
+      <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full <%= f.type === 'error' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700' %>"><%- include('icon', { n: f.type === 'error' ? 'alert' : 'check', s: 12 }) %></span>
+      <span class="flex-1 font-medium text-ink"><%= f.message %></span>
+      <button type="button" data-dismiss class="text-lg leading-none text-ink/40 hover:text-ink" aria-label="Dismiss">&times;</button>
+    </div>
+  <% }) %>
+</div>

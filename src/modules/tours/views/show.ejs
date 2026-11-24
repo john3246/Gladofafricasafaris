@@ -7,9 +7,10 @@
     <h1 class="mx-auto mt-4 max-w-4xl !text-white"><%= tour.title %></h1>
     <p class="mt-4 font-mono text-[12px] uppercase tracking-[0.15em] text-white/85"><%= nights(tour.days) %><% if (tour.destinations.length) { %> &middot; <%= route(tour.destinations) %><% } %></p>
     <p class="mt-4 font-serif text-2xl text-gold">From USD <%= tour.priceFrom.toLocaleString('en-US') %> per person</p>
-    <a href="/get-a-quote?tour=<%= encodeURIComponent(tour.title) %>" class="btn-dark mt-6 !bg-black">Book this safari</a>
+    <a href="/book/<%= tour.slug %>" class="btn-dark mt-6 !bg-black">Book this safari</a>
   </div>
 </section>
+<%- include('partials/ai-summary', { text: summary }) %>
 
 <nav aria-label="Breadcrumb" class="bg-white">
   <ol class="container-site flex flex-wrap gap-2 py-3 text-xs text-ink/65">
@@ -48,13 +49,13 @@
   <div class="container-site">
     <h2 class="!text-3xl">Ready to travel this route?</h2>
     <p class="mt-2 text-white/85">From USD <%= tour.priceFrom.toLocaleString('en-US') %> per person. <%= tour.title %> with a local Arusha team.</p>
-    <a href="/get-a-quote?tour=<%= encodeURIComponent(tour.title) %>" class="btn-gold mt-5">Book this safari</a>
+    <a href="/book/<%= tour.slug %>" class="btn-gold mt-5">Book this safari</a>
   </div>
 </section>
 
 <section class="bg-white py-8">
   <div class="container-site">
-    <p class="eyebrow">More ways to plan this trip</p>
+    <p class="eyebrow">More ways to plan this safari</p>
     <ul class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-forest-500">
       <li><a class="hover:underline" href="/tanzania-safaris">Tanzania safari packages</a></li>
       <li><a class="hover:underline" href="/blog/tanzania-safari-cost">Tanzania safari cost</a></li>

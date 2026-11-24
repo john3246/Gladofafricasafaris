@@ -1,0 +1,41 @@
+<div class="mb-5 flex flex-wrap items-end justify-between gap-3">
+  <div>
+    <h1>Best-selling safaris</h1>
+    <p class="max-w-2xl text-sm text-ink/55">Choose the safaris you sell most. They get their own page, a "Best seller" badge on their card, and the ones you also tick for the home page fill the home page's best-selling section.</p>
+  </div>
+  <div class="flex flex-wrap gap-2">
+    <a class="a-btn-ghost" target="_blank" rel="noopener" href="/tanzania-safaris/best-selling"><%- include('partials/icon', { n: 'eye', s: 16 }) %> View the page</a>
+    <% if (page) { %><a class="a-btn-ghost" href="/admin/categories/best-selling/edit"><%- include('partials/icon', { n: 'edit', s: 16 }) %> Edit page text &amp; SEO</a><% } %>
+  </div>
+</div>
+
+<form method="post" action="/admin/best-sellers">
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <div class="a-card mb-4 flex flex-wrap items-center justify-between gap-3 p-3.5">
+    <p class="text-sm"><strong><%= counts.best %></strong> best seller<%= counts.best === 1 ? '' : 's' %> &middot; <strong><%= counts.home %></strong> on the home page</p>
+    <div class="flex items-center gap-2"><input class="input !w-56 !py-2" type="search" placeholder="Find a safari..." data-find aria-label="Find a safari"><button class="a-btn-primary"><%- include('partials/icon', { n: 'check', s: 16 }) %> Save</button></div>
+  </div>
+
+  <div class="a-card overflow-x-auto">
+    <table class="a-table w-full min-w-[640px]">
+      <thead><tr><th>Safari</th><th class="text-center">Best seller</th><th class="text-center">On home page</th><th class="w-28">Order</th></tr></thead>
+      <tbody>
+        <% items.forEach(function (t) { %>
+          <tr data-row data-text="<%= t.title.toLowerCase() %>">
+            <td>
+              <div class="flex items-center gap-3">
+                <span class="media-box h-11 w-16 shrink-0 rounded"><% if (t.image) { %><img src="<%= t.image %>" alt="" width="64" height="44" loading="lazy"><% } %></span>
+                <span class="min-w-0"><a class="block truncate font-semibold hover:text-forest-500" href="/admin/tours/<%= t.slug %>/edit"><%= t.title %></a><span class="text-xs text-ink/50"><%= t.days %> day<%= t.days > 1 ? 's' : '' %> &middot; from $<%= Number(t.priceFrom).toLocaleString('en-US') %><%= t.draft ? ' · draft' : '' %></span></span>
+              </div>
+            </td>
+            <td class="text-center"><input type="checkbox" name="best" value="<%= t.slug %>" class="h-4 w-4 accent-forest-500" <%= t.bestSeller ? 'checked' : '' %> aria-label="Best seller: <%= t.title %>"></td>
+            <td class="text-center"><input type="checkbox" name="home" value="<%= t.slug %>" class="h-4 w-4 accent-forest-500" <%= t.bestSeller && t.bestSellerHome ? 'checked' : '' %> aria-label="Show on home page: <%= t.title %>"></td>
+            <td><input class="input !py-1.5 text-center" type="number" min="1" max="999" name="order[<%= t.slug %>]" value="<%= t.bestSeller && t.bestSellerOrder ? t.bestSellerOrder : '' %>" placeholder="-" aria-label="Order: <%= t.title %>"></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <p class="a-help mt-3">Order 1 comes first. Safaris without a number follow, in alphabetical order. Untick "Best seller" to remove a safari from the page, the badge and the home page.</p>
+  <button class="a-btn-primary mt-4"><%- include('partials/icon', { n: 'check', s: 16 }) %> Save best-selling safaris</button>
+</form>

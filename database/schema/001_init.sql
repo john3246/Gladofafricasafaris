@@ -1,53 +1,23 @@
--- Content tables share one shape: indexed slug + jsonb document. Editors can change fields without migrations.
-CREATE TABLE IF NOT EXISTS tours (
-  id         SERIAL PRIMARY KEY,
-  slug       TEXT UNIQUE NOT NULL,
-  tier       TEXT NOT NULL CHECK (tier IN ('luxury', 'midrange', 'budget')),
-  tags       TEXT[] NOT NULL DEFAULT '{}',
-  sort       INT  NOT NULL DEFAULT 0,
-  published  BOOLEAN NOT NULL DEFAULT TRUE,
+-- One generic document table backs every CMS collection (tours, destinations, posts, faqs, reviews,
+-- pages, settings, users, inquiries, media metadata, audit log, revisions). Collections are seeded lazily.
+CREATE TABLE IF NOT EXISTS cms_records (
+  collection TEXT NOT NULL,
+  key        TEXT NOT NULL,
+  sort       BIGINT, -- BIGINT: the audit log sorts by negative millisecond timestamps
   data       JSONB NOT NULL,
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  PRIMARY KEY (collection, key)
 );
-CREATE INDEX IF NOT EXISTS tours_tier_idx ON tours (tier);
-CREATE INDEX IF NOT EXISTS tours_tags_idx ON tours USING GIN (tags);
+CREATE INDEX IF NOT EXISTS cms_records_sort_idx ON cms_records (collection, sort);
 
-CREATE TABLE IF NOT EXISTS destinations (
-  id         SERIAL PRIMARY KEY,
-  slug       TEXT UNIQUE NOT NULL,
-  sort       INT NOT NULL DEFAULT 0,
-  published  BOOLEAN NOT NULL DEFAULT TRUE,
-  data       JSONB NOT NULL,
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+-- Uploaded images (kept in the database so they survive ephemeral hosting disks).
+CREATE TABLE IF NOT EXISTS cms_media (
+  id         TEXT PRIMARY KEY,
+  mime       TEXT NOT NULL,
+  data       BYTEA NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-CREATE TABLE IF NOT EXISTS posts (
-  id         SERIAL PRIMARY KEY,
-  slug       TEXT UNIQUE NOT NULL,
-  sort       INT NOT NULL DEFAULT 0,
-  published  BOOLEAN NOT NULL DEFAULT TRUE,
-  data       JSONB NOT NULL,
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
-);
-
-CREATE TABLE IF NOT EXISTS faqs (
-  id         SERIAL PRIMARY KEY,
-  slug       TEXT UNIQUE NOT NULL,
-  sort       INT NOT NULL DEFAULT 0,
-  published  BOOLEAN NOT NULL DEFAULT TRUE,
-  data       JSONB NOT NULL,
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
-);
-
-CREATE TABLE IF NOT EXISTS inquiries (
-  id           SERIAL PRIMARY KEY,
-  name         TEXT NOT NULL,
-  email        TEXT NOT NULL,
-  phone        TEXT,
-  tour         TEXT,
-  tier         TEXT,
-  travel_month TEXT,
-  travellers   INT,
-  message      TEXT,
-  created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
-);
+-- Upgrade path for databases created before sort became BIGINT (no-op otherwise).
+ALTER TABLE cms_records ALTER COLUMN sort TYPE BIGINT;

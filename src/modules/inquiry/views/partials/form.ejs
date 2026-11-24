@@ -1,34 +1,75 @@
-<% const v = values || {}; const err = errors || {}; %>
-<form method="post" action="/inquiry" class="grid gap-4 sm:grid-cols-2" novalidate>
+<%
+  const v = values || {}; const err = errors || {};
+  const text = (n, l, t, req, extra) => `<div><label class="mb-1 block text-sm font-medium" for="f-${n}">${l}${req ? ' *' : ''}</label><input class="input" id="f-${n}" name="${n}" type="${t}" value="${String(v[n] === undefined ? '' : v[n]).replace(/"/g, '&quot;')}" ${req ? 'required' : ''} ${extra || ''}>${err[n] ? `<p class="mt-1 text-xs text-red-700">${err[n]}</p>` : ''}</div>`;
+  const stepper = (n, l, min, max, def) => `<div><span class="mb-1 block text-sm font-medium" id="l-${n}">${l}</span><div class="stepper flex items-center overflow-hidden rounded-lg border border-ink/20 bg-white" data-stepper><button type="button" data-step="-1" class="h-11 w-11 text-xl text-forest-500 hover:bg-mist" aria-label="Fewer ${l.toLowerCase()}">&minus;</button><input name="${n}" type="number" min="${min}" max="${max}" value="${v[n] === undefined || v[n] === '' ? def : v[n]}" aria-labelledby="l-${n}" class="h-11 w-full min-w-0 border-0 bg-transparent text-center text-base font-semibold focus:outline-none focus:ring-0"><button type="button" data-step="1" class="h-11 w-11 text-xl text-forest-500 hover:bg-mist" aria-label="More ${l.toLowerCase()}">+</button></div>${err[n] ? `<p class="mt-1 text-xs text-red-700">${err[n]}</p>` : ''}</div>`;
+%>
+<link rel="stylesheet" href="/vendor/flatpickr/flatpickr.min.css">
+<form method="post" action="/inquiry" class="space-y-8" novalidate data-quote-form data-today="<%= today %>">
   <div class="hidden" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-  <% [
-    { n: 'name', l: 'Full name', t: 'text', r: true },
-    { n: 'email', l: 'Email', t: 'email', r: true },
-    { n: 'phone', l: 'Phone / WhatsApp', t: 'tel' },
-    { n: 'travelMonth', l: 'Travel month', t: 'text' },
-    { n: 'travellers', l: 'Number of travellers', t: 'number' }
-  ].forEach(function (f) { %>
+
+  <fieldset class="space-y-5">
+    <legend class="eyebrow mb-1">1. Your safari and dates</legend>
     <div>
-      <label class="mb-1 block text-sm font-medium" for="f-<%= f.n %>"><%= f.l %><%= f.r ? ' *' : '' %></label>
-      <input class="input" id="f-<%= f.n %>" name="<%= f.n %>" type="<%= f.t %>" value="<%= v[f.n] || '' %>" <%= f.r ? 'required' : '' %>>
-      <% if (err[f.n]) { %><p class="mt-1 text-xs text-red-700"><%= err[f.n] %></p><% } %>
+      <label class="mb-1 block text-sm font-medium" for="f-tourSlug">Safari</label>
+      <select class="input" id="f-tourSlug" name="tourSlug" data-tour-select>
+        <option value="">Not sure yet: help me choose</option>
+        <% tourOptions.forEach(function (t) { %><option value="<%= t.slug %>" data-days="<%= t.days %>" <%= v.tourSlug === t.slug ? 'selected' : '' %>><%= t.title %> (<%= t.days %> day<%= t.days > 1 ? 's' : '' %>)</option><% }) %>
+      </select>
     </div>
-  <% }) %>
-  <div>
-    <label class="mb-1 block text-sm font-medium" for="f-tier">Safari style</label>
-    <select class="input" id="f-tier" name="tier">
-      <% [['not-sure','Not sure yet'],['luxury','Luxury'],['midrange','Midrange'],['budget','Budget']].forEach(function (o) { %>
-        <option value="<%= o[0] %>" <%= v.tier === o[0] ? 'selected' : '' %>><%= o[1] %></option>
-      <% }) %>
-    </select>
-  </div>
-  <div class="sm:col-span-2">
-    <label class="mb-1 block text-sm font-medium" for="f-tour">Tour of interest</label>
-    <input class="input" id="f-tour" name="tour" type="text" value="<%= v.tour || '' %>">
-  </div>
-  <div class="sm:col-span-2">
-    <label class="mb-1 block text-sm font-medium" for="f-message">Your message</label>
-    <textarea class="input" id="f-message" name="message" rows="5"><%= v.message || '' %></textarea>
-  </div>
-  <div class="sm:col-span-2"><button class="btn-gold" type="submit">Send my request</button></div>
+
+    <div>
+      <label class="mb-1 block text-sm font-medium" for="f-range">Travel dates</label>
+      <!-- With JavaScript: one calendar that selects the arrival and departure day. Without it: two plain date fields. -->
+      <div data-native class="grid gap-4 sm:grid-cols-2">
+        <%- text('startDate', 'Arrival date', 'date', false, `min="${today}"`) %>
+        <%- text('endDate', 'Departure date', 'date', false, `min="${today}"`) %>
+      </div>
+      <div data-picker hidden>
+        <div class="relative">
+          <input id="f-range" data-range type="text" readonly class="input cursor-pointer pr-10" placeholder="Choose arrival and departure dates" autocomplete="off">
+          <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-forest-500" aria-hidden="true">&#128197;</span>
+        </div>
+        <p class="mt-1.5 text-xs text-ink/60" data-range-hint>Pick the day you arrive. If you chose a safari, we add its length for you.</p>
+      </div>
+      <% if (err.startDate || err.endDate) { %><p class="mt-1 text-xs text-red-700"><%= err.startDate || err.endDate %></p><% } %>
+      <label class="mt-3 flex items-center gap-2 text-sm"><input type="checkbox" name="flexible" value="1" class="h-4 w-4 accent-forest-500" <%= v.flexible && v.flexible !== '0' ? 'checked' : '' %>> My dates are flexible by a few days</label>
+
+      <button type="button" data-no-dates aria-expanded="<%= v.travelMonth ? 'true' : 'false' %>" class="mt-3 text-sm font-semibold text-forest-500 underline">I don't have exact dates yet</button>
+      <div data-months class="mt-3 <%= v.travelMonth ? '' : 'hidden' %>">
+        <p class="mb-2 text-xs text-ink/60">Which month would you like to travel?</p>
+        <div class="grid grid-cols-3 gap-2 sm:grid-cols-4" role="radiogroup" aria-label="Travel month">
+          <% monthOptions.forEach(function (m) { %>
+            <label class="cursor-pointer"><input type="radio" name="travelMonth" value="<%= m.value %>" class="peer sr-only" <%= v.travelMonth === m.value ? 'checked' : '' %>>
+              <span class="block rounded-lg border border-ink/20 bg-white px-2 py-2 text-center text-sm font-semibold transition hover:border-forest-500 peer-checked:border-forest-500 peer-checked:bg-forest-500 peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-forest-400"><%= m.short %><span class="block text-[10px] font-normal opacity-70"><%= m.year %></span></span></label>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend class="eyebrow mb-3">2. Who is travelling?</legend>
+    <div class="grid max-w-md grid-cols-2 gap-4">
+      <%- stepper('adults', 'Adults', 1, 50, 2) %>
+      <%- stepper('children', 'Children (under 12)', 0, 30, 0) %>
+    </div>
+  </fieldset>
+
+  <fieldset class="space-y-4">
+    <legend class="eyebrow mb-2">3. How we reach you</legend>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <%- text('name', 'Full name', 'text', true) %>
+      <%- text('email', 'Email', 'email', true) %>
+      <%- text('phone', 'Phone / WhatsApp', 'tel', false) %>
+    </div>
+    <div>
+      <label class="mb-1 block text-sm font-medium" for="f-message">Anything else we should know?</label>
+      <textarea class="input" id="f-message" name="message" rows="5" placeholder="Interests, special occasions, mobility needs, budget range..."><%= v.message || '' %></textarea>
+    </div>
+  </fieldset>
+
+  <button class="btn-gold" type="submit">Send my request</button>
+  <p class="text-xs text-ink/55">We reply within 24 hours. Your details are only used to plan your safari.</p>
 </form>
+<script src="/vendor/flatpickr/flatpickr.min.js" defer></script>
+<script src="/js/quote-form.js" defer></script>

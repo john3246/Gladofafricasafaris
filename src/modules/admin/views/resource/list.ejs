@@ -1,0 +1,112 @@
+<%
+  const key = def.collection.keyField;
+  const qs = (o) => new URLSearchParams(Object.fromEntries(Object.entries({ q, status, filter, sort: sortCol, dir, ...o }).filter(([, v]) => v !== '' && v !== undefined && v !== null))).toString();
+  const BADGE = { luxury: 'a-badge-amber', midrange: 'a-badge-blue', budget: 'a-badge-green', northern: 'a-badge-green', southern: 'a-badge-amber', trekking: 'a-badge-blue', zanzibar: 'a-badge-blue',
+    confirmed: 'a-badge-green', completed: 'a-badge-green', pending: 'a-badge-blue', 'pending-payment': 'a-badge-amber', cancelled: 'a-badge-red', on: 'a-badge-green', off: 'a-badge-gray', subscribed: 'a-badge-green', unsubscribed: 'a-badge-gray' };
+  const filtering = q || status || filter;
+%>
+<div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+  <div>
+    <nav class="mb-1 text-[13px] text-ink/50"><a class="hover:text-forest-500" href="/admin">Dashboard</a> / <%= def.label %></nav>
+    <h1><%= def.label %></h1>
+    <p class="text-sm text-ink/55"><%= total %> total<% if (count !== total) { %> &middot; <%= count %> match<% } %></p>
+  </div>
+  <div class="flex flex-wrap gap-2">
+    <a href="<%= base %>/export.csv?<%= qs({ page: '' }) %>" class="a-btn-ghost"><%- include('../partials/icon', { n: 'download', s: 16 }) %> Export CSV</a>
+    <% if (canCreate) { %><a href="<%= base %>/new" class="a-btn-primary"><%- include('../partials/icon', { n: 'plus', s: 16 }) %> Add <%= def.singular.toLowerCase() %></a><% } %>
+  </div>
+</div>
+
+<form class="a-card mb-4 flex flex-wrap items-center gap-3 p-3" method="get">
+  <div class="relative min-w-[220px] flex-1"><span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-ink/35"><%- include('../partials/icon', { n: 'search', s: 16 }) %></span>
+    <input class="input !py-2 !pl-9" name="q" value="<%= q %>" placeholder="Search <%= def.label.toLowerCase() %>..." aria-label="Search"></div>
+  <% if (publishing) { %>
+  <select class="input !w-auto !py-2" name="status" data-autosubmit aria-label="Status">
+    <option value="">All statuses</option><option value="published" <%= status === 'published' ? 'selected' : '' %>>Published</option><option value="draft" <%= status === 'draft' ? 'selected' : '' %>>Drafts</option>
+  </select>
+  <% } %>
+  <% if (def.filters) { %>
+    <select class="input !w-auto !py-2" name="filter" data-autosubmit aria-label="<%= def.filters.label %>">
+      <option value="">All <%= def.filters.label.toLowerCase() %>s</option>
+      <% filterOptions.forEach(function (o) { %><option value="<%= o.value %>" <%= filter === o.value ? 'selected' : '' %>><%= o.label %></option><% }) %>
+    </select>
+  <% } %>
+  <input type="hidden" name="sort" value="<%= sortCol %>"><input type="hidden" name="dir" value="<%= dir %>">
+  <button class="a-btn-ghost !py-2">Search</button>
+  <% if (filtering) { %><a href="<%= base %>" class="text-sm font-medium text-ink/55 hover:text-forest-500">Clear filters</a><% } %>
+</form>
+
+<form id="bulk-form" method="post" action="<%= base %>/bulk"><input type="hidden" name="_csrf" value="<%= csrf %>"></form>
+<div id="bulk-bar" class="a-card sticky top-16 z-10 mb-3 hidden flex-wrap items-center gap-3 border-l-4 border-forest-500 p-3" data-bulk-bar>
+  <strong class="text-sm"><span data-bulk-count>0</span> selected</strong>
+  <select name="action" form="bulk-form" class="input !w-auto !py-2" data-bulk-action aria-label="Bulk action" required>
+    <option value="">Choose action...</option>
+    <% bulkActions.forEach(function (a) { %><option value="<%= a.value %>" data-input="<%= a.input ? a.input.name : '' %>" data-placeholder="<%= a.input ? a.input.placeholder : '' %>"><%= a.label %></option><% }) %>
+  </select>
+  <input data-bulk-input form="bulk-form" name="percent" class="input hidden !w-40 !py-2" aria-label="Value">
+  <button form="bulk-form" class="a-btn-primary !py-2" data-confirm-bulk>Apply</button>
+</div>
+
+<div class="a-card overflow-x-auto">
+  <table class="a-table w-full min-w-[680px]">
+    <thead><tr>
+      <th class="w-10"><input type="checkbox" data-select-all class="h-4 w-4 accent-forest-500" aria-label="Select all"></th>
+      <% def.columns.forEach(function (c, ci) { const on = String(ci) === String(sortCol); %>
+        <th class="<%= c.align === 'right' ? '!text-right' : '' %>"><a class="inline-flex items-center gap-1 hover:text-forest-600 <%= on ? 'text-forest-600' : '' %>" href="?<%= qs({ sort: ci, dir: on && dir === 'asc' ? 'desc' : 'asc', page: '' }) %>"><%= c.label %><span class="text-[9px]"><%= on ? (dir === 'asc' ? '▲' : '▼') : '' %></span></a></th>
+      <% }) %>
+      <% if (publishing) { %><th>Status</th><% } %><th class="!text-right">Actions</th>
+    </tr></thead>
+    <tbody>
+      <% items.forEach(function (d) { const k = encodeURIComponent(d[key]); %>
+        <tr class="group">
+          <td><input type="checkbox" name="keys" value="<%= d[key] %>" form="bulk-form" data-row-check class="h-4 w-4 accent-forest-500" aria-label="Select <%= titleOf(d) %>"></td>
+          <% def.columns.forEach(function (c, ci) { %>
+            <td class="<%= c.align === 'right' ? 'text-right' : '' %> <%= ci === 0 ? 'max-w-[380px]' : '' %>">
+              <% if (ci === 0) { %>
+                <div class="flex items-center gap-3">
+                  <% if (c.thumb) { %><div class="media-box h-12 w-16 shrink-0 rounded-md"><% if (c.thumb(d)) { %><img src="<%= c.thumb(d) %>" alt="" loading="lazy"><% } %></div><% } %>
+                  <div class="min-w-0">
+                    <a class="block truncate font-semibold text-ink hover:text-forest-500" href="<%= base %>/<%= k %>/edit"><%= c.cell(d) %></a>
+                    <% if (c.sub && c.sub(d)) { %><span class="block truncate text-xs text-ink/50"><%= c.sub(d) %></span><% } %>
+                  </div>
+                </div>
+              <% } else if (c.badge) { %><span class="<%= BADGE[String(c.cell(d)).toLowerCase().replace(/\s+/g, '-')] || 'a-badge-gray' %>"><%= c.cell(d) %></span>
+              <% } else { %><%= c.cell(d) %><% } %>
+            </td>
+          <% }) %>
+          <% if (publishing) { %>
+          <td><form method="post" action="<%= base %>/<%= k %>/toggle"><input type="hidden" name="_csrf" value="<%= csrf %>">
+            <button class="<%= isDraft(d) ? 'a-badge-amber' : 'a-badge-green' %> cursor-pointer hover:opacity-80" title="Click to <%= isDraft(d) ? 'publish' : 'unpublish' %>"><span class="mr-1.5 h-1.5 w-1.5 rounded-full bg-current"></span><%= isDraft(d) ? 'Draft' : 'Published' %></button></form></td>
+          <% } %>
+          <td class="text-right">
+            <div class="flex justify-end gap-0.5 opacity-70 transition group-hover:opacity-100">
+              <a class="rounded-md p-2 text-ink/60 hover:bg-mist hover:text-forest-500" title="Edit" href="<%= base %>/<%= k %>/edit"><%- include('../partials/icon', { n: 'edit', s: 17 }) %></a>
+              <% if (def.publicUrl && publishing) { %><a class="rounded-md p-2 text-ink/60 hover:bg-mist hover:text-forest-500" title="View on website" target="_blank" rel="noopener" href="<%= def.publicUrl(d) %>"><%- include('../partials/icon', { n: 'eye', s: 17 }) %></a><% } %>
+              <% if (canDelete && !isLocked(d)) { %><form method="post" action="<%= base %>/<%= k %>/delete"><input type="hidden" name="_csrf" value="<%= csrf %>">
+                <button class="rounded-md p-2 text-ink/60 hover:bg-red-50 hover:text-red-700" title="Delete" data-confirm="Delete &quot;<%= titleOf(d) %>&quot;? You can restore it from the Audit Log."><%- include('../partials/icon', { n: 'trash', s: 17 }) %></button></form><% } %>
+            </div>
+          </td>
+        </tr>
+      <% }) %>
+      <% if (!items.length) { %>
+        <tr><td colspan="<%= def.columns.length + 3 %>" class="py-14 text-center">
+          <span class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-mist text-forest-500"><%- include('../partials/icon', { n: def.icon || 'file', s: 26 }) %></span>
+          <p class="font-semibold"><%= filtering ? 'Nothing matches your filters' : `No ${def.label.toLowerCase()} yet` %></p>
+          <p class="mt-1 text-sm text-ink/50"><%= filtering ? 'Try a different search or clear the filters.' : `Create your first ${def.singular.toLowerCase()} to get started.` %></p>
+          <% if (canCreate && !filtering) { %><a href="<%= base %>/new" class="a-btn-primary mt-4">Add <%= def.singular.toLowerCase() %></a><% } %>
+        </td></tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<% if (pages > 1) { %>
+  <nav class="mt-5 flex items-center justify-between text-sm" aria-label="Pagination">
+    <span class="text-ink/50">Page <%= page %> of <%= pages %></span>
+    <div class="flex gap-1">
+      <% if (page > 1) { %><a class="a-btn-ghost !px-3 !py-1.5" href="?<%= qs({ page: page - 1 }) %>">&larr; Prev</a><% } %>
+      <% for (let p = Math.max(1, page - 2); p <= Math.min(pages, page + 2); p++) { %><a class="rounded-lg px-3 py-1.5 font-semibold <%= p === page ? 'bg-forest-500 text-white' : 'bg-white ring-1 ring-black/5 hover:bg-mist' %>" href="?<%= qs({ page: p === 1 ? '' : p }) %>"><%= p %></a><% } %>
+      <% if (page < pages) { %><a class="a-btn-ghost !px-3 !py-1.5" href="?<%= qs({ page: page + 1 }) %>">Next &rarr;</a><% } %>
+    </div>
+  </nav>
+<% } %>

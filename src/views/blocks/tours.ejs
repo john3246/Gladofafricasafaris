@@ -1,0 +1,58 @@
+<% const tours = d.tours; if (tours.length) { %>
+<% if (b.layout === 'spotlight') { const t = tours[0]; %>
+<section class="on-dark relative isolate overflow-hidden bg-forest-950 text-white">
+  <img src="<%= t.image %>" alt="" width="1600" height="600" loading="lazy" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-40">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-forest-950/90 to-forest-950/40"></div>
+  <div class="container-site grid items-center gap-8 py-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:py-16">
+    <div>
+      <% if (b.eyebrow) { %><p class="eyebrow"><%= b.eyebrow %></p><% } %>
+      <h2 class="mt-2"><%- b.heading ? b.headingHtml : t.title %></h2>
+      <p class="mt-2 font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold"><%= t.days %> days &middot; from USD <%= t.priceFrom.toLocaleString('en-US') %> per person<% if (t.priceWas) { %> (was <%= t.priceWas.toLocaleString('en-US') %>)<% } %></p>
+      <p class="mt-4 max-w-xl text-white/85"><%= b.intro || t.summary %></p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <% b.buttons.forEach(function (x) { %><a href="<%= x.href %>" class="btn-light"><%= x.label %></a><% }) %>
+        <a href="/book/<%= t.slug %>" class="btn-primary">Book this safari</a>
+      </div>
+    </div>
+    <div class="border border-white/15 bg-black/30 p-6 backdrop-blur">
+      <p class="eyebrow">Highlights</p>
+      <ul class="check-list mt-4 space-y-2 text-sm text-white/90"><% (t.highlights || []).slice(0, 4).forEach(function (h) { %><li><%= h %></li><% }) %></ul>
+    </div>
+  </div>
+</section>
+<% } else if (b.layout === 'carousel') { %>
+<section class="<%= b.t.cls %> py-10 sm:py-14 lg:py-16">
+  <div class="container-site" data-carousel>
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div class="max-w-3xl">
+        <% if (b.eyebrow) { %><p class="eyebrow"><%= b.eyebrow %></p><% } %>
+        <% if (b.heading) { %><h2 class="mt-2"><%- b.headingHtml %></h2><% } %>
+        <% if (b.intro) { %><p class="lede mt-2"><%= b.intro %></p><% } %>
+      </div>
+      <div class="flex gap-2">
+        <button data-prev class="flex h-11 w-11 items-center justify-center rounded-full border border-ink/20 hover:bg-forest-900 hover:text-white" aria-label="Previous">&larr;</button>
+        <button data-next class="flex h-11 w-11 items-center justify-center rounded-full border border-ink/20 hover:bg-forest-900 hover:text-white" aria-label="Next">&rarr;</button>
+      </div>
+    </div>
+    <div data-track class="scrollbar-none mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4">
+      <% tours.forEach(function (tour) { %><%- include('../partials/signature-card', { tour: tour }) %><% }) %>
+    </div>
+    <% if (b.buttons.length) { %><div class="mt-4 text-center"><%- include('_buttons', { b: b, cls: 'justify-center' }) %></div><% } %>
+  </div>
+</section>
+<% } else { %>
+<section class="<%= b.t.cls %> py-10 sm:py-14 lg:py-16">
+  <div class="container-site">
+    <%- include('_head', { b: b }) %>
+    <% if (d.categories.length) { %>
+      <ul class="mt-6 flex flex-wrap gap-2 text-[12px] font-bold uppercase tracking-wider">
+        <% d.categories.forEach(function (c) { %><li><a href="/tanzania-safaris/<%= c.slug %>" class="inline-block rounded-full border border-current/30 px-4 py-2 hover:bg-forest-900 hover:text-white"><%= c.menuLabel || c.name %></a></li><% }) %>
+      </ul>
+    <% } %>
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 <%= tours.length === 2 ? 'lg:grid-cols-2' : tours.length >= 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3' %>">
+      <% tours.forEach(function (tour) { %><%- include('../partials/tour-card', { tour: tour }) %><% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+<% } %>

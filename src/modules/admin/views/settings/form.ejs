@@ -1,0 +1,11 @@
+<div class="mb-5"><h1><%= pageTitle %></h1><% if (intro) { %><p class="text-sm text-ink/55"><%= intro %></p><% } %></div>
+<form method="post" action="<%= action %>" class="max-w-3xl space-y-6" novalidate>
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <% sections.forEach(function (s) { %>
+    <section class="a-card p-5 md:p-6">
+      <h2 class="mb-4"><%= s.title %></h2>
+      <div class="grid gap-x-5 sm:grid-cols-2"><% s.fields.forEach(function (f) { %><%- include('../partials/field', { f, value: toInput(f, doc[f.name]), errors, opts, isNew: false }) %><% }) %></div>
+    </section>
+  <% }) %>
+  <button class="a-btn-primary"><%- include('../partials/icon', { n: 'check', s: 16 }) %> Save settings</button>
+</form>

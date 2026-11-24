@@ -1,7 +1,24 @@
 <%- include('partials/page-hero', { title: 'Travel tips <em>and advice</em>', sub: 'Essential tips to help you travel smarter, stay comfortable, and make the most of your trip: costs, seasons, the Great Migration and northern circuit planning.', image: '/images/blog/great-migration-safari.webp' }) %>
 <section class="bg-stone py-12">
-  <div class="container-site grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-    <% posts.forEach(function (post) { %><%- include('partials/post-card', { post: post }) %><% }) %>
+  <div class="container-site">
+    <% if (categories.length > 1) { %>
+      <nav aria-label="Blog categories" class="scrollbar-none mb-8 flex gap-2 overflow-x-auto text-[12px] font-bold uppercase tracking-wider">
+        <a href="/blog" class="whitespace-nowrap rounded-full px-4 py-2 <%= !category && !tag ? 'bg-forest-900 text-white' : 'bg-white hover:bg-forest-900 hover:text-white' %>">All</a>
+        <% categories.forEach(function (c) { %><a href="/blog?category=<%= encodeURIComponent(c) %>" class="whitespace-nowrap rounded-full px-4 py-2 <%= category === c ? 'bg-forest-900 text-white' : 'bg-white hover:bg-forest-900 hover:text-white' %>"><%= c %></a><% }) %>
+      </nav>
+    <% } %>
+    <% if (tag) { %><p class="mb-6 text-sm">Articles tagged <strong>#<%= tag %></strong> &middot; <a class="text-forest-500 underline" href="/blog">show all</a></p><% } %>
+    <% if (!posts.length) { %><p class="py-10 text-center text-ink/60">No articles here yet. <a class="text-forest-500 underline" href="/blog">See all articles</a>.</p><% } %>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <% posts.forEach(function (post) { %><%- include('partials/post-card', { post: post }) %><% }) %>
+    </div>
+    <% if (pages > 1) { %>
+      <nav class="mt-10 flex flex-wrap justify-center gap-2" aria-label="Pagination">
+        <% for (let i = 1; i <= pages; i++) { %>
+          <a href="/blog?<%= category ? 'category=' + encodeURIComponent(category) + '&' : '' %><%= tag ? 'tag=' + encodeURIComponent(tag) + '&' : '' %>page=<%= i %>" class="flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold <%= i === page ? 'bg-forest-900 text-white' : 'bg-white hover:bg-forest-900 hover:text-white' %>"><%= i %></a>
+        <% } %>
+      </nav>
+    <% } %>
   </div>
 </section>
 <%- include('partials/cta-band') %>

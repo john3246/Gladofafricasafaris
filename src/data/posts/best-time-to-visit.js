@@ -3,7 +3,7 @@ module.exports = {
   title: 'Best Time to Visit Tanzania for a Safari: Month-by-Month Guide',
   excerpt: 'Dry season, calving season, river crossings and green season explained, so you can pick the right month for your northern circuit safari.',
   category: 'Planning',
-  image: '/images/destinations/serengeti-national-park.webp',
+  image: '/images/tours/2-days-tarangire-lake-manyara-maasai-village-safari-4.webp',
   published: '2026-02-25',
   readMinutes: 7,
   metaTitle: 'Best Time to Visit Tanzania for Safari (Month-by-Month Guide)',

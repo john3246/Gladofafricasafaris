@@ -1,0 +1,5 @@
+<%- include('partials/page-hero', { title: page.title, sub: page.subtitle }) %>
+<section class="section bg-white">
+  <div class="container-site max-w-4xl prose-site"><%- page.body %></div>
+</section>
+<% if (typeof blocks !== 'undefined' && blocks.length) { %><%- include('blocks/index', { blocks: blocks }) %><% } %>

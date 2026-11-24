@@ -1,23 +1,94 @@
-<%- include('partials/page-hero', { title: post.title, sub: '', image: post.image }) %>
+<%- include('partials/page-hero', { title: post.title, sub: '' }) %>
+<% if (preview) { %><div class="bg-gold px-4 py-2 text-center text-sm font-bold text-forest-950">Preview: <%= post.draft ? 'this post is a draft' : post.published > new Date().toISOString().slice(0, 10) ? 'this post is scheduled for ' + post.published : 'this is how the post looks live' %>. Visitors cannot see it yet.</div><% } %>
+<% const heads = toc.filter(function (t) { return t.level === 2; }); %>
+<% const tocHtml = heads.length >= 3; %>
 <article class="section bg-white">
-  <div class="container-site max-w-3xl">
-    <p class="font-mono text-[11px] uppercase tracking-wider text-ink/55">Glad &middot; <time datetime="<%= post.published %>"><%= longDate(post.published) %></time> &middot; <%= post.readMinutes %> min read</p>
-    <div class="prose-site mt-6">
-      <% post.sections.forEach(function (s) { %>
-        <% if (s.h) { %><h2><%= s.h %></h2><% } %>
-        <% s.p.forEach(function (p) { %><p><%= p %></p><% }) %>
-      <% }) %>
+  <div class="container-site grid gap-10 lg:grid-cols-[minmax(0,1fr)_330px] xl:gap-14">
+    <div class="min-w-0">
+      <p class="font-mono text-[11px] uppercase tracking-wider text-ink/55">
+        <%= post.author || 'Glad Of Africa' %> &middot; <time datetime="<%= post.published %>"><%= longDate(post.published) %></time> &middot; <%= post.readMinutes %> min read
+        <% if (post.category) { %> &middot; <a class="text-forest-500 hover:underline" href="/blog?category=<%= encodeURIComponent(post.category) %>"><%= post.category %></a><% } %>
+      </p>
+      <% if (post.excerpt) { %><p class="mt-4 font-serif text-2xl italic leading-snug text-ink/80 md:text-[1.7rem]"><%= post.excerpt %></p><% } %>
+      <% if (post.image) { %><div class="media-box mt-6 aspect-[16/9]"><img src="<%= post.image %>" alt="<%= post.imageAlt || post.title %>" width="1100" height="620" fetchpriority="high"></div><% } %>
+
+      <% if (tocHtml) { %>
+        <nav aria-label="Table of contents" class="my-8 border-l-4 border-forest-500 bg-sand p-5 lg:hidden">
+          <p class="eyebrow">In this article</p>
+          <ol class="mt-2 list-decimal space-y-1 pl-5 text-[15px]"><% heads.forEach(function (t) { %><li><a class="hover:text-forest-500 hover:underline" href="#<%= t.id %>"><%= t.text %></a></li><% }) %></ol>
+        </nav>
+      <% } %>
+
+      <div class="prose-site mt-8 text-[17px]"><%- articleHtml %></div>
+      <%- include('partials/extras', { extras: extras }) %>
+
+      <% if ((post.tags || []).length) { %>
+        <ul class="mt-8 flex flex-wrap gap-2 text-[12px]"><% post.tags.forEach(function (t) { %><li><a class="rounded-full border border-ink/20 px-3 py-1 hover:bg-forest-900 hover:text-white" href="/blog?tag=<%= encodeURIComponent(t) %>">#<%= t %></a></li><% }) %></ul>
+      <% } %>
+
+      <% const url = encodeURIComponent(canonical); const ttl = encodeURIComponent(post.title); %>
+      <div class="mt-8 flex flex-wrap items-center gap-3 border-y border-ink/10 py-4 text-sm">
+        <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-ink/55">Share</span>
+        <a class="rounded-full bg-[#25D366] px-4 py-1.5 font-bold text-white" target="_blank" rel="noopener" href="https://wa.me/?text=<%= ttl %>%20<%= url %>">WhatsApp</a>
+        <a class="rounded-full bg-[#1877F2] px-4 py-1.5 font-bold text-white" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=<%= url %>">Facebook</a>
+        <a class="rounded-full bg-black px-4 py-1.5 font-bold text-white" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=<%= ttl %>&url=<%= url %>">X</a>
+        <a class="rounded-full bg-ink/80 px-4 py-1.5 font-bold text-white" href="mailto:?subject=<%= ttl %>&body=<%= url %>">Email</a>
+      </div>
+
+      <aside class="mt-8 flex items-center gap-4 bg-sand p-5">
+        <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-forest-500 font-display text-2xl text-white"><%= (post.author || 'Glad Of Africa').charAt(0) %></span>
+        <p class="text-sm"><strong>Written by <%= post.author || 'the Glad Of Africa team' %></strong><br><span class="text-ink/70">Local safari experts based in Arusha, Tanzania. <a class="font-bold text-forest-500 underline" href="/get-a-quote">Ask us to plan your safari</a>.</span></p>
+      </aside>
     </div>
+
+    <aside class="min-w-0 space-y-6 lg:sticky lg:top-28 lg:h-fit">
+      <% if (tocHtml) { %>
+        <nav aria-label="Table of contents" class="hidden border-l-4 border-forest-500 bg-sand p-5 lg:block">
+          <p class="eyebrow">In this article</p>
+          <ol class="mt-2 list-decimal space-y-1.5 pl-5 text-sm"><% heads.forEach(function (t) { %><li><a class="hover:text-forest-500 hover:underline" href="#<%= t.id %>"><%= t.text %></a></li><% }) %></ol>
+        </nav>
+      <% } %>
+      <div class="bg-forest-900 p-6 text-white on-dark">
+        <p class="eyebrow">Plan your safari</p>
+        <h2 class="mt-1 !text-2xl">Get a free, tailor-made quote</h2>
+        <p class="mt-2 text-sm text-white/80">Tell us your dates and interests. A travel expert in Arusha replies within 24 hours.</p>
+        <a href="/get-a-quote" class="btn-gold mt-4 w-full">Get a free quote</a>
+        <a href="<%= site.whatsapp %>" target="_blank" rel="noopener" class="btn-light mt-2 w-full">Ask on WhatsApp</a>
+      </div>
+      <% if (tours.length) { %>
+        <div class="bg-sand p-5">
+          <p class="eyebrow">Related safaris</p>
+          <ul class="mt-3 space-y-4">
+            <% tours.slice(0, 3).forEach(function (t) { %>
+              <li><a href="/tours/<%= t.slug %>" class="group flex gap-3">
+                <span class="media-box h-16 w-20 shrink-0"><img src="<%= t.image %>" alt="<%= t.title %>" width="160" height="128" loading="lazy"></span>
+                <span class="text-sm font-bold leading-snug group-hover:text-forest-500"><%= t.title %><span class="mt-0.5 block text-xs font-normal text-ink/60">From $<%= t.priceFrom.toLocaleString('en-US') %> pp</span></span>
+              </a></li>
+            <% }) %>
+          </ul>
+        </div>
+      <% } %>
+    </aside>
   </div>
 </article>
+<% if (finder) { %><%- include('partials/finder', { finder: finder }) %><% } %>
 <% if (tours.length) { %>
 <section class="bg-sand py-12">
   <div class="container-site">
     <p class="eyebrow">Related safaris</p>
     <h2 class="mt-2">Ready to <em>go?</em></h2>
-    <div class="mt-8 grid gap-5 md:grid-cols-3">
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       <% tours.forEach(function (tour) { %><%- include('partials/tour-card', { tour: tour }) %><% }) %>
     </div>
+  </div>
+</section>
+<% } %>
+<% if (related.length) { %>
+<section class="bg-stone py-12">
+  <div class="container-site">
+    <p class="eyebrow">Keep reading</p>
+    <h2 class="mt-2">More <em>travel tips</em></h2>
+    <div class="mt-8 grid gap-5 md:grid-cols-3"><% related.forEach(function (p) { %><%- include('partials/post-card', { post: p }) %><% }) %></div>
   </div>
 </section>
 <% } %>

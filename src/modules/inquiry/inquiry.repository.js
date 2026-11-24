@@ -1,14 +1,10 @@
-const { state } = require('../../db/pool');
-const logger = require('../../utils/logger');
+const { inquiries } = require('../../store/collections');
+const { newId } = require('../../store');
 
+/** Saves a quote request with the fields the CMS inbox needs (status workflow + internal notes). */
 exports.save = async (i) => {
-  if (!state.pool) {
-    logger.info('Inquiry received (no DB):', JSON.stringify(i));
-    return;
-  }
-  await state.pool.query(
-    `INSERT INTO inquiries (name, email, phone, tour, tier, travel_month, travellers, message)
-     VALUES ($1,$2,$3,$4,$5,$6,$7,$8)`,
-    [i.name, i.email, i.phone, i.tour, i.tier, i.travelMonth, i.travellers, i.message]
-  );
+  const record = { ...i, id: newId('q'), status: 'new', notes: [], createdAt: new Date().toISOString() };
+  delete record.website;
+  await inquiries.put(record);
+  return record;
 };

@@ -3,7 +3,7 @@ module.exports = {
   title: 'Great Migration Calendar: Where Are the Herds Each Month?',
   excerpt: 'Follow the wildebeest through the Serengeti month by month, from calving in Ndutu to river crossings in the north.',
   category: 'Migration',
-  image: '/images/hero.webp',
+  image: '/images/tours/3-day-luxury-fly-in-safari-3.webp',
   published: '2026-05-12',
   readMinutes: 6,
   metaTitle: 'Great Migration Calendar Tanzania: Where Are the Herds by Month?',

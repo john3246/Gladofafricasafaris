@@ -1,0 +1,22 @@
+<div class="mb-5">
+  <p class="text-sm text-ink/55"><a class="hover:underline" href="<%= base %>"><%= def.label %></a> / <a class="hover:underline" href="<%= base %>/<%= encodeURIComponent(doc[def.collection.keyField]) %>/edit"><%= titleOf(doc) %></a> / History</p>
+  <h1>Version history</h1>
+  <p class="text-sm text-ink/55">Each save keeps the previous version. Restoring one also keeps the current version in this list.</p>
+</div>
+<div class="a-card overflow-x-auto">
+  <table class="a-table w-full">
+    <thead><tr><th>Saved</th><th>By</th><th>Title in that version</th><th class="!text-right">Action</th></tr></thead>
+    <tbody>
+      <% revs.forEach(function (r) { %>
+        <tr>
+          <td><%= new Date(r.at).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' }) %></td>
+          <td><%= r.by || 'system' %></td>
+          <td class="max-w-md truncate"><%= titleOf(r.data) %></td>
+          <td class="text-right"><form method="post" action="<%= base %>/<%= encodeURIComponent(doc[def.collection.keyField]) %>/restore/<%= r.id %>"><input type="hidden" name="_csrf" value="<%= csrf %>">
+            <button class="a-btn-ghost !py-1.5" data-confirm="Restore this version?">Restore</button></form></td>
+        </tr>
+      <% }) %>
+      <% if (!revs.length) { %><tr><td colspan="4" class="py-10 text-center text-ink/50">No earlier versions yet. They appear after the first edit.</td></tr><% } %>
+    </tbody>
+  </table>
+</div>

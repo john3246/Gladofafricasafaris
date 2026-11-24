@@ -3,6 +3,9 @@ const d = (slug, label) => ({ label, href: `/destinations/${slug}` });
 
 module.exports = {
   topLinks: [
+    { label: 'Offers', href: '/offers' },
+    { label: 'Reviews', href: '/reviews' },
+    { label: 'Accommodations', href: '/accommodations' },
     { label: 'Blog', href: '/blog' },
     { label: 'About Us', href: '/about-us' },
     { label: 'FAQs', href: '/faqs' },
@@ -14,7 +17,7 @@ module.exports = {
     { label: 'Midrange Lodge Safaris', href: '/tanzania-safaris/midrange' },
     { label: 'Budget Safaris', href: '/tanzania-safaris/budget' },
     { label: 'Hiking & Trekking', href: '/tanzania-safaris/trekking' },
-    { label: 'Day Trip Experience', href: '/tanzania-safaris/day-trips' },
+    { label: 'Day Excursions', href: '/tanzania-safaris/day-trips' },
   ],
   destinationGroups: [
     {
@@ -67,7 +70,8 @@ module.exports = {
   footerLinks: [
     { label: 'Terms And Conditions', href: '/terms-and-conditions' },
     { label: 'Privacy & Policy', href: '/privacy-policy' },
-    { label: 'Contact Channels', href: '/contact-us' },
+    { label: 'Travel Insurance', href: '/travel-insurance' },
+  { label: 'Contact Channels', href: '/contact-us' },
     { label: 'About Us', href: '/about-us' },
     { label: 'Travel Blog & Tips', href: '/blog' },
     { label: 'Get a Quote', href: '/get-a-quote' },

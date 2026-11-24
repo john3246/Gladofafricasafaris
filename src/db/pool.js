@@ -13,6 +13,11 @@ async function initDb() {
     state.pool = pool;
     logger.info('PostgreSQL connected');
   } catch (err) {
+    if (env.isProd) {
+      // Never run production on the file fallback: edits would silently be lost or split across stores.
+      logger.error(`PostgreSQL unavailable in production (${err.message}); exiting so the service manager retries`);
+      process.exit(1);
+    }
     logger.warn(`PostgreSQL unavailable (${err.message}); falling back to seed data`);
   }
 }

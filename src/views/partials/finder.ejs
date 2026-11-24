@@ -1,0 +1,31 @@
+<%# Safari price and itinerary finder. params: finder (from showcase/finder.data). Works with public/js/safari-finder.js; no inline script. %>
+<% if (finder && finder.tours.length) { %>
+<section class="bg-sand py-10 sm:py-12" data-safari-finder>
+  <div class="container-site max-w-4xl">
+    <p class="eyebrow">Price finder</p>
+    <h2 class="mt-2">Estimate your <em>safari price</em></h2>
+    <p class="mt-3 text-ink/70">Choose when you travel, the kind of safari, the days and the number of travellers. You see a real safari from our price list and an estimated total. Your free quote confirms the exact price.</p>
+    <form class="mt-6 grid gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 sm:grid-cols-2 lg:grid-cols-4" data-finder-form action="/get-a-quote" method="get">
+      <label class="block text-sm font-semibold">Travel month
+        <select name="month" class="mt-1 w-full rounded-lg border border-ink/15 px-3 py-2.5 font-normal" data-finder-month>
+          <% ['January','February','March','April','May','June','July','August','September','October','November','December'].forEach(function (m, i) { %><option value="<%= i + 1 %>"><%= m %></option><% }) %>
+        </select>
+      </label>
+      <label class="block text-sm font-semibold">Safari type
+        <select name="type" class="mt-1 w-full rounded-lg border border-ink/15 px-3 py-2.5 font-normal" data-finder-type>
+          <% finder.types.forEach(function (t) { %><option value="<%= t.value %>"><%= t.label %></option><% }) %>
+        </select>
+      </label>
+      <label class="block text-sm font-semibold">Days
+        <input type="number" name="days" min="1" max="14" value="6" class="mt-1 w-full rounded-lg border border-ink/15 px-3 py-2.5 font-normal" data-finder-days>
+      </label>
+      <label class="block text-sm font-semibold">Travellers
+        <input type="number" name="travellers" min="1" max="20" value="2" class="mt-1 w-full rounded-lg border border-ink/15 px-3 py-2.5 font-normal" data-finder-travellers>
+      </label>
+      <div class="sm:col-span-2 lg:col-span-4"><button type="submit" class="btn-primary">Show my estimate</button></div>
+    </form>
+    <div class="mt-5 hidden rounded-2xl bg-white p-5 ring-1 ring-black/5" data-finder-result aria-live="polite"></div>
+    <script type="application/json" data-finder-data><%- JSON.stringify(finder).replace(/</g, '\\u003c') %></script>
+  </div>
+</section>
+<% } %>

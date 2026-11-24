@@ -26,16 +26,105 @@
   .btn-gold { @apply btn bg-gold text-forest-950 hover:bg-gold-light; }
   .btn-dark { @apply btn bg-forest-900 text-white hover:bg-forest-600; }
   .btn-outline { @apply btn border border-ink/25 text-ink hover:bg-ink hover:text-white; }
-  .card-tour { @apply flex h-full min-w-0 flex-col overflow-hidden border border-ink/10 bg-white transition hover:-translate-y-0.5 hover:shadow-xl; }
+  .lodge-chip { @apply rounded-full border border-ink/20 bg-white px-4 py-2 text-[12px] font-bold uppercase tracking-wider text-ink transition hover:border-forest-500; }
+  .lodge-chip.is-on { @apply border-forest-500 bg-forest-500 text-white; }
+  .card-tour { @apply flex h-full min-w-0 flex-col overflow-hidden border border-ink/10 bg-white text-ink transition hover:shadow-xl; }
+  .card-tour img { @apply transition duration-500; }
+  .card-tour:hover img { @apply scale-105; }
+  .card-tour h2, .card-tour h3, .on-dark .card-tour h2, .on-dark .card-tour h3, .card-tour h2 a, .card-tour h3 a, .on-dark .card-tour h2 a, .on-dark .card-tour h3 a { @apply text-forest-900; }
+  .card-tour:hover h2, .card-tour:hover h3, .card-tour:hover h2 a, .card-tour:hover h3 a, .on-dark .card-tour:hover h2, .on-dark .card-tour:hover h3, .on-dark .card-tour:hover h2 a, .on-dark .card-tour:hover h3 a { @apply text-forest-500; }
+  .card-body { @apply flex flex-1 flex-col p-5; }
+  .card-title { @apply font-serif text-xl font-bold leading-snug; }
+  .card-cta { @apply mt-auto pt-4 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-forest-500; }
   .media-box { @apply relative overflow-hidden bg-gradient-to-br from-forest-600 to-forest-950; }
   .media-box img { @apply absolute inset-0 h-full w-full object-cover; }
   .prose-site p { @apply mb-4 leading-relaxed; }
   .prose-site h2 { @apply mb-3 mt-9 text-3xl; }
   .prose-site h3 { @apply mb-2 mt-7 text-2xl; }
   .prose-site ul { @apply mb-4 list-disc pl-6; }
+  .prose-site ol { @apply mb-4 list-decimal pl-6; }
+  .prose-site li { @apply mb-1.5; }
+  .prose-site h4 { @apply mb-2 mt-5 text-xl; }
+  .prose-site a { @apply font-semibold text-forest-500 underline; }
+  .prose-site blockquote { @apply my-6 border-l-4 border-gold bg-sand px-5 py-3 font-serif text-xl italic; }
+  .prose-site img { @apply my-6 h-auto max-w-full rounded-lg; }
+  .prose-site iframe { @apply my-6 aspect-video w-full rounded-lg; }
+  .prose-site hr { @apply my-8 border-ink/15; }
+  .prose-site .ql-align-center { @apply text-center; }
+  .prose-site .ql-align-right { @apply text-right; }
+  .prose-site .ql-align-justify { @apply text-justify; }
+  .prose-site h2, .prose-site h3 { @apply scroll-mt-28; }
   .input { @apply w-full rounded-md border border-ink/20 bg-white px-4 py-3 text-sm focus:border-forest-600 focus:outline-none focus:ring-1 focus:ring-forest-600; }
   .check-list li { @apply relative pl-6 before:absolute before:left-0 before:top-0 before:font-bold before:text-forest-500 before:content-['✓']; }
   .cross-list li { @apply relative pl-6 before:absolute before:left-0 before:top-0 before:font-bold before:text-red-700 before:content-['×']; }
   .scrollbar-none { scrollbar-width: none; }
   .scrollbar-none::-webkit-scrollbar { display: none; }
 }
+
+/* ---------- CMS (admin) ---------- */
+@layer components {
+  .admin h1, .admin h2, .admin h3, .admin h4 { @apply font-sans font-bold tracking-normal text-ink; }
+  .admin h1 { @apply text-[1.3rem] md:text-[1.3rem]; }
+  .admin h2 { @apply text-[0.95rem] md:text-[0.95rem]; }
+  .admin h3 { @apply text-[0.9rem] md:text-[0.9rem]; }
+  .a-card { @apply rounded-xl bg-white shadow-[0_1px_2px_rgba(18,53,36,0.07)] ring-1 ring-forest-900/10; }
+  .a-btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gold; }
+  .a-btn-primary { @apply a-btn bg-forest-500 text-white hover:bg-forest-600; }
+  .a-btn-ghost { @apply a-btn border border-forest-900/15 bg-white text-ink hover:bg-mist; }
+  .a-btn-danger { @apply a-btn border border-red-200 bg-white text-red-700 hover:bg-red-50; }
+  .a-label { @apply mb-1 block text-[13px] font-semibold text-ink; }
+  .a-help { @apply mt-1 text-xs text-ink/55; }
+  .a-err { @apply mt-1 text-xs font-medium text-red-700; }
+  .a-badge { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-bold capitalize; }
+  .a-badge-green { @apply a-badge bg-green-100 text-green-800; }
+  .a-badge-amber { @apply a-badge bg-amber-100 text-amber-800; }
+  .a-badge-blue { @apply a-badge bg-blue-100 text-blue-800; }
+  .a-badge-gray { @apply a-badge bg-gray-100 text-gray-700; }
+  .a-badge-red { @apply a-badge bg-red-100 text-red-800; }
+  .a-table th { @apply px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-ink/50; }
+  .a-table td { @apply px-4 py-3 align-middle text-sm; }
+  .a-table thead tr { @apply bg-mist/80; }
+  .a-table tbody tr { @apply border-t border-forest-900/5 hover:bg-mist/60; }
+  .admin .input { @apply border-forest-900/20 bg-[#f7faf8] px-3 py-2 text-[13px] focus:bg-white; }
+  .admin h2 { @apply text-forest-950; }
+  .a-nav { @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-white/75 transition hover:bg-white/10 hover:text-white; }
+  .a-nav-active { @apply bg-forest-500 text-white; }
+}
+
+/* CMS: collapsed sidebar + toast motion */
+@layer components {
+  .sb-collapsed #sidebar { @apply lg:w-[72px]; }
+  .sb-collapsed #sidebar .sb-label { @apply lg:hidden; }
+  .sb-collapsed #sidebar .a-nav { @apply lg:justify-center; }
+  .sb-collapsed #sidebar .sb-logo { @apply lg:h-8; }
+  [data-toast] { animation: toast-in .25s ease-out; }
+  @keyframes toast-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  kbd { @apply font-sans; }
+}
+
+/* CMS: compact type scale. Tailwind sizes are rem-based, so a smaller root shrinks text, spacing and controls together. */
+html.cms { font-size: 13.5px; }
+.admin { font-size: 13.5px; line-height: 1.5; }
+
+/* CMS responsiveness: cards in grids must be allowed to shrink (their tables scroll inside), nothing may widen the page. */
+.admin main, .admin main > * { min-width: 0; }
+.admin .grid > * { min-width: 0; }
+.admin main { max-width: 100%; overflow-x: clip; }
+.admin .a-card { min-width: 0; }
+.admin pre, .admin code { overflow-wrap: anywhere; }
+@media (max-width: 1023px) {
+  body.nav-open { overflow: hidden; }
+  .admin .a-table th, .admin .a-table td { white-space: nowrap; }
+  .admin .a-table td .truncate { max-width: 220px; }
+}
+
+/* Quote form calendar (flatpickr) in the site's colours */
+.flatpickr-calendar { font-family: inherit; border-radius: 12px; box-shadow: 0 18px 50px rgba(18, 53, 36, 0.22); }
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange, .flatpickr-day.selected:hover, .flatpickr-day.startRange:hover, .flatpickr-day.endRange:hover { background: #3e7b27; border-color: #3e7b27; color: #fff; }
+.flatpickr-day.inRange, .flatpickr-day.inRange:hover { background: #e3efdc; border-color: #e3efdc; box-shadow: -5px 0 0 #e3efdc, 5px 0 0 #e3efdc; color: #123524; }
+.flatpickr-day.today { border-color: #d9a441; }
+.flatpickr-day.flatpickr-disabled, .flatpickr-day.prevMonthDay.flatpickr-disabled { color: rgba(0, 0, 0, 0.25); }
+.flatpickr-months .flatpickr-month, .flatpickr-weekdays, span.flatpickr-weekday { color: #123524; fill: #123524; }
+[data-stepper]:focus-within { border-color: #3e7b27; box-shadow: 0 0 0 3px rgba(62, 123, 39, 0.18); }
+[data-stepper] input::-webkit-outer-spin-button, [data-stepper] input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+[data-stepper] input[type=number] { -moz-appearance: textfield; }

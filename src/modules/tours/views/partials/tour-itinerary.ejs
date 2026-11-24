@@ -1,14 +1,27 @@
 <section class="bg-white p-6 shadow-sm md:p-8">
   <p class="eyebrow">Itinerary</p>
   <h2 class="mt-1 !text-3xl"><%= nights(tour.days) %> &middot; day to day</h2>
-  <p class="mt-2 text-ink/70">Each day is paced for game drives, transfers, and a proper night in camp or lodge.</p>
-  <ol class="mt-6 space-y-4">
-    <% tour.itinerary.forEach(function (d) { %>
-      <li class="border-l-4 border-forest-500 bg-sand/60 p-5">
-        <p class="eyebrow">Day <%= d.day %></p>
-        <h3 class="mt-1 !text-xl"><%= d.title %></h3>
-        <p class="mt-2 text-[15px] leading-relaxed"><%= d.text %></p>
-        <% if (d.accommodation) { %><p class="mt-2 text-sm"><strong class="text-forest-900">Overnight:</strong> <%= d.accommodation %></p><% } %>
+  <p class="mt-2 text-ink/70">Each day shows where you are, what you may see and do, where you sleep and the meals. Exact sightings depend on the season and on the animals.</p>
+  <ol class="mt-6 space-y-6">
+    <% days.forEach(function (d) { %>
+      <li class="overflow-hidden border border-ink/10 bg-white">
+        <div class="flex flex-wrap items-center gap-3 bg-forest-900 px-5 py-3 text-white">
+          <span class="rounded-full bg-gold px-3 py-0.5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-forest-950">Day <%= d.day %></span>
+          <h3 class="!text-lg !text-white md:!text-xl"><%= d.title %></h3>
+        </div>
+        <div class="<%= d.photo ? 'md:grid md:grid-cols-[260px_minmax(0,1fr)]' : '' %>">
+          <% if (d.photo) { %><div class="media-box aspect-[16/9] md:aspect-auto md:min-h-[200px]"><img src="<%= d.photo %>" alt="Day <%= d.day %>: <%= d.title %>" width="520" height="360" loading="lazy"></div><% } %>
+          <div class="p-5">
+            <% d.paragraphs.forEach(function (para) { %><p class="mb-2 text-[15px] leading-relaxed"><%= para %></p><% }) %>
+            <dl class="mt-4 divide-y divide-ink/10 border-t border-ink/10 text-sm">
+              <% if (d.destination) { %><div class="grid gap-1 py-2.5 sm:grid-cols-[150px_minmax(0,1fr)]"><dt class="font-semibold text-forest-900">Main destination</dt><dd><% if (d.hub) { %><a class="font-semibold text-forest-500 hover:underline" href="/destinations/<%= d.hub %>"><%= d.destination %></a><% } else { %><%= d.destination %><% } %><% if (d.bestTime) { %><span class="block text-xs text-ink/55">Best time: <%= d.bestTime %></span><% } %></dd></div><% } %>
+              <% if (d.wildlife.length) { %><div class="grid gap-1 py-2.5 sm:grid-cols-[150px_minmax(0,1fr)]"><dt class="font-semibold text-forest-900">Wildlife you may see</dt><dd class="flex flex-wrap gap-1.5"><% d.wildlife.forEach(function (w) { %><span class="rounded-full bg-sand px-2.5 py-0.5 text-xs"><%= w %></span><% }) %></dd></div><% } %>
+              <% if (d.activities.length) { %><div class="grid gap-1 py-2.5 sm:grid-cols-[150px_minmax(0,1fr)]"><dt class="font-semibold text-forest-900">Activities</dt><dd class="flex flex-wrap gap-1.5"><% d.activities.forEach(function (a) { %><span class="rounded-full bg-sand px-2.5 py-0.5 text-xs"><%= a %></span><% }) %></dd></div><% } %>
+              <% if (d.overnight) { %><div class="grid gap-1 py-2.5 sm:grid-cols-[150px_minmax(0,1fr)]"><dt class="font-semibold text-forest-900">Overnight</dt><dd><% if (d.lodge) { %><a class="font-semibold text-forest-500 hover:underline" href="/accommodations/<%= d.lodge.slug %>"><%= d.overnight %></a><% } else { %><%= d.overnight %><% } %></dd></div><% } %>
+              <% if (d.meals.length) { %><div class="grid gap-1 py-2.5 sm:grid-cols-[150px_minmax(0,1fr)]"><dt class="font-semibold text-forest-900">Meals</dt><dd class="flex flex-wrap gap-1.5"><% d.meals.forEach(function (m) { %><span class="rounded-full bg-sand px-2.5 py-0.5 text-xs"><%= m %></span><% }) %></dd></div><% } %>
+            </dl>
+          </div>
+        </div>
       </li>
     <% }) %>
   </ol>

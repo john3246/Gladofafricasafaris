@@ -1,0 +1,10 @@
+<% if (d.destinations.length) { %>
+<section class="<%= b.t.cls %> py-10 sm:py-14">
+  <div class="container-site">
+    <%- include('_head', { b: b }) %>
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <% d.destinations.forEach(function (x) { %><%- include('../partials/destination-card', { d: x }) %><% }) %>
+    </div>
+  </div>
+</section>
+<% } %>

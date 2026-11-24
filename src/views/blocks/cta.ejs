@@ -1,0 +1,12 @@
+<section class="<%= b.theme ? b.t.cls : 'on-dark bg-forest-600 text-white' %> py-10 sm:py-12">
+  <div class="container-site flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+    <div class="max-w-2xl">
+      <p class="eyebrow"><%= b.eyebrow || 'Your journey starts here' %></p>
+      <h2 class="mt-2 !text-3xl md:!text-4xl"><%- b.heading ? b.headingHtml : 'Start planning your Tanzania tour' %></h2>
+      <p class="mt-2 text-white/85"><%= b.intro || 'Share your dates, group size and interests. A travel consultant in Arusha will reply with a tailor-made itinerary and a clear, all-inclusive price.' %></p>
+    </div>
+    <% if (b.buttons.length) { %><%- include('_buttons', { b: b }) %><% } else { %>
+      <div class="flex flex-wrap gap-3"><a href="/get-a-quote" class="btn-gold">Get a Free Quote</a><a href="<%= site.whatsapp %>" target="_blank" rel="noopener" class="btn-light">Talk to an Expert</a></div>
+    <% } %>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<div class="mb-5"><h1>Revisions / Audit Log</h1><p class="text-sm text-ink/55">Who did what, from which address and where, and a safety net for deleted content. The list updates by itself every few seconds.</p></div>
+
+<% if (deleted.length) { %>
+<section class="a-card mb-5 p-5">
+  <h2 class="mb-3">Recently deleted (restorable)</h2>
+  <ul class="divide-y divide-ink/5 text-sm">
+    <% deleted.forEach(function (r) { %>
+      <li class="flex items-center justify-between gap-3 py-2.5">
+        <span class="min-w-0 truncate"><strong><%= r.data.title || r.data.name || r.data.q || r.key %></strong> <span class="a-badge-gray ml-2"><%= r.collection %></span> <span class="text-xs text-ink/50">last saved <%= new Date(r.at).toLocaleDateString('en-GB') %></span></span>
+        <form method="post" action="/admin/audit/restore/<%= r.id %>"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="a-btn-ghost !py-1.5">Restore as draft</button></form>
+      </li>
+    <% }) %>
+  </ul>
+</section>
+<% } %>
+
+<form class="mb-3 flex items-center gap-2" method="get"><label class="text-sm font-semibold" for="user">User</label>
+  <select id="user" name="user" class="input !w-auto !py-2" data-autosubmit><option value="">Everyone</option><% users.forEach(function (u) { %><option <%= who === u ? 'selected' : '' %>><%= u %></option><% }) %></select></form>
+
+<div class="a-card overflow-x-auto">
+  <table class="a-table w-full min-w-[980px]">
+    <thead><tr><th>When</th><th>User</th><th>Action</th><th>Item</th><th>IP address</th><th>Location</th><th>Device</th></tr></thead>
+    <tbody data-live="/admin/audit/rows?user=<%= encodeURIComponent(who) %>" data-interval="8000">
+      <%- include('partials/audit-rows', { entries: entries }) %>
+    </tbody>
+  </table>
+</div>

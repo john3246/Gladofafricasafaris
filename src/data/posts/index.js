@@ -13,8 +13,9 @@ const guides = [
   require('./ndutu-calving'),
   require('./best-time-to-visit'),
   require('./luxury-vs-budget'),
+  ...require('./calving'),
 ];
 
-module.exports = [...imported, ...guides]
+module.exports = [...imported, ...guides, ...require('./more')]
   .sort((a, b) => b.published.localeCompare(a.published))
   .map((p, i) => ({ ...p, sort: i }));

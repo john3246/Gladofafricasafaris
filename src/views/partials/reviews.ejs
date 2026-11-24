@@ -1,19 +1,29 @@
-<%# Real Google reviews (src/data/reviews.data.js). Renders nothing when empty. %>
-<% if (reviews && reviews.length) { %>
+<%#
+  Guest reviews (CMS > Testimonials & Reviews). Renders nothing when empty.
+  params: reviews; optional: limit (show only the first N), clamp (cut each review to two lines),
+          cta { href, label } (a button under the reviews), heading (false hides the title block)
+%>
+<% const all = reviews || []; const shown = (typeof limit === 'number' && limit > 0) ? all.slice(0, limit) : all; const twoLines = typeof clamp !== 'undefined' && clamp; %>
+<% if (shown.length) { %>
 <section class="bg-sand py-12 sm:py-16">
   <div class="container-site">
-    <p class="eyebrow">Guest reviews</p>
-    <h2 class="mt-2">What our <em>travellers say</em></h2>
-    <p class="mt-3 flex items-center gap-2 text-sm"><span class="text-gold" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Independent 5-star Google reviews</p>
+    <% if (typeof heading === 'undefined' || heading !== false) { %>
+      <p class="eyebrow">Guest reviews</p>
+      <h2 class="mt-2">What our <em>travellers say</em></h2>
+      <p class="mt-3 flex items-center gap-2 text-sm"><span class="text-gold" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Independent 5-star Google reviews</p>
+    <% } %>
     <div class="mt-8 gap-5 sm:columns-2 lg:columns-3">
-      <% reviews.forEach(function (r) { %>
-        <figure class="mb-5 break-inside-avoid border border-ink/10 bg-white p-6">
-          <p class="text-gold" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-          <blockquote class="mt-3 text-[15px] leading-relaxed">&ldquo;<%= r.text %>&rdquo;</blockquote>
+      <% shown.forEach(function (r) { %>
+        <figure class="mb-5 break-inside-avoid border border-ink/10 bg-white p-6" data-i18n-skip lang="en">
+          <p class="text-gold" aria-label="<%= r.rating || 5 %> out of 5 stars"><%= '★'.repeat(r.rating || 5) %></p>
+          <blockquote class="mt-3 text-[15px] leading-relaxed <%= twoLines ? 'line-clamp-2' : '' %>">&ldquo;<%= r.text %>&rdquo;</blockquote>
           <figcaption class="mt-4 font-mono text-[11px] font-bold uppercase tracking-wider text-forest-900"><%= r.name %></figcaption>
         </figure>
       <% }) %>
     </div>
+    <% if (typeof cta !== 'undefined' && cta) { %>
+      <p class="mt-4 text-center"><a href="<%= cta.href %>" class="btn-dark"><%= cta.label %><% if (all.length > shown.length) { %> (<%= all.length %>)<% } %></a></p>
+    <% } %>
   </div>
 </section>
 <% } %>

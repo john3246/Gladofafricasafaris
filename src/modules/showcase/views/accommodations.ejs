@@ -1,0 +1,48 @@
+<section class="bg-sand pb-6 pt-10 sm:pt-14">
+  <div class="container-site grid items-end gap-8 lg:grid-cols-[1.1fr_1fr]">
+    <div>
+      <p class="eyebrow">Where you will sleep</p>
+      <h1 class="mt-2 font-serif text-4xl font-bold leading-tight text-forest-900 md:text-5xl">The lodge <em>gazetteer</em></h1>
+      <p class="mt-4 max-w-xl text-[15.5px] leading-relaxed text-ink/75">From tented camps on the Serengeti plains to farm lodges above Lake Manyara and hotels in Arusha: <%= items.length %> places to sleep across northern and southern Tanzania. Pick a region, open a place, and tell us what suits your safari. We confirm the exact property when you book.</p>
+      <p class="mt-4"><a class="btn-primary" href="/get-a-quote">Design my safari</a></p>
+    </div>
+    <figure class="relative hidden overflow-hidden lg:block">
+      <img src="/images/destinations/serengeti-national-park.webp" alt="Serengeti plains" width="900" height="560" fetchpriority="high" class="aspect-[16/10] w-full object-cover">
+      <figcaption class="absolute bottom-3 left-3 bg-white/90 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-forest-900"><%= items.length %> stays</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="bg-sand pb-12 pt-4 sm:pb-16" data-lodges>
+  <div class="container-site">
+    <div class="sticky top-[64px] z-20 -mx-4 mb-6 overflow-x-auto bg-sand/95 px-4 py-3 backdrop-blur" role="group" aria-label="Filter by region">
+      <div class="flex gap-2 whitespace-nowrap">
+        <button type="button" class="lodge-chip is-on" data-chip="all" aria-pressed="true">All regions <span class="opacity-60"><%= items.length %></span></button>
+        <% regions.forEach(function (r) { %><button type="button" class="lodge-chip" data-chip="<%= r.id %>" aria-pressed="false"><%= r.name %> <span class="opacity-60"><%= r.count %></span></button><% }) %>
+      </div>
+    </div>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-grid>
+      <% items.forEach(function (a) { var rid = a.region.toLowerCase().replace(/[^a-z0-9]+/g, '-'); %>
+        <article class="card-tour" data-region="<%= rid %>">
+          <a href="/accommodations/<%= a.slug %>" class="media-box relative block aspect-[16/10]" tabindex="-1" aria-hidden="true">
+            <img src="<%= a.image %>" alt="" width="640" height="400" loading="lazy">
+            <span class="absolute left-3 top-3 bg-white/90 px-2 py-0.5 font-mono text-[11px] font-bold tracking-[0.12em] text-forest-900">Nº <%= String(a.n).padStart(3, '0') %></span>
+          </a>
+          <div class="card-body">
+            <p class="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-forest-500"><%= a.region %></p>
+            <h2 class="card-title mt-1"><a href="/accommodations/<%= a.slug %>"><%= a.name %></a></h2>
+            <p class="mt-2 line-clamp-4 flex-1 text-sm leading-relaxed text-ink/70"><%= a.description %></p>
+            <% if (a.sourceUrl) { %><p class="mt-2 text-[11px] text-ink/55">Details: <a href="<%= a.sourceUrl %>" target="_blank" rel="noopener" class="underline"><%= a.sourceName || 'Source' %></a></p><% } %>
+            <p class="card-cta flex items-center justify-between">
+              <a href="/accommodations/<%= a.slug %>" class="line-clamp-2">Read about <%= a.name %> &rarr;</a>
+              <% if (a.tours.length) { %><span class="font-sans text-xs font-normal normal-case tracking-normal text-ink/55">On <%= a.tours.length %> safari<%= a.tours.length === 1 ? '' : 's' %></span><% } %>
+            </p>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+    <div class="hidden py-16 text-center" data-empty><p class="font-serif text-2xl font-bold">Nothing matches</p><p class="mt-2 text-ink/65">Try another region, or <a class="font-bold text-forest-500 underline" href="/get-a-quote">ask us to design your stay</a>.</p></div>
+  </div>
+</section>
+<%- include('partials/cta-band') %>
+<script src="<%= asset('/js/lodge-filter.js') %>" defer></script>

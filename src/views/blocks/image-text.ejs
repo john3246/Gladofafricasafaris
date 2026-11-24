@@ -1,0 +1,12 @@
+<section class="<%= b.t.cls %> py-10 sm:py-14 lg:py-16">
+  <div class="container-site grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+    <div class="<%= b.imageSide === 'left' ? 'lg:order-2' : '' %>">
+      <% if (b.eyebrow) { %><p class="eyebrow"><%= b.eyebrow %></p><% } %>
+      <% if (b.heading) { %><h2 class="mt-2"><%- b.headingHtml %></h2><% } %>
+      <% if (b.intro) { %><p class="mt-4 leading-relaxed"><%= b.intro %></p><% } %>
+      <% if (b.body) { %><div class="prose-site mt-4"><%- b.body %></div><% } %>
+      <%- include('_buttons', { b: b, cls: 'mt-6' }) %>
+    </div>
+    <% if (b.image) { %><div class="media-box aspect-[4/3]"><img src="<%= b.image %>" alt="<%= b.heading ? b.heading.replace(/<[^>]+>/g, '') : '' %>" width="900" height="680" loading="lazy"></div><% } %>
+  </div>
+</section>

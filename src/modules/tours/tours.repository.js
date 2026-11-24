@@ -1,4 +1,4 @@
-const createContentRepository = require('../../db/contentRepository');
-const seed = require('../../data/tours');
+const { tours } = require('../../store/collections');
+const publicRepository = require('../../store/publicRepository');
 
-module.exports = createContentRepository('tours', seed);
+module.exports = publicRepository(tours);

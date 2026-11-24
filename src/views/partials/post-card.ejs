@@ -1,11 +1,11 @@
 <article class="card-tour">
   <a href="/blog/<%= post.slug %>" class="media-box block aspect-[16/10]">
-    <% if (post.image) { %><img src="<%= post.image %>" alt="<%= post.title %>" width="800" height="500" loading="lazy" decoding="async"><% } %>
+    <% if (post.image) { %><img src="<%= post.image %>" alt="<%= post.imageAlt || post.title %>" width="800" height="500" loading="lazy" decoding="async"><% } %>
   </a>
-  <div class="flex flex-1 flex-col p-5">
-    <p class="font-mono text-[11px] uppercase tracking-wider text-ink/55">Glad &middot; <time datetime="<%= post.published %>"><%= longDate(post.published) %></time></p>
-    <h3 class="mt-2 font-serif text-xl font-bold leading-snug"><a href="/blog/<%= post.slug %>" class="hover:text-forest-500"><%= post.title %></a></h3>
+  <div class="card-body">
+    <p class="font-mono text-[11px] uppercase tracking-wider text-ink/55"><%- post.category ? post.category.replace(/[<>&]/g, '') + ' &middot; ' : '' %><time datetime="<%= post.published %>"><%= longDate(post.published) %></time></p>
+    <h3 class="card-title mt-2"><a href="/blog/<%= post.slug %>"><%= post.title %></a></h3>
     <p class="mt-2 line-clamp-3 text-sm text-ink/70"><%= post.excerpt %></p>
-    <a href="/blog/<%= post.slug %>" class="mt-auto pt-4 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-forest-500 hover:underline">Read More &rarr;</a>
+    <a href="/blog/<%= post.slug %>" class="card-cta line-clamp-2">Read the guide: <%= post.title %> &rarr;</a>
   </div>
 </article>

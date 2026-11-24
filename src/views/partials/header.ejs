@@ -21,9 +21,10 @@
         <li class="flex"><a href="/tanzania-safaris/group" class="flex items-center px-4 hover:text-forest-500">Group Safaris</a></li>
 
         <li class="group relative flex">
-          <a href="/about-us" class="flex items-center px-4 hover:text-forest-500">Pages <span class="ml-1 text-[9px]">&#9660;</span></a>
-          <ul class="invisible absolute left-0 top-full w-52 bg-white py-2 text-[13px] normal-case tracking-normal opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-            <% nav.pages.forEach(function (p) { %><li><a class="block px-5 py-2 font-medium hover:bg-sand hover:text-forest-500" href="<%= p.href %>"><%= p.label %></a></li><% }) %>
+          <a href="/experiences" class="flex items-center px-4 hover:text-forest-500 <%= currentPath === '/experiences' ? 'text-forest-500' : '' %>">Experiences <span class="ml-1 text-[9px]">&#9660;</span></a>
+          <ul class="invisible absolute left-0 top-full w-64 bg-white py-2 text-[13px] normal-case tracking-normal opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+            <% (nav.experiences || []).forEach(function (e) { %><li><a class="flex justify-between gap-3 px-5 py-2 font-medium hover:bg-sand hover:text-forest-500" href="<%= e.href %>"><span><%= e.label %></span><span class="text-xs text-ink/45"><%= e.count %></span></a></li><% }) %>
+            <li class="mt-1 border-t border-ink/10"><a class="block px-5 py-2.5 font-bold text-forest-500 hover:bg-sand" href="/experiences">All experiences &rarr;</a></li>
           </ul>
         </li>
       </ul>

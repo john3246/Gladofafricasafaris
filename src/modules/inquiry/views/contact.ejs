@@ -1,18 +1,31 @@
-<%- include('partials/page-hero', { title: 'Get a free <em>Tanzania safari quote</em>', sub: 'Tell us a little about your trip. A local Arusha expert replies within 24 hours.', image: '/images/destinations/serengeti-national-park.webp' }) %>
+<%- include('partials/page-hero', { title: tour ? 'Book <em>' + tour.title.replace(/</g, '&lt;') + '</em>' : (locals.contactPage ? 'Contact <em>Glad Of Africa</em>' : 'Get a free <em>Tanzania safari quote</em>'), sub: tour ? 'Choose your dates and tell us who is travelling. We reply within 24 hours with your final price.' : 'Tell us a little about your safari. A local Arusha expert replies within 24 hours.', image: tour ? tour.image : '/images/destinations/serengeti-national-park.webp' }) %>
 <section class="bg-sand py-12">
   <div class="container-site grid gap-8 lg:grid-cols-5">
     <div class="bg-white p-6 shadow-sm md:p-8 lg:col-span-3">
       <%- include('partials/form') %>
     </div>
-    <aside class="h-fit bg-white p-6 shadow-sm lg:col-span-2">
-      <p class="eyebrow">Contact info</p>
-      <h2 class="mt-1 !text-3xl">Talk to us directly</h2>
-      <address class="mt-4 space-y-2 text-sm not-italic">
-        <p><%= site.address.street %>-<%= site.address.city %>, <%= site.address.countryName %></p>
-        <p><a class="font-bold text-forest-500" href="tel:<%= site.phoneRaw %>"><%= site.phone %></a></p>
-        <p><a class="font-bold text-forest-500" href="mailto:<%= site.email %>"><%= site.email %></a></p>
-      </address>
-      <a href="<%= site.whatsapp %>" target="_blank" rel="noopener" class="btn-primary mt-5 w-full">Chat on WhatsApp</a>
+    <aside class="h-fit space-y-6 lg:col-span-2">
+      <% if (tour) { %>
+        <div class="bg-white shadow-sm">
+          <div class="media-box aspect-[16/9]"><img src="<%= tour.image %>" alt="<%= tour.title %>" width="640" height="360"></div>
+          <div class="p-6">
+            <p class="eyebrow">Your chosen safari</p>
+            <h2 class="mt-1 !text-2xl"><%= tour.title %></h2>
+            <p class="mt-2 text-sm text-ink/70"><%= nights(tour.days) %> &middot; from USD <%= tour.priceFrom.toLocaleString('en-US') %> per person</p>
+            <a href="/tours/<%= tour.slug %>" class="mt-3 inline-block text-sm font-bold text-forest-500 underline">View the full itinerary</a>
+          </div>
+        </div>
+      <% } %>
+      <div class="bg-white p-6 shadow-sm">
+        <p class="eyebrow">Contact info</p>
+        <h2 class="mt-1 !text-3xl">Talk to us directly</h2>
+        <address class="mt-4 space-y-2 text-sm not-italic">
+          <p><%= site.address.street %>-<%= site.address.city %>, <%= site.address.countryName %></p>
+          <p><a class="font-bold text-forest-500" href="tel:<%= site.phoneRaw %>"><%= site.phone %></a></p>
+          <p><a class="font-bold text-forest-500" href="mailto:<%= site.email %>"><%= site.email %></a></p>
+        </address>
+        <a href="<%= site.whatsapp %>" target="_blank" rel="noopener" class="btn-primary mt-5 w-full">Chat on WhatsApp</a>
+      </div>
     </aside>
   </div>
 </section>

@@ -1,0 +1,16 @@
+<%# One row of a repeater field. params: f, row, i, name (repeater input name), opts %>
+<div data-row class="rounded-xl border border-ink/10 bg-mist/70 p-4">
+  <div class="mb-3 flex items-center justify-between">
+    <p class="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-forest-600"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-forest-500 text-[11px] text-white" data-row-number><%= typeof i === 'number' ? i + 1 : '' %></span> <span data-row-title><%= f.itemLabel || 'Item' %></span></p>
+    <div class="flex gap-0.5">
+      <button type="button" data-move="-1" class="rounded p-1.5 text-ink/50 hover:bg-white hover:text-ink" title="Move up" aria-label="Move up">&uarr;</button>
+      <button type="button" data-move="1" class="rounded p-1.5 text-ink/50 hover:bg-white hover:text-ink" title="Move down" aria-label="Move down">&darr;</button>
+      <button type="button" data-remove-row class="rounded p-1.5 text-red-700 hover:bg-red-50" title="Remove" aria-label="Remove"><%- include('icon', { n: 'trash', s: 16 }) %></button>
+    </div>
+  </div>
+  <div class="grid gap-x-4 sm:grid-cols-2">
+    <% f.fields.forEach(function (sub) { %>
+      <%- include('field', { f: sub, value: toInput(sub, row[sub.name]), errors: {}, opts, prefix: `${name}[${i}]`, isNew: false }) %>
+    <% }) %>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+<% if (b.buttons.length) { %><div class="flex flex-wrap gap-3 <%= typeof cls === 'undefined' ? '' : cls %>"><% b.buttons.forEach(function (x) { %><a href="<%= x.href %>" class="<%= x.cls %>"><%= x.label %></a><% }) %></div><% } %>

@@ -1,0 +1,21 @@
+<div class="flex min-h-screen items-center justify-center bg-canvas p-6">
+  <div class="a-card w-full max-w-sm p-8">
+    <img src="/images/logo-green.png" alt="Glad Of Africa" width="170" height="56" class="mb-6 h-12 w-auto">
+    <h1>Forgot your password?</h1>
+    <% if (state === 'sent') { %>
+      <p role="status" class="mt-4 rounded-lg border border-green-200 bg-green-50 px-3 py-3 text-sm text-green-800">If there is an account for <strong><%= email %></strong>, we have emailed it a link to choose a new password. The link works once and lasts 60 minutes. Check your spam folder too.</p>
+    <% } else if (state === 'unavailable') { %>
+      <p role="alert" class="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-3 py-3 text-sm text-amber-900">Password emails are not switched on for this website yet. Ask an administrator to send you a reset link from <strong>Users &amp; Roles</strong>.</p>
+    <% } else { %>
+      <p class="mt-1 text-sm text-ink/60">Enter the email you sign in with and we will send you a link.</p>
+      <% if (error) { %><p role="alert" class="mt-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800"><%= error %></p><% } %>
+      <form method="post" action="/admin/forgot" class="mt-4">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <label class="a-label" for="email">Email</label>
+        <input class="input" id="email" name="email" type="email" value="<%= email %>" autocomplete="username" required autofocus>
+        <button class="a-btn-primary mt-5 w-full" type="submit">Email me a reset link</button>
+      </form>
+    <% } %>
+    <p class="mt-5 text-center text-sm"><a href="/admin/login" class="font-semibold text-forest-500 hover:underline">&larr; Back to sign in</a></p>
+  </div>
+</div>

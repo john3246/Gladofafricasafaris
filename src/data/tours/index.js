@@ -24,4 +24,13 @@ const tours = fs
   .map((f) => JSON.parse(fs.readFileSync(path.join(__dirname, f), 'utf8')))
   .sort((a, b) => rank(a) - rank(b) || a.priceFrom - b.priceFrom);
 
-module.exports = tours.map((t, i) => ({ ...t, sort: i }));
+const calving = require('../calving.seo');
+/** The calving safaris carry the "calving" tag (feeds the Calving Season category) and search-friendly titles. */
+const seoed = (t) => (calving.SLUGS.includes(t.slug)
+  ? { ...t, tags: [...new Set([...(t.tags || []), 'calving'])], metaTitle: calving.tourMeta[t.slug][0], metaDescription: calving.tourMeta[t.slug][1] }
+  : t);
+
+const offers = require('../offers.seed');
+const offered = (t) => (offers.byTour[t.slug] ? { ...t, ...offers.byTour[t.slug] } : t);
+
+module.exports = tours.map((t, i) => ({ ...offered(seoed(t)), sort: i }));

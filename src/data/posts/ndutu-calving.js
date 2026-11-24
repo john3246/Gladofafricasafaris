@@ -3,7 +3,7 @@ module.exports = {
   title: '7-Day Ndutu Calving Season Safari: Itinerary & What to Expect',
   excerpt: 'Why January to March around Lake Ndutu is one of the best times for predators, newborn wildebeest and photography.',
   category: 'Migration',
-  image: '/images/tours/7-day-february-calving-season-safari.webp',
+  image: '/images/tours/5-days-zanzibar-to-wildebeest-migration-ngorongoro-crater-safari-4.webp',
   published: '2026-03-18',
   readMinutes: 5,
   metaTitle: 'Ndutu Calving Season Safari Tanzania: Itinerary & Costs',

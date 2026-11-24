@@ -1,0 +1,20 @@
+<div class="mb-6"><nav class="mb-1 text-[13px] text-ink/50"><a class="hover:text-forest-500" href="/admin">Dashboard</a> / Backup &amp; Restore</nav><h1>Backup &amp; Restore</h1>
+  <p class="text-sm text-ink/55">Keep a copy of everything you manage in the CMS, or move content between environments.</p></div>
+<div class="grid items-start gap-5 lg:grid-cols-2">
+  <section class="a-card p-6">
+    <span class="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-green-100 text-green-700"><%- include('partials/icon', { n: 'download', s: 22 }) %></span>
+    <h2>Download a backup</h2>
+    <p class="mt-1 text-sm text-ink/60">One file with tours, destinations, blog, FAQs, reviews, pages, settings, redirects, bookings, inquiries, subscribers and media records. User accounts and passwords are never included.</p>
+    <ul class="mt-4 grid grid-cols-2 gap-x-6 gap-y-1 text-sm"><% EXPORTABLE.forEach(function (n) { %><li class="flex justify-between border-b border-ink/5 py-1"><span class="capitalize"><%= n %></span><strong><%= counts[n] %></strong></li><% }) %></ul>
+    <a href="/admin/backup/export.json" class="a-btn-primary mt-5"><%- include('partials/icon', { n: 'download', s: 16 }) %> Download backup (.json)</a>
+  </section>
+  <section class="a-card p-6">
+    <span class="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-amber-700"><%- include('partials/icon', { n: 'upload', s: 22 }) %></span>
+    <h2>Restore from a backup</h2>
+    <p class="mt-1 text-sm text-ink/60">Items in the file are merged in. An existing item with the same address is overwritten; nothing else is deleted. Download a fresh backup first if you are unsure.</p>
+    <form method="post" action="/admin/backup/import?_csrf=<%= csrf %>" enctype="multipart/form-data" class="mt-4 space-y-3">
+      <input class="input" type="file" name="file" accept="application/json,.json" required>
+      <button class="a-btn-primary" data-confirm="Restore from this file? Matching items will be overwritten."><%- include('partials/icon', { n: 'upload', s: 16 }) %> Restore backup</button>
+    </form>
+  </section>
+</div>

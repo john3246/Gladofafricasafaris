@@ -3,7 +3,7 @@ module.exports = {
   title: 'Luxury, Midrange or Budget Safari in Tanzania? How to Choose',
   excerpt: 'The difference between the three tiers, who each suits, and why the wildlife is the same whichever you pick.',
   category: 'Planning',
-  image: '/images/destinations/ngorongoro-crater.webp',
+  image: '/images/tours/6-day-luxury-fly-in-to-mara-river-crossing-safari-3.webp',
   published: '2026-01-30',
   readMinutes: 5,
   metaTitle: 'Luxury vs Midrange vs Budget Safari in Tanzania: Which to Choose?',

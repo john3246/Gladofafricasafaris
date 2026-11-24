@@ -1,0 +1,31 @@
+<%# Upcoming group departures table. param: departures (from showcase/departures.upcoming) %>
+<section class="bg-white py-8 sm:py-10" aria-labelledby="departures-title">
+  <div class="container-site">
+    <h2 id="departures-title" class="!text-2xl md:!text-3xl">Upcoming group departures</h2>
+    <% if (departures.length) { %>
+      <p class="mt-2 max-w-3xl text-sm text-ink/70">Fixed dates you can join. Prices are in US dollars per person. Spots are updated as guests book.</p>
+      <div class="mt-4 overflow-x-auto rounded-xl ring-1 ring-black/10">
+        <table class="w-full min-w-[680px] text-left text-sm">
+          <caption class="sr-only">Upcoming Glad Of Africa group safari departures with date, route, group size, spots open and price per person in US dollars</caption>
+          <thead class="bg-sand text-xs uppercase tracking-wider"><tr>
+            <th scope="col" class="px-4 py-3">Departure</th><th scope="col" class="px-4 py-3">Safari</th><th scope="col" class="px-4 py-3">Largest group</th><th scope="col" class="px-4 py-3">Spots open</th><th scope="col" class="px-4 py-3">Price (USD)</th><th scope="col" class="px-4 py-3"><span class="sr-only">Book</span></th>
+          </tr></thead>
+          <tbody class="divide-y divide-ink/10">
+            <% departures.forEach(function (d) { %>
+              <tr>
+                <th scope="row" class="px-4 py-3 font-semibold"><time datetime="<%= d.date %>"><%= longDate(d.date) %></time></th>
+                <td class="px-4 py-3"><a class="font-semibold text-forest-500 hover:underline" href="/tours/<%= d.slug %>"><%= d.title %></a><span class="block text-xs text-ink/55"><%= d.days %> days</span></td>
+                <td class="px-4 py-3"><%= d.max ? d.max + ' guests' : '-' %></td>
+                <td class="px-4 py-3"><%= d.spots === null ? 'Ask us' : (d.full ? 'Full' : d.spots) %></td>
+                <td class="px-4 py-3 font-semibold">$<%= d.price.toLocaleString('en-US') %> pp</td>
+                <td class="px-4 py-3"><% if (!d.full) { %><a class="btn-primary !px-4 !py-2 text-xs" href="/book/<%= d.slug %>">Join</a><% } %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } else { %>
+      <p class="mt-2 max-w-3xl text-sm text-ink/70">New group dates are listed here as soon as they are confirmed. <a class="font-semibold text-forest-500 underline" href="/get-a-quote">Ask us for the next departure</a> or pick a safari below and tell us your month.</p>
+    <% } %>
+  </div>
+</section>

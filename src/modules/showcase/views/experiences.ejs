@@ -1,0 +1,21 @@
+<%- include('partials/page-hero', { title: 'Safari <em>experiences</em>', sub: 'Start with what you want to feel, see or do. Each experience opens the safaris that deliver it.', image: '/images/hero.webp' }) %>
+<section class="bg-sand py-10 sm:py-14">
+  <div class="container-site">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <% items.forEach(function (e) { %>
+        <a href="<%= e.href %>" class="group relative isolate flex aspect-[4/3] flex-col justify-end overflow-hidden bg-forest-900 text-white">
+          <% if (e.image) { %><img src="<%= e.image %>" alt="" width="800" height="600" loading="lazy" class="absolute inset-0 -z-10 h-full w-full object-cover transition duration-500 group-hover:scale-105"><% } %>
+          <span class="absolute inset-0 -z-10 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></span>
+          <span class="p-5">
+            <span class="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-gold"><%= e.count %> safari<%= e.count === 1 ? '' : 's' %></span>
+            <span class="mt-1 block font-serif text-2xl font-bold"><%= e.name %></span>
+            <% if (e.blurb) { %><span class="mt-1 block text-sm text-white/80"><%= e.blurb %></span><% } %>
+            <span class="mt-3 block font-mono text-[11px] font-bold uppercase tracking-wider">See the safaris &rarr;</span>
+          </span>
+        </a>
+      <% }) %>
+    </div>
+    <% if (!items.length) { %><p class="py-10 text-center text-ink/60">Our experiences are being updated. <a class="font-bold text-forest-500 underline" href="/tanzania-safaris">Browse all safaris</a>.</p><% } %>
+  </div>
+</section>
+<%- include('partials/cta-band') %>

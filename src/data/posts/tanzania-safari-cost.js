@@ -3,7 +3,7 @@ module.exports = {
   title: 'How Much Does a Tanzania Safari Cost? Budget, Midrange & Luxury (2027)',
   excerpt: 'A realistic breakdown of Tanzania safari prices per day, what drives the cost, and how to get the best value in each tier.',
   category: 'Planning',
-  image: '/images/tours/6-day-tanzania-big-five-big-cat-group-safari.webp',
+  image: '/images/tours/6-day-tanzania-big-five-big-cat-group-safari-2.webp',
   published: '2026-04-20',
   readMinutes: 6,
   metaTitle: 'Tanzania Safari Cost 2027: Budget, Midrange & Luxury Prices',

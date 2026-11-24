@@ -1,0 +1,39 @@
+<div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+  <div><h1>Users & Roles</h1><p class="text-sm text-ink/55"><strong>Administrators</strong> can do everything. <strong>Editors</strong> manage content, media and inquiries but not users or settings.</p></div>
+  <div class="flex gap-2">
+    <a href="/admin/users/invite" class="a-btn-primary"><%- include('../partials/icon', { n: 'send', s: 16 }) %> Invite by link</a>
+    <a href="/admin/users/new" class="a-btn-ghost"><%- include('../partials/icon', { n: 'plus', s: 16 }) %> Add user with password</a>
+  </div>
+</div>
+<div class="a-card overflow-x-auto">
+  <table class="a-table w-full min-w-[560px]">
+    <thead><tr><th>User</th><th>Role</th><th>Status</th><th>Last sign-in</th><th class="!text-right">Actions</th></tr></thead>
+    <tbody>
+      <% items.forEach(function (u) { %>
+        <tr>
+          <td><a class="font-semibold hover:text-forest-500" href="/admin/users/<%= u.id %>"><%= u.name %><%= u.id === user.id ? ' (you)' : '' %></a><span class="block text-xs text-ink/50"><%= u.email %></span></td>
+          <td><span class="<%= u.role === 'admin' ? 'a-badge-amber' : 'a-badge-blue' %>"><%= u.role %></span></td>
+          <td><span class="<%= u.active ? 'a-badge-green' : 'a-badge-gray' %>"><%= u.active ? 'Active' : 'Disabled' %></span></td>
+          <td class="text-xs"><%= u.lastLoginAt ? new Date(u.lastLoginAt).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' }) : 'Never' %></td>
+          <td class="text-right"><div class="flex justify-end gap-1">
+            <a class="rounded p-2 text-ink/60 hover:bg-mist hover:text-forest-500" href="/admin/users/<%= u.id %>" aria-label="Edit"><%- include('../partials/icon', { n: 'edit', s: 17 }) %></a>
+            <% if (u.id !== user.id) { %><form method="post" action="/admin/users/<%= u.id %>/delete"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="rounded p-2 text-ink/60 hover:bg-red-50 hover:text-red-700" data-confirm="Delete <%= u.email %>?" aria-label="Delete"><%- include('../partials/icon', { n: 'trash', s: 17 }) %></button></form><% } %>
+          </div></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<% if (invites.length) { %>
+<div class="a-card mt-6 overflow-x-auto">
+  <div class="border-b border-forest-900/10 px-5 py-3"><h2>Waiting to register</h2><p class="a-help">One-time links that have not been used yet.</p></div>
+  <table class="a-table w-full min-w-[520px]"><tbody>
+    <% invites.forEach(function (i) { %>
+      <tr><td><span class="font-semibold"><%= i.email %></span><span class="block text-xs text-ink/50">invited by <%= i.createdBy || 'an administrator' %></span></td>
+        <td><span class="<%= i.role === 'admin' ? 'a-badge-amber' : 'a-badge-blue' %>"><%= i.role %></span></td>
+        <td class="text-xs">expires <%= new Date(i.expiresAt).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' }) %></td>
+        <td class="text-right"><form method="post" action="/admin/users/invites/<%= i.id %>/revoke"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="a-btn-ghost !py-1.5" data-confirm="Cancel this invitation?">Cancel</button></form></td></tr>
+    <% }) %>
+  </tbody></table>
+</div>
+<% } %>

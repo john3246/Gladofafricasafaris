@@ -1,0 +1,20 @@
+<% if (b.rows.length) { %>
+<section class="<%= b.t.cls %> py-10 sm:py-14">
+  <div class="container-site">
+    <%- include('_head', { b: b }) %>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 <%= b.rows.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4' %>">
+      <% b.rows.forEach(function (r) { %>
+        <a href="<%= r[3] || '#' %>" class="group relative isolate block aspect-[3/4] overflow-hidden bg-forest-800 text-white">
+          <% if (r[4]) { %><img src="<%= r[4] %>" alt="<%= r[0] %>" width="600" height="800" loading="lazy" class="absolute inset-0 -z-10 h-full w-full object-cover transition duration-500 group-hover:scale-105"><% } %>
+          <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 p-5">
+            <% if (r[1]) { %><p class="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-gold"><%= r[1] %></p><% } %>
+            <h3 class="mt-1 !text-white"><%= r[0] %></h3>
+            <% if (r[2]) { %><p class="mt-1 text-sm text-white/80"><%= r[2] %></p><% } %>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>

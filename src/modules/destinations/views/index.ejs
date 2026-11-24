@@ -1,16 +1,12 @@
 <%- include('partials/page-hero', { title: 'Tanzania safari destinations', sub: 'The Northern Circuit holds the greatest concentration of wildlife in Africa, all within easy reach of Arusha. Add the south, the mountains or the Zanzibar coast.', image: '/images/destinations/serengeti-national-park.webp' }) %>
-<% [
-  { id: 'northern', title: 'Northern Circuit', circuit: 'northern' },
-  { id: 'southern', title: 'Southern Circuit', circuit: 'southern' },
-  { id: 'trekking', title: 'Hiking & Trekking', circuit: 'trekking' },
-  { id: 'zanzibar', title: 'Zanzibar Beaches', circuit: 'zanzibar' }
-].forEach(function (g, i) { %>
-  <section id="<%= g.id %>" class="scroll-mt-28 py-12 <%= i % 2 ? 'bg-sand' : 'bg-white' %>">
+<% regions.filter(function (g) { return destinations.some(function (d) { return d.circuit === g.slug; }); }).forEach(function (g, i) { %>
+  <section id="<%= g.slug %>" class="scroll-mt-28 py-12 <%= i % 2 ? 'bg-sand' : 'bg-white' %>">
     <div class="container-site">
       <p class="eyebrow">Destinations</p>
       <h2 class="mt-2 mb-8"><%= g.title %></h2>
+      <% if (g.text) { %><p class="-mt-5 mb-8 max-w-3xl text-ink/70"><%= g.text %></p><% } %>
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        <% destinations.filter(function (d) { return d.circuit === g.circuit; }).forEach(function (d) { %><%- include('partials/destination-card', { d: d }) %><% }) %>
+        <% destinations.filter(function (d) { return d.circuit === g.slug; }).forEach(function (d) { %><%- include('partials/destination-card', { d: d }) %><% }) %>
       </div>
     </div>
   </section>

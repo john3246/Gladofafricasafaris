@@ -1,0 +1,7 @@
+<%# Trust signals shown beside the quote and WhatsApp buttons. params: trust (from services/trust) %>
+<ul class="mt-5 space-y-2 border-t border-ink/10 pt-4 text-[13px] text-ink/75">
+  <li class="flex gap-2"><span class="text-forest-500" aria-hidden="true">&#10003;</span><span>Locally owned office in <%= site.address.city %>: <%= site.address.street %></span></li>
+  <% if (trust.license) { %><li class="flex gap-2"><span class="text-forest-500" aria-hidden="true">&#10003;</span><span><%= trust.license %></span></li><% } %>
+  <% if (trust.reviewCount) { %><li class="flex gap-2"><span class="text-forest-500" aria-hidden="true">&#10003;</span><span>Rated <%= trust.average %> out of 5 from <%= trust.reviewCount %> guest review<%= trust.reviewCount === 1 ? '' : 's' %> (<a class="underline" href="/reviews">read them</a>)</span></li><% } %>
+  <li class="flex gap-2"><span class="text-forest-500" aria-hidden="true">&#10003;</span><span>Your guide and the team that planned your safari are the same local people</span></li>
+</ul>

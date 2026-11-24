@@ -1,0 +1,2 @@
+<%# Renders a page's sections in order. params: blocks (from blocks.service.resolve) %>
+<% blocks.forEach(function (blk) { %><%- include(blk.type, { b: blk, d: blk.data }) %><% }) %>

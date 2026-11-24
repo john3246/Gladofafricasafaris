@@ -1,0 +1,13 @@
+<%# Rows of the audit log table. param: entries (with where and device) %>
+<% entries.forEach(function (e) { %>
+  <tr>
+    <td class="whitespace-nowrap text-xs"><%= new Date(e.at).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'medium' }) %></td>
+    <td><%= e.user %><% if (e.email) { %><span class="block text-xs text-ink/45"><%= e.email %></span><% } %></td>
+    <td><span class="<%= /fail/.test(e.action) ? 'a-badge-red' : 'a-badge-blue' %>"><%= e.action %></span></td>
+    <td class="max-w-[280px] truncate"><span class="text-ink/50"><%= e.collection %> /</span> <%= e.title || e.key %></td>
+    <td class="whitespace-nowrap font-mono text-xs"><%= e.ip || '' %></td>
+    <td class="text-xs"><%= e.where || '' %></td>
+    <td class="text-xs text-ink/60"><%= e.device || '' %></td>
+  </tr>
+<% }) %>
+<% if (!entries.length) { %><tr><td colspan="7" class="py-10 text-center text-ink/50">No activity recorded yet.</td></tr><% } %>

@@ -1,0 +1,28 @@
+<div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+  <div><h1>SEO</h1><p class="text-sm text-ink/55">Every public page needs a unique title (under 60 characters) and a description (70 to 158 characters).</p></div>
+  <div class="flex gap-2">
+    <a href="/sitemap.xml" target="_blank" rel="noopener" class="a-btn-ghost">sitemap.xml</a>
+    <a href="/robots.txt" target="_blank" rel="noopener" class="a-btn-ghost">robots.txt</a>
+  </div>
+</div>
+<div class="mb-4 grid gap-3 sm:grid-cols-3">
+  <div class="a-card p-4"><p class="text-xs text-ink/55">Pages checked</p><p class="text-2xl font-bold"><%= total %></p></div>
+  <div class="a-card p-4"><p class="text-xs text-ink/55">With issues</p><p class="text-2xl font-bold <%= withIssues ? 'text-amber-700' : 'text-green-700' %>"><%= withIssues %></p></div>
+  <div class="a-card flex items-center gap-2 p-4 text-sm"><a class="a-btn-ghost <%= !only ? '!bg-forest-500 !text-white' : '' %>" href="/admin/seo">All</a><a class="a-btn-ghost <%= only ? '!bg-forest-500 !text-white' : '' %>" href="/admin/seo?only=issues">Only issues</a></div>
+</div>
+<div class="a-card overflow-x-auto">
+  <table class="a-table w-full min-w-[720px]">
+    <thead><tr><th>Page</th><th>Type</th><th class="!text-right">Title</th><th class="!text-right">Description</th><th>Issues</th></tr></thead>
+    <tbody>
+      <% rows.forEach(function (r) { %>
+        <tr>
+          <td class="max-w-[320px]"><a class="block truncate font-semibold hover:text-forest-500" href="<%= r.href %>"><%= r.title %></a><% if (r.draft) { %><span class="a-badge-amber">Draft</span><% } %></td>
+          <td><span class="a-badge-gray"><%= r.type %></span></td>
+          <td class="text-right <%= r.t === 0 || r.t > 62 ? 'font-bold text-amber-700' : '' %>"><%= r.t %></td>
+          <td class="text-right <%= r.d === 0 || r.d < 70 || r.d > 160 ? 'font-bold text-amber-700' : '' %>"><%= r.d %></td>
+          <td><% if (r.issues.length) { %><% r.issues.forEach(function (i) { %><span class="a-badge-amber mr-1"><%= i %></span><% }) %><% } else { %><span class="a-badge-green">OK</span><% } %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

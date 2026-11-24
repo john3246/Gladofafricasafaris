@@ -1,0 +1,72 @@
+<div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+  <div><h1>Translations</h1><p class="text-sm text-ink/55">Italian, French and German versions of the whole website. New work is translated automatically when the translator is switched on; every sentence can be corrected here.</p></div>
+</div>
+
+<section class="grid gap-3 sm:grid-cols-3">
+  <% ['it', 'fr', 'de', 'zh'].forEach(function (l) { var s = stats[l]; var all = s.done + s.missing; %>
+    <a href="/admin/translations?lang=<%= l %>" class="a-card block p-4 <%= lang === l ? 'ring-2 ring-forest-500' : '' %>">
+      <p class="text-xs text-ink/55"><%= names[l] %></p>
+      <p class="text-2xl font-bold"><%= all ? Math.round((s.done / all) * 100) : 100 %>%</p>
+      <p class="text-[11px] text-ink/50"><%= s.done %> sentences translated · <%= s.missing %> waiting · <%= s.human %> edited by hand</p>
+    </a>
+  <% }) %>
+</section>
+
+<div class="mt-5 grid gap-5 lg:grid-cols-[1.2fr_1fr]">
+  <div data-live="/admin/translations/job" data-interval="4000"><%- include('partials/translation-job', { job: job }) %></div>
+  <section class="a-card p-4">
+    <p class="text-sm font-semibold">Find and translate new text</p>
+    <p class="mt-1 text-xs text-ink/55"><%= stats.total %> sentences known. About <%= Math.round(est.chars / 1000) %>k characters are waiting.<% if (est.chars) { %> Rough cost: <% est.rows.forEach(function (r, i) { %><%= i ? ', ' : '' %>$<%= r.usd < 1 ? r.usd.toFixed(2) : Math.round(r.usd) %> <span class="text-ink/40">(<%= r.label.split(' (')[0].replace('Claude ', '') %>)</span><% }) %><% } %></p>
+    <div class="mt-3 flex flex-wrap gap-2">
+      <form method="post" action="/admin/translations/scan"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="a-btn-ghost">1. Read every page</button></form>
+      <form method="post" action="/admin/translations/run"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="scan" value="1"><button class="a-btn-primary" <%= cfg.hasKey || cfg.envKey ? '' : 'disabled' %>>Translate everything that is missing</button></form>
+    </div>
+  </section>
+</div>
+
+<details class="a-card mt-5 p-4" <%= cfg.hasKey || cfg.envKey ? '' : 'open' %>>
+  <summary class="cursor-pointer text-sm font-semibold">Translator settings <span class="text-xs font-normal text-ink/50">(<%= cfg.hasKey || cfg.envKey ? 'API key saved' : 'no API key yet' %>)</span></summary>
+  <form method="post" action="/admin/translations/settings" class="mt-3 grid gap-3 sm:grid-cols-2">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <label class="block text-sm sm:col-span-2">Claude API key <input class="input mt-1" type="password" name="apiKey" autocomplete="off" placeholder="<%= cfg.hasKey ? 'Saved. Type a new key to replace it' : 'sk-ant-...' %>"><span class="mt-1 block text-xs text-ink/50">From console.anthropic.com. It is stored encrypted and never shown again. Only the website's own text is sent for translation.</span></label>
+    <label class="block text-sm">Model <select class="input mt-1" name="model"><% models.forEach(function (m) { %><option value="<%= m.id %>" <%= cfg.model === m.id ? 'selected' : '' %>><%= m.label %></option><% }) %></select></label>
+    <label class="block text-sm">Daily limit (sentences) <input class="input mt-1" type="number" name="dailyCap" min="100" max="50000" value="<%= cfg.dailyCap %>"><span class="mt-1 block text-xs text-ink/50">Stops runaway cost. It continues the next day.</span></label>
+    <label class="flex items-center gap-2 text-sm sm:col-span-2"><input type="checkbox" name="auto" value="1" <%= cfg.auto ? 'checked' : '' %>> Translate new and changed content automatically (checked every 20 minutes)</label>
+    <div class="flex gap-2 sm:col-span-2"><button class="a-btn-primary">Save settings</button><% if (cfg.hasKey) { %><button name="clearKey" value="1" class="a-btn-ghost" data-confirm="Remove the saved API key?">Remove the key</button><% } %></div>
+  </form>
+</details>
+
+<section class="a-card mt-5 p-4">
+  <p class="mb-2 text-sm font-semibold">How complete is each <%= names[lang] %> page?</p>
+  <div class="grid gap-x-6 gap-y-1 text-xs sm:grid-cols-2"><% coverage.forEach(function (p) { %><div class="flex justify-between gap-3"><span class="truncate"><%= p.path %></span><span class="<%= p.complete ? 'text-green-700' : 'text-amber-700' %>"><%= Math.round(p.share * 100) %>%<%= p.complete ? ' · offered to Google' : '' %></span></div><% }) %>
+  <% if (!coverage.length) { %><p class="text-ink/50">Open the pages in <%= names[lang] %> (or press "Read every page") to fill this in.</p><% } %></div>
+</section>
+
+<section class="mt-5">
+  <form method="get" class="mb-3 flex flex-wrap items-center gap-2">
+    <input type="hidden" name="lang" value="<%= lang %>">
+    <select name="filter" class="input !w-auto !py-2" data-autosubmit>
+      <% [['missing', 'Waiting for translation'], ['done', 'Translated'], ['ai', 'Translated by the translator'], ['human', 'Edited by hand'], ['all', 'Everything']].forEach(function (f) { %><option value="<%= f[0] %>" <%= filter === f[0] ? 'selected' : '' %>><%= f[1] %></option><% }) %>
+    </select>
+    <input class="input !py-2 flex-1" name="q" value="<%= q %>" placeholder="Search the English or the <%= names[lang] %> text...">
+    <button class="a-btn-ghost">Search</button>
+    <span class="text-sm text-ink/55"><%= total %> sentence<%= total === 1 ? '' : 's' %></span>
+  </form>
+  <form method="post" action="/admin/translations/save">
+    <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="lang" value="<%= lang %>"><input type="hidden" name="filter" value="<%= filter %>"><input type="hidden" name="page" value="<%= page %>">
+    <div class="space-y-3">
+      <% rows.forEach(function (r) { %>
+        <div class="a-card grid gap-3 p-3 lg:grid-cols-2">
+          <p class="text-sm leading-relaxed"><span class="mb-1 block text-[11px] font-bold uppercase tracking-wider text-ink/40">English<%= r.kind && r.kind !== 'text' ? ' · ' + r.kind : '' %></span><%= r.en %></p>
+          <label class="block text-sm"><span class="mb-1 block text-[11px] font-bold uppercase tracking-wider text-ink/40"><%= names[lang] %><%= r['by_' + lang] ? ' · ' + (r['by_' + lang] === 'ai' ? 'translator' : 'edited by hand') : '' %></span>
+            <textarea class="input" rows="<%= Math.min(8, Math.max(2, Math.ceil(r.en.length / 70))) %>" name="t[<%= r.key %>]"><%= r[lang] || '' %></textarea></label>
+        </div>
+      <% }) %>
+      <% if (!rows.length) { %><p class="a-card p-8 text-center text-ink/50">Nothing here.</p><% } %>
+    </div>
+    <% if (rows.length) { %><div class="mt-4 flex flex-wrap items-center gap-3"><button class="a-btn-primary">Save these <%= names[lang] %> translations</button>
+      <span class="text-sm text-ink/55">Page <%= page %> of <%= pages %></span>
+      <% if (page > 1) { %><a class="a-btn-ghost" href="/admin/translations?lang=<%= lang %>&filter=<%= filter %>&q=<%= encodeURIComponent(q) %>&page=<%= page - 1 %>">Previous</a><% } %>
+      <% if (page < pages) { %><a class="a-btn-ghost" href="/admin/translations?lang=<%= lang %>&filter=<%= filter %>&q=<%= encodeURIComponent(q) %>&page=<%= page + 1 %>">Next</a><% } %></div><% } %>
+  </form>
+</section>

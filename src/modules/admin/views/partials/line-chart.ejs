@@ -1,0 +1,29 @@
+<%#
+  Two-series SVG area chart. params: series [{date, views, visitors}], height (px, default 200)
+%>
+<%
+  const W = 640, H = 180, PAD = 6;
+  const empty = !series.some((s) => s.views > 0 || s.visitors > 0);
+  const max = Math.max(1, ...series.map((s) => s.views));
+  const x = (i) => PAD + (i / Math.max(1, series.length - 1)) * (W - PAD * 2);
+  const y = (v) => H - PAD - (v / max) * (H - PAD * 2);
+  const line = (key) => series.map((s, i) => `${x(i).toFixed(1)},${y(s[key]).toFixed(1)}`).join(' ');
+  const area = (key) => `${x(0).toFixed(1)},${H - PAD} ${line(key)} ${x(series.length - 1).toFixed(1)},${H - PAD}`;
+  const ticks = [0, 0.5, 1].map((t) => Math.round(max * t));
+  const fmt = (d) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+%>
+<% if (empty) { %>
+<p class="flex items-center justify-center rounded-lg bg-mist/50 text-sm text-ink/50" style="height:<%= typeof height !== 'undefined' ? height : 200 %>px">No visits recorded in this period yet.</p>
+<% } else { %>
+<div class="relative">
+  <svg viewBox="0 0 <%= W %> <%= H %>" class="w-full" style="height:<%= typeof height !== 'undefined' ? height : 200 %>px" preserveAspectRatio="none" role="img" aria-label="Page views and visitors over time">
+    <% ticks.forEach(function (t) { %><line x1="0" x2="<%= W %>" y1="<%= y(t) %>" y2="<%= y(t) %>" stroke="#e5e9e6" stroke-dasharray="3 4" vector-effect="non-scaling-stroke"/><% }) %>
+    <polygon points="<%= area('views') %>" fill="rgba(62,123,39,.14)"/>
+    <polyline points="<%= line('views') %>" fill="none" stroke="#3e7b27" stroke-width="2.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    <polyline points="<%= line('visitors') %>" fill="none" stroke="#D9A441" stroke-width="2.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    <% series.forEach(function (s, i) { %><rect x="<%= x(i) - (W / series.length) / 2 %>" y="0" width="<%= W / series.length %>" height="<%= H %>" fill="transparent"><title><%= fmt(s.date) %>: <%= s.views %> views, <%= s.visitors %> visitors</title></rect><% }) %>
+  </svg>
+  <div class="pointer-events-none absolute inset-y-0 left-0 flex flex-col justify-between text-[10px] text-ink/40"><% ticks.slice().reverse().forEach(function (t) { %><span><%= t %></span><% }) %></div>
+  <div class="mt-1 flex justify-between text-[10px] text-ink/40"><span><%= fmt(series[0].date) %></span><span><%= fmt(series[Math.floor(series.length / 2)].date) %></span><span><%= fmt(series[series.length - 1].date) %></span></div>
+</div>
+<% } %>

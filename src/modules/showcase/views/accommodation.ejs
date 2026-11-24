@@ -1,0 +1,36 @@
+<section class="bg-sand py-8 sm:py-12">
+  <div class="container-site grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-start">
+    <figure class="relative overflow-hidden">
+      <img src="<%= item.image %>" alt="<%= item.name %>, <%= item.region %>" width="1100" height="720" fetchpriority="high" class="aspect-[16/10] w-full object-cover">
+      <% if (!item.hasOwnPhoto) { %><figcaption class="absolute bottom-3 left-3 bg-white/90 px-3 py-1 text-[11px] font-semibold text-ink/70">Photo of the <%= item.region %> area</figcaption><% } %>
+    </figure>
+    <div>
+      <p class="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-forest-500">Nº <%= String(item.n).padStart(3, '0') %> &middot; <%= item.region %></p>
+      <h1 class="mt-2 font-serif text-3xl font-bold leading-tight text-forest-900 md:text-4xl"><%= item.name %></h1>
+      <p class="mt-1 text-sm font-semibold text-ink/60"><%= item.kind || item.type %></p>
+      <p class="mt-4 text-[15.5px] leading-relaxed text-ink/80"><%= item.description %></p>
+      <% if (item.facts && item.facts.length) { %><ul class="mt-4 space-y-1.5 text-sm text-ink/75"><% item.facts.forEach(function (f) { %><li class="flex gap-2"><span class="text-forest-500">&bull;</span><span><%= f %></span></li><% }) %></ul><% } %>
+      <% if (item.sourceUrl) { %><p class="mt-4 text-xs text-ink/60">Photos and details: <a href="<%= item.sourceUrl %>" target="_blank" rel="noopener" class="underline hover:text-forest-500"><%= item.sourceName || 'Source' %></a></p><% } %>
+      <p class="mt-6 flex flex-wrap gap-3"><a class="btn-primary" href="/get-a-quote">Ask about this place</a><a class="btn-outline" href="/accommodations">All places to stay</a></p>
+      <p class="mt-4 text-xs text-ink/55">Availability and rates change through the year. We confirm the property and the price when you book.</p>
+    </div>
+  </div>
+</section>
+<% if (item.gallery.length) { %>
+<section class="bg-white py-8"><div class="container-site"><div class="grid gap-3 sm:grid-cols-3"><% item.gallery.forEach(function (g, i) { %><div class="media-box aspect-[4/3]"><img src="<%= g %>" alt="<%= item.name %> photo <%= i + 2 %>" width="640" height="480" loading="lazy"></div><% }) %></div></div></section>
+<% } %>
+<% if (item.tours.length) { %>
+<section class="bg-white py-10 sm:py-12"><div class="container-site">
+  <h2 class="mb-5">Safaris that stay here</h2>
+  <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><% item.tours.forEach(function (t) { %><li><a class="block border border-ink/10 p-4 hover:border-forest-500" href="/tours/<%= t.slug %>"><span class="font-serif font-bold"><%= t.title %></span><span class="mt-1 block text-xs text-ink/55"><%= t.days %> days</span></a></li><% }) %></ul>
+</div></section>
+<% } %>
+<% if (near.length) { %>
+<section class="bg-sand py-10 sm:py-12"><div class="container-site">
+  <h2 class="mb-5">More in <%= item.region %></h2>
+  <div class="grid gap-5 sm:grid-cols-3"><% near.forEach(function (a) { %>
+    <a class="group block overflow-hidden border border-ink/10 bg-white" href="/accommodations/<%= a.slug %>"><div class="media-box aspect-[16/10]"><img src="<%= a.image %>" alt="" width="640" height="400" loading="lazy"></div><div class="p-4"><p class="font-serif font-bold group-hover:text-forest-500"><%= a.name %></p><p class="mt-1 text-xs text-ink/55"><%= a.kind || a.type %></p></div></a>
+  <% }) %></div>
+</div></section>
+<% } %>
+<%- include('partials/cta-band') %>

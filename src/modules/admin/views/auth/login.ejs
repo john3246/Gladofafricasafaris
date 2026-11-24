@@ -1,0 +1,29 @@
+<div class="flex min-h-screen">
+  <div class="relative hidden flex-1 lg:block">
+    <img src="/images/hero.webp" alt="" class="absolute inset-0 h-full w-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-forest-950/20"></div>
+    <div class="relative flex h-full flex-col justify-end p-12 text-white">
+      <p class="font-display text-6xl tracking-wide">Glad Of Africa</p>
+      <p class="mt-2 font-serif text-3xl italic text-gold">Content management</p>
+      <p class="mt-3 max-w-md text-white/80">Manage tours, destinations, blog, photos and quote requests from one place.</p>
+    </div>
+  </div>
+  <div class="flex w-full items-center justify-center bg-canvas p-6 lg:w-[480px]">
+    <form method="post" action="/admin/login" class="a-card w-full max-w-sm p-8">
+      <img src="/images/logo-green.png" alt="Glad Of Africa" width="170" height="56" class="mb-6 h-12 w-auto">
+      <h1>Sign in</h1>
+      <p class="mt-1 text-sm text-ink/60">Use your CMS account to continue.</p>
+      <% if (typeof notice !== 'undefined' && notice) { %><p role="status" class="mt-4 rounded-lg border border-green-200 bg-green-50 px-3 py-2 text-sm text-green-800"><%= notice %></p><% } %>
+      <% if (error) { %><p role="alert" class="mt-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800"><%= error %></p><% } %>
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <input type="hidden" name="next" value="<%= next %>">
+      <label class="a-label mt-5" for="email">Email</label>
+      <input class="input" id="email" name="email" type="email" value="<%= email %>" autocomplete="username" required autofocus>
+      <label class="a-label mt-4" for="password">Password</label>
+      <input class="input" id="password" name="password" type="password" autocomplete="current-password" required>
+      <button class="a-btn-primary mt-6 w-full" type="submit">Sign in</button>
+      <p class="mt-3 text-center text-sm"><a href="/admin/forgot" class="font-semibold text-forest-500 hover:underline">Forgot your password?</a></p>
+      <p class="mt-5 text-center text-xs text-ink/50"><a href="/" class="hover:underline">&larr; Back to website</a></p>
+    </form>
+  </div>
+</div>

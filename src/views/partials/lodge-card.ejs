@@ -1,0 +1,10 @@
+<%# Accommodation card. params: a (an item from accommodations.page()) %>
+<article class="card-tour">
+  <a href="/accommodations/<%= a.slug %>" class="media-box relative block aspect-[16/10]" tabindex="-1" aria-hidden="true"><img src="<%= a.image %>" alt="" width="640" height="400" loading="lazy" decoding="async"></a>
+  <div class="card-body">
+    <p class="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-forest-500"><%= a.kind || a.type %></p>
+    <h3 class="card-title mt-1"><a href="/accommodations/<%= a.slug %>"><%= a.name %></a></h3>
+    <p class="mt-2 line-clamp-3 flex-1 text-sm text-ink/70"><%= a.description %></p>
+    <a href="/accommodations/<%= a.slug %>" class="card-cta line-clamp-2">Read about <%= a.name %> &rarr;</a>
+  </div>
+</article>

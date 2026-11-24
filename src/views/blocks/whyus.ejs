@@ -1,0 +1,28 @@
+<% if (b.rows.length) { %>
+<section class="<%= b.t.cls %> py-10 sm:py-14 lg:py-16">
+  <div class="container-site grid items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
+    <% if (b.image) { %>
+      <div class="<%= b.imageSide === 'right' ? 'lg:order-2' : '' %>">
+        <div class="media-box aspect-[4/3] lg:aspect-[4/5]"><img src="<%= b.image %>" alt="<%= (b.heading || 'Why choose us').replace(/<[^>]+>/g, '') %>" width="900" height="1100" loading="lazy"></div>
+      </div>
+    <% } %>
+    <div>
+      <% if (b.eyebrow) { %><p class="eyebrow"><%= b.eyebrow %></p><% } %>
+      <% if (b.heading) { %><h2 class="mt-2"><%- b.headingHtml %></h2><% } %>
+      <% if (b.intro) { %><p class="mt-4 leading-relaxed <%= b.t.dark ? 'text-white/80' : 'text-ink/75' %>"><%= b.intro %></p><% } %>
+      <ol class="mt-7 space-y-5">
+        <% b.rows.forEach(function (r, i) { %>
+          <li class="flex gap-4">
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-forest-500 font-mono text-sm font-bold text-white" aria-hidden="true"><%= i + 1 %></span>
+            <div>
+              <h3 class="!text-lg"><%= r[0] %></h3>
+              <% if (r[1]) { %><p class="mt-1 text-[15px] leading-relaxed <%= b.t.dark ? 'text-white/80' : 'text-ink/70' %>"><%= r[1] %></p><% } %>
+            </div>
+          </li>
+        <% }) %>
+      </ol>
+      <%- include('_buttons', { b: b, cls: 'mt-8' }) %>
+    </div>
+  </div>
+</section>
+<% } %>

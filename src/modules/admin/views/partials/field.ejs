@@ -1,0 +1,98 @@
+<%#
+  Renders one form field. params: f (field def), value (current value), errors, opts (dynamic option lists),
+  prefix (name prefix for repeater rows), isNew
+%>
+<%
+  const name = (typeof prefix !== 'undefined' && prefix) ? `${prefix}[${f.name}]` : f.name;
+  const id = name.replace(/[\[\]]+/g, '-');
+  const err = (typeof errors !== 'undefined' && errors && errors[f.name]) || '';
+  const options = (f.optionsFrom ? (opts[f.optionsFrom] || []) : (f.options || [])).map((o) => (typeof o === 'string' ? { value: o, label: o } : o));
+  const v = value;
+  const WIDE = ['richtext', 'seopanel', 'textarea', 'paragraphs', 'lines', 'html', 'gallery', 'repeater', 'tags', 'image'];
+  const wide = f.wide || WIDE.includes(f.type);
+  const locked = f.lockOnEdit && !(typeof isNew !== 'undefined' && isNew);
+%>
+<% if (f.type === 'hidden') { %>
+  <input type="hidden" name="<%= name %>" value="<%= v %>">
+<% } else { %>
+<div class="mb-4 <%= wide ? 'sm:col-span-2' : '' %>" <%- f.showFor ? `data-show-for="${f.showFor.join(',')}"` : '' %>>
+  <% if (f.type !== 'checkbox' && f.type !== 'seopanel') { %><label class="a-label" for="<%= id %>"><%= f.label %><% if (f.required) { %> <span class="text-red-600">*</span><% } %></label><% } %>
+
+  <% if (f.type === 'richtext') { %>
+    <div data-richtext data-links="<%= JSON.stringify(opts.links || []) %>">
+      <select data-rt-link class="input mb-2 !w-auto !py-1.5 text-[13px]" aria-label="Link to a page on your site"></select>
+      <div data-rt-editor></div>
+      <textarea hidden id="<%= id %>" name="<%= name %>" data-rt-input><%= v %></textarea>
+      <p class="a-help" data-rt-stats></p>
+    </div>
+
+  <% } else if (f.type === 'seopanel') { %>
+    <div data-seo-panel data-base-url="<%= siteUrl %>"></div>
+
+  <% } else if (f.type === 'textarea' || f.type === 'paragraphs' || f.type === 'lines' || f.type === 'html') { %>
+    <textarea class="input <%= f.type === 'html' ? 'font-mono text-[13px]' : '' %>" id="<%= id %>" name="<%= name %>" rows="<%= f.rows || 4 %>" <%- f.max ? `data-max="${f.max}"` : '' %> <%= f.placeholder ? `placeholder=${JSON.stringify(f.placeholder)}` : '' %>><%= v %></textarea>
+
+  <% } else if (f.type === 'select') { %>
+    <select class="input" id="<%= id %>" name="<%= name %>" <%- f.blockType ? 'data-block-type' : '' %>>
+      <% if (f.blank) { %><option value=""><%= f.blank %></option><% } %>
+      <% options.forEach(function (o) { %><option value="<%= o.value %>" <%= String(v) === String(o.value) ? 'selected' : '' %>><%= o.label %></option><% }) %>
+    </select>
+
+  <% } else if (f.type === 'status') { %>
+    <select class="input" id="<%= id %>" name="<%= name %>">
+      <option value="published" <%= v !== 'draft' ? 'selected' : '' %>>Published (visible on the website)</option>
+      <option value="draft" <%= v === 'draft' ? 'selected' : '' %>>Draft (hidden)</option>
+    </select>
+
+  <% } else if (f.type === 'checkbox') { %>
+    <label class="flex cursor-pointer items-center gap-2.5 rounded-lg border border-ink/10 bg-white px-3.5 py-2.5 text-sm font-medium">
+      <input type="hidden" name="<%= name %>" value="0">
+      <input type="checkbox" name="<%= name %>" value="1" class="h-4 w-4 accent-forest-500" <%= v ? 'checked' : '' %>> <%= f.label %>
+    </label>
+
+  <% } else if (f.type === 'tags') { %>
+    <div class="grid gap-x-4 gap-y-2 rounded-lg border border-ink/10 bg-white p-3.5 sm:grid-cols-2 <%= f.scroll ? 'max-h-56 overflow-y-auto' : '' %>">
+      <% options.forEach(function (o) { %>
+        <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="<%= name %>" value="<%= o.value %>" class="h-4 w-4 accent-forest-500" <%= (v || []).includes(o.value) ? 'checked' : '' %>> <%= o.label %></label>
+      <% }) %>
+      <% if (!options.length) { %><p class="text-sm text-ink/50">No options available yet.</p><% } %>
+    </div>
+    <% if (f.custom) { %><input class="input mt-2" name="<%= name %>__new" placeholder="Add new tags, separated by commas (e.g. honeymoon, family)"><% } %>
+
+  <% } else if (f.type === 'image') { %>
+    <div data-image-field class="flex items-start gap-3">
+      <div class="media-box h-24 w-32 shrink-0 rounded-lg"><img data-preview src="<%= v %>" alt="" <%= v ? '' : 'hidden' %>></div>
+      <div class="min-w-0 flex-1">
+        <input class="input" id="<%= id %>" name="<%= name %>" value="<%= v %>" data-image-input placeholder="/images/... or choose a photo">
+        <button type="button" data-pick-image class="a-btn-ghost mt-2"><%- include('icon', { n: 'image', s: 16 }) %> Choose photo</button>
+      </div>
+    </div>
+
+  <% } else if (f.type === 'gallery') { %>
+    <div data-gallery-field>
+      <div data-gallery-thumbs class="mb-2 flex flex-wrap gap-2"></div>
+      <textarea class="input font-mono text-[13px]" id="<%= id %>" name="<%= name %>" rows="<%= f.rows || 4 %>" data-gallery-input><%= v %></textarea>
+      <button type="button" data-pick-gallery class="a-btn-ghost mt-2"><%- include('icon', { n: 'plus', s: 16 }) %> Add photo</button>
+    </div>
+
+  <% } else if (f.type === 'repeater') { %>
+    <div data-repeater data-name="<%= name %>" data-label="<%= f.itemLabel || 'Item' %>">
+      <div data-items class="space-y-3">
+        <% (v || []).forEach(function (row, i) { %><%- include('repeater-row', { f, row, i, name, opts }) %><% }) %>
+      </div>
+      <template data-template><%- include('repeater-row', { f, row: {}, i: '__i__', name, opts }) %></template>
+      <button type="button" data-add-row class="a-btn-ghost mt-3"><%- include('icon', { n: 'plus', s: 16 }) %> Add <%= (f.itemLabel || 'item').toLowerCase() %></button>
+    </div>
+
+  <% } else { %>
+    <input class="input" id="<%= id %>" name="<%= name %>" type="<%= f.type === 'number' ? 'number' : f.type === 'date' ? 'date' : 'text' %>" step="any" value="<%= v %>"
+      <%= f.required && f.type !== 'slug' ? 'required' : '' %> <%= locked ? 'readonly' : '' %>
+      <%- f.type === 'slug' ? `data-slug data-slug-from="${f.from || ''}" pattern="[a-z0-9]+(-[a-z0-9]+)*" ${(typeof isNew !== 'undefined' && isNew) ? '' : 'readonly'}` : '' %>
+      <%- f.max ? `data-max="${f.max}"` : '' %> <%= f.placeholder ? `placeholder=${JSON.stringify(f.placeholder)}` : '' %> <%- f.suggest ? `list="${id}-list"` : '' %>>
+    <% if (f.suggest) { %><datalist id="<%= id %>-list"><% (opts[f.suggest] || []).forEach(function (o) { %><option value="<%= typeof o === 'string' ? o : o.value %>"><% }) %></datalist><% } %>
+  <% } %>
+
+  <% if (f.help && f.type !== 'checkbox') { %><p class="a-help"><%= f.help %></p><% } %>
+  <% if (err) { %><p class="a-err" role="alert"><%= err %></p><% } %>
+</div>
+<% } %>

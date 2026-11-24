@@ -1,0 +1,16 @@
+<%# Custom fields (CMS > Custom Fields). params: extras = [{ label, type, value }]; compact (optional) for sidebars %>
+<% if (typeof extras !== 'undefined' && extras && extras.length) { %>
+  <dl class="<%= typeof compact !== 'undefined' && compact ? '' : 'mt-8 ' %>divide-y divide-ink/10 text-sm">
+    <% extras.forEach(function (x) { %>
+      <div class="flex justify-between gap-4 py-3">
+        <dt class="text-ink/60"><%= x.label %></dt>
+        <dd class="text-right font-bold">
+          <% if (x.type === 'url') { %><a class="text-forest-500 underline" href="<%= x.value %>" rel="noopener"><%= x.value.replace(/^https?:\/\//, '') %></a>
+          <% } else if (x.type === 'image') { %><img class="ml-auto h-16 w-auto" src="<%= x.value %>" alt="<%= x.label %>" loading="lazy">
+          <% } else if (x.type === 'number') { %><%= Number(x.value).toLocaleString('en-US') %>
+          <% } else { %><%= x.value %><% } %>
+        </dd>
+      </div>
+    <% }) %>
+  </dl>
+<% } %>

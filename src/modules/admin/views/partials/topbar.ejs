@@ -1,0 +1,46 @@
+<header class="sticky top-0 z-30 flex min-w-0 items-center gap-1.5 border-b border-ink/5 bg-[#f6faf7]/90 px-4 py-2.5 backdrop-blur lg:px-6">
+  <button id="sidebar-toggle" type="button" class="rounded-lg p-2 hover:bg-mist lg:hidden" aria-label="Open menu"><%- include('icon', { n: 'menu', s: 22 }) %></button>
+  <button id="sidebar-collapse" type="button" class="hidden rounded-lg p-2 text-ink/60 hover:bg-mist lg:block" aria-label="Collapse sidebar" title="Collapse sidebar"><%- include('icon', { n: 'bars', s: 20 }) %></button>
+
+  <button type="button" data-palette-open class="group relative flex min-w-0 max-w-xl flex-1 items-center gap-2 rounded-lg border border-ink/10 bg-mist py-2.5 pl-3 pr-2 text-left text-sm text-ink/45 hover:border-forest-400">
+    <%- include('icon', { n: 'search', s: 17 }) %><span class="min-w-0 flex-1 truncate"><span class="sm:hidden">Search</span><span class="hidden sm:inline">Search or jump to... tours, destinations, blog, inquiries</span></span>
+    <kbd class="hidden rounded border border-ink/15 bg-white px-1.5 py-0.5 text-[11px] font-semibold text-ink/50 sm:block">Ctrl K</kbd>
+  </button>
+
+  <div class="ml-auto flex shrink-0 items-center gap-0.5 sm:gap-1">
+    <a href="/" target="_blank" rel="noopener" class="hidden items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold text-ink/65 hover:bg-mist md:flex"><%- include('icon', { n: 'external', s: 15 }) %> View site</a>
+
+    <div class="relative">
+      <button type="button" data-dropdown="notif-menu" class="relative rounded-lg p-2 hover:bg-mist" aria-label="Notifications" aria-haspopup="true">
+        <%- include('icon', { n: 'bell', s: 21 }) %>
+        <% if (newInquiries) { %><span class="absolute right-0.5 top-0 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-600 px-1 text-[10px] font-bold text-white"><%= newInquiries %></span><% } %>
+      </button>
+      <div id="notif-menu" class="absolute right-0 top-full mt-2 hidden w-80 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/10">
+        <p class="border-b border-ink/5 px-4 py-3 text-sm font-bold">Notifications <span class="ml-1 font-normal text-ink/45"><%= newInquiries %> new</span></p>
+        <ul class="max-h-80 divide-y divide-ink/5 overflow-y-auto">
+          <% notifications.forEach(function (n) { %>
+            <li><a href="/admin/inquiries/<%= n.id %>" class="flex gap-3 px-4 py-3 hover:bg-mist/50"><span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple-700"><%- include('icon', { n: 'mail', s: 15 }) %></span>
+              <span class="min-w-0 text-sm"><strong class="block truncate"><%= n.name %></strong><span class="block truncate text-xs text-ink/55"><%= n.tour || 'General inquiry' %></span><span class="text-[11px] text-ink/40"><%= new Date(n.createdAt).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) %></span></span></a></li>
+          <% }) %>
+          <% if (!notifications.length) { %><li class="px-4 py-8 text-center text-sm text-ink/50">You're all caught up.</li><% } %>
+        </ul>
+        <a href="/admin/inquiries" class="block border-t border-ink/5 px-4 py-2.5 text-center text-sm font-semibold text-forest-500 hover:bg-mist/50">Open inbox</a>
+      </div>
+    </div>
+
+    <div class="relative ml-1 border-l border-ink/10 pl-3">
+      <button type="button" data-dropdown="user-menu" class="flex items-center gap-2.5 rounded-lg p-1 hover:bg-mist" aria-haspopup="true">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-forest-500 text-sm font-bold text-white"><%= user.name.charAt(0).toUpperCase() %></span>
+        <span class="hidden text-left leading-tight sm:block"><span class="block text-sm font-bold text-ink"><%= user.name %></span><span class="block text-xs text-ink/55"><%= user.role === 'admin' ? 'Administrator' : 'Editor' %></span></span>
+        <span class="hidden text-ink/40 sm:block"><%- include('icon', { n: 'chevron', s: 15 }) %></span>
+      </button>
+      <div id="user-menu" class="absolute right-0 top-full mt-2 hidden w-56 overflow-hidden rounded-xl bg-white py-1.5 text-sm shadow-2xl ring-1 ring-black/10">
+        <p class="border-b border-ink/5 px-4 pb-2.5 pt-1.5"><strong class="block truncate"><%= user.name %></strong><span class="block truncate text-xs text-ink/50"><%= user.email %></span></p>
+        <a class="flex items-center gap-2.5 px-4 py-2.5 hover:bg-mist/60" href="/admin/profile"><%- include('icon', { n: 'user', s: 16 }) %> My profile</a>
+        <a class="flex items-center gap-2.5 px-4 py-2.5 hover:bg-mist/60" href="/" target="_blank" rel="noopener"><%- include('icon', { n: 'external', s: 16 }) %> View website</a>
+        <form action="/admin/logout" method="post" class="border-t border-ink/5"><input type="hidden" name="_csrf" value="<%= csrf %>">
+          <button class="flex w-full items-center gap-2.5 px-4 py-2.5 text-left font-semibold text-red-700 hover:bg-red-50"><%- include('icon', { n: 'logout', s: 16 }) %> Sign out</button></form>
+      </div>
+    </div>
+  </div>
+</header>

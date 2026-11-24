@@ -1,0 +1,21 @@
+<div class="flex min-h-screen items-center justify-center bg-canvas p-6">
+  <form method="post" action="/admin/register/<%= token %>" class="a-card w-full max-w-sm p-8" novalidate>
+    <img src="/images/logo-green.png" alt="Glad Of Africa" width="170" height="56" class="mb-6 h-12 w-auto">
+    <h1>Create your account</h1>
+    <p class="mt-1 text-sm text-ink/60">You were invited as <strong><%= invite.role === 'admin' ? 'an administrator' : 'an editor' %></strong>. This link works only once.</p>
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <label class="a-label mt-5" for="email">Email (your sign-in)</label>
+    <input class="input bg-mist/60" id="email" type="email" value="<%= invite.email %>" readonly>
+    <label class="a-label mt-4" for="name">Your name</label>
+    <input class="input" id="name" name="name" value="<%= values.name || '' %>" autocomplete="name" required autofocus>
+    <% if (errors.name) { %><p class="a-err"><%= errors.name %></p><% } %>
+    <label class="a-label mt-4" for="pass">Choose a password</label>
+    <input class="input" id="pass" name="pass" type="password" autocomplete="new-password" minlength="<%= min %>" required>
+    <% if (errors.pass) { %><p class="a-err"><%= errors.pass %></p><% } %>
+    <label class="a-label mt-4" for="confirm">Repeat the password</label>
+    <input class="input" id="confirm" name="confirm" type="password" autocomplete="new-password" required>
+    <% if (errors.confirm) { %><p class="a-err"><%= errors.confirm %></p><% } %>
+    <button class="a-btn-primary mt-6 w-full" type="submit">Create my account</button>
+    <p class="mt-4 text-center text-xs text-ink/50">At least <%= min %> characters.</p>
+  </form>
+</div>

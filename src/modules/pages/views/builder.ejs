@@ -1,0 +1,3 @@
+<% if (showTitle) { %><%- include('partials/page-hero', { title: page.title, sub: page.subtitle, image: page.image }) %><% } %>
+<% if (page.body) { %><section class="bg-white py-10 sm:py-14"><div class="container-site max-w-4xl prose-site"><%- page.body %></div></section><% } %>
+<%- include('blocks/index', { blocks: blocks }) %>

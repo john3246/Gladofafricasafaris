@@ -1,15 +1,16 @@
 <%# GM-style listing card. params: tour %>
-<article class="card-tour" data-tour-card data-tags="<%= tour.tags.join(' ') %>" data-days="<%= tour.days %>" data-price="<%= tour.priceFrom %>" data-tier="<%= tour.tier %>">
-  <a href="/tours/<%= tour.slug %>" class="relative block aspect-[16/9] overflow-hidden bg-forest-900">
-    <% if (tour.image) { %><img class="absolute inset-0 h-full w-full object-cover transition duration-500 hover:scale-105" src="<%= tour.image %>" alt="<%= tour.title %>" loading="lazy" decoding="async" width="800" height="450"><% } %>
+<article class="card-tour" data-tour-card data-tags="<%= tour.tags.join(' ') %>" data-days="<%= tour.days %>" data-price="<%= tour.priceFrom %>" data-tier="<%= tour.tier %>" data-styles="<%= (tour.styles || []).join('|') %>">
+  <a href="/tours/<%= tour.slug %>" class="relative block aspect-[16/10] overflow-hidden bg-forest-900">
+    <% if (tour.image) { %><img class="absolute inset-0 h-full w-full object-cover" src="<%= tour.image %>" alt="<%= tour.title %>" loading="lazy" decoding="async" width="800" height="450"><% } %>
+    <% const tag = tour.offerLabel || (tour.bestSeller ? 'Best seller' : tour.badge); if (tag) { %><span class="absolute left-0 top-3 z-10 bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-forest-950"><%= tag %></span><% } %>
     <span class="absolute inset-x-0 bottom-0 z-10 flex justify-between gap-3 bg-gradient-to-t from-black/80 to-transparent px-3 py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-white">
       <span><%= tour.days %> Day<%= tour.days > 1 ? 's' : '' %></span>
       <span>From USD <%= tour.priceFrom.toLocaleString('en-US') %> / person</span>
     </span>
   </a>
-  <div class="flex flex-1 flex-col p-4">
-    <h3 class="font-serif text-lg font-bold leading-snug md:text-xl"><a href="/tours/<%= tour.slug %>" class="hover:text-forest-500"><%= tour.title %></a></h3>
+  <div class="card-body">
+    <h3 class="card-title"><a href="/tours/<%= tour.slug %>"><%= tour.title %></a></h3>
     <% if (tour.destinations.length) { %><p class="mt-1.5 line-clamp-2 text-sm text-ink/65"><%= route(tour.destinations) %></p><% } %>
-    <a href="/tours/<%= tour.slug %>" class="mt-auto pt-4 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-forest-900 hover:text-forest-500">View trip <span aria-hidden="true">&rarr;</span></a>
+    <a href="/tours/<%= tour.slug %>" class="card-cta line-clamp-2">Explore the <%= tour.title %> itinerary <span aria-hidden="true">&rarr;</span></a>
   </div>
 </article>

@@ -5,6 +5,9 @@
 </head>
 <body class="flex min-h-screen flex-col">
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:bg-gold focus:p-3">Skip to content</a>
+  <% if (siteSettings.announceOn && siteSettings.announceText) { %>
+    <div class="bg-gold px-4 py-2 text-center text-[13px] font-semibold text-forest-950"><%= siteSettings.announceText %><% if (siteSettings.announceHref) { %> <a class="underline" href="<%= siteSettings.announceHref %>">Learn more &rarr;</a><% } %></div>
+  <% } %>
   <%- include('../partials/topbar') %>
   <%- include('../partials/header') %>
   <main id="main" class="flex-1">
@@ -12,9 +15,14 @@
   </main>
   <%- include('../partials/footer') %>
   <%- include('../partials/whatsapp-fab') %>
-  <script src="/js/nav.js" defer></script>
-  <script src="/js/img-fallback.js" defer></script>
-  <script src="/js/carousel.js" defer></script>
-  <script src="/js/board-filter.js" defer></script>
+  <script src="<%= asset('/js/fonts.js') %>" defer></script>
+  <script src="<%= asset('/js/hero-video.js') %>" defer></script>
+  <script src="<%= asset('/js/nav.js') %>" defer></script>
+  <script src="<%= asset('/js/track.js') %>" defer></script>
+  <script src="<%= asset('/js/img-fallback.js') %>" defer></script>
+  <script src="<%= asset('/js/carousel.js') %>" defer></script>
+  <script src="<%= asset('/js/board-filter.js') %>" defer></script>
+  <script src="<%= asset('/js/safari-finder.js') %>" defer></script>
+  <script src="<%= asset('/js/lang-menu.js') %>" defer></script>
 </body>
 </html>

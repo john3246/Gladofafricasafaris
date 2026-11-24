@@ -8,8 +8,8 @@ services:
     plan: free
     region: frankfurt
     buildCommand: npm ci --include=dev && npm run build
-    # migrate + seed are idempotent (CREATE IF NOT EXISTS / upsert), so they are safe on every boot.
-    startCommand: npm run migrate && npm run seed && npm start
+    # migrate is idempotent (CREATE IF NOT EXISTS). CMS content is seeded automatically on first use.
+    startCommand: npm run migrate && npm start
     healthCheckPath: /healthz
     envVars:
       - key: NODE_ENV
@@ -19,7 +19,17 @@ services:
       - key: USE_DB
         value: "true"
       - key: SITE_URL
-        sync: false # set to your public URL, e.g. https://gladofafricasafari.com
+        sync: false # REQUIRED, your public https URL, e.g. https://gladofafricasafari.com (the server refuses to start otherwise)
+      - key: SESSION_SECRET
+        generateValue: true # signs CMS login cookies (64 random characters; never share or change it casually: it logs everyone out)
+      - key: ADMIN_EMAIL
+        sync: false # owner account for /admin, created on first boot
+      - key: ADMIN_PASSWORD
+        sync: false # REQUIRED on first boot: at least 12 characters, unique. Change it again in CMS > My profile
+      - key: SMTP_URL
+        sync: false # optional: e-mail alerts for new quote requests, e.g. smtps://user:pass@host
+      - key: MAIL_FROM
+        value: Glad Of Africa <info@gladofafricasafari.com>
       - key: DATABASE_URL
         fromDatabase:
           name: glad-db

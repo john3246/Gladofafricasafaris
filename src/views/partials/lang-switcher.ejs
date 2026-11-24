@@ -1,0 +1,15 @@
+<%# Language menu: a dropdown with a flag for each language. Marked data-nolang so its links are not rewritten. Works without JavaScript (native details element). %>
+<% const cur = langLinks.find(function (l) { return l.current; }) || langLinks[0]; %>
+<details class="relative" data-lang-switcher>
+  <summary class="flex cursor-pointer list-none items-center gap-1.5 rounded px-1.5 py-0.5 text-[12px] font-bold tracking-wider text-white/90 hover:text-gold [&::-webkit-details-marker]:hidden" aria-label="Language: <%= cur.name %>">
+    <img src="/icons/flags/<%= cur.code %>.svg" alt="" width="20" height="14" class="h-3.5 w-5 rounded-sm object-cover ring-1 ring-white/30">
+    <span><%= cur.label %></span><span aria-hidden="true" class="text-[8px]">&#9660;</span>
+  </summary>
+  <ul class="absolute right-0 top-full z-50 mt-1 min-w-[10.5rem] overflow-hidden rounded-lg bg-white py-1 text-[13px] font-semibold text-ink shadow-lg ring-1 ring-black/10">
+    <% langLinks.forEach(function (l) { %>
+      <li><a data-nolang href="<%= l.href %>" hreflang="<%= l.code %>" lang="<%= l.code %>" <%- l.current ? 'aria-current="true"' : '' %> class="flex items-center gap-2.5 px-3 py-2 hover:bg-sand <%= l.current ? 'bg-sand text-forest-900' : '' %>">
+        <img src="/icons/flags/<%= l.code %>.svg" alt="" width="20" height="14" loading="lazy" class="h-3.5 w-5 rounded-sm object-cover ring-1 ring-black/15"><%= l.name %>
+      </a></li>
+    <% }) %>
+  </ul>
+</details>

@@ -1,46 +1,40 @@
+const { pages } = require('../../store/collections');
+const reviewsService = require('../reviews/reviews.service');
 const { buildMeta } = require('../../seo/meta');
 const breadcrumb = require('../../seo/schema/breadcrumb');
+const faqSchema = require('../../seo/schema/faq');
 const orgSchema = require('../../seo/schema/organization');
-const reviews = require('../../data/reviews.data');
+const blocksService = require('../blocks/blocks.service');
+const { stripTags } = require('../admin/lib/text');
 
-const PAGES = {
-  about: {
-    view: 'pages/views/about',
-    name: 'About Us',
-    title: 'About Glad Of Africa: Locally Owned Arusha Safari Company',
-    description: 'Meet the Arusha team behind Glad Of Africa Safari & Tours: personal, responsible, expertly guided northern Tanzania safaris and Kilimanjaro treks.',
-  },
-  terms: {
-    view: 'pages/views/terms',
-    name: 'Terms & Conditions',
-    title: 'Terms and Conditions',
-    description: 'Booking, payment and cancellation terms for Glad Of Africa Safari & Tours.',
-    noindex: false,
-  },
-  privacy: {
-    view: 'pages/views/privacy',
-    name: 'Privacy Policy',
-    title: 'Privacy Policy',
-    description: 'How Glad Of Africa Safari & Tours collects and uses your personal data.',
-  },
-};
+const NAMES = { about: 'About Us', terms: 'Terms & Conditions', privacy: 'Privacy Policy' };
 
-exports.show = (key) => (req, res) => {
-  const page = PAGES[key];
-  res.locals.seo = buildMeta({ title: page.title, description: page.description, noindex: page.noindex });
-  const crumbs = [{ name: 'Home', href: '/' }, { name: page.name }];
+/** Renders an editable page (CMS > Pages & Website Content). About keeps its photo layout. */
+exports.show = (key) => async (req, res, next) => {
+  const page = await pages.get(key);
+  if (!page || page.draft) return next();
+  res.locals.seo = buildMeta({ title: page.metaTitle || NAMES[key], description: page.metaDescription || '', noindex: page.noindex });
+  const crumbs = [{ name: 'Home', href: '/' }, { name: NAMES[key] }];
   res.locals.breadcrumbs = crumbs;
   res.locals.schemas = [breadcrumb(crumbs), ...(key === 'about' ? [orgSchema()] : [])];
-  res.render(page.view, { reviews });
+  const reviews = key === 'about' ? await reviewsService.list() : [];
+  res.render(key === 'about' ? 'pages/views/about' : 'pages/views/page', { page, reviews, blocks: await blocksService.resolve(page.blocks), facts: key === 'about' ? await require('../showcase/quickFacts').rows() : [] });
 };
 
-exports.contact = (req, res) => {
-  res.locals.seo = buildMeta({
-    title: 'Contact Us & Get a Free Tanzania Safari Quote',
-    description: 'Contact our Arusha team on WhatsApp, phone or email and get a free tailor-made Tanzania safari quote within 24 hours.',
-  });
-  const crumbs = [{ name: 'Home', href: '/' }, { name: 'Contact' }];
+/** Pages created in the CMS are served at /<slug> (registered last so built-in routes always win). */
+exports.custom = async (req, res, next) => {
+  const page = await pages.get(req.params.slug);
+  if (!page || page.draft || ['home', 'about', 'terms', 'privacy'].includes(page.slug)) return next();
+  const title = stripTags(page.title);
+  res.locals.seo = buildMeta({ title: page.metaTitle || title, description: page.metaDescription || page.subtitle || '', image: page.ogImage, noindex: page.noindex });
+  const crumbs = [{ name: 'Home', href: '/' }, { name: title }];
   res.locals.breadcrumbs = crumbs;
-  res.locals.schemas = [breadcrumb(crumbs), orgSchema()];
-  res.render('inquiry/views/contact', { errors: {}, values: { tour: req.query.tour || '' } });
+  res.locals.schemas = [breadcrumb(crumbs)];
+  const blocks = await blocksService.resolve(page.blocks);
+  const faqs = blocks.filter((b) => b.type === 'faq').flatMap((b) => (b.data && b.data.faqs) || []);
+  if (faqs.length) res.locals.schemas.push(faqSchema(faqs)); // FAQ rich results for pages that carry an FAQ section
+  // A page that opens with its own hero banner does not need the standard title banner on top.
+  const showTitle = !page.hideTitle && !(blocks[0] && blocks[0].type === 'hero');
+  res.render('pages/views/builder', { page, blocks, showTitle });
 };
+

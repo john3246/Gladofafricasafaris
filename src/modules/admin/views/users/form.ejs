@@ -1,0 +1,31 @@
+<p class="text-sm text-ink/55"><a class="hover:underline" href="/admin/users">Users & Roles</a> / <%= isNew ? 'New' : 'Edit' %></p>
+<h1 class="mb-5 mt-1"><%= isNew ? 'New user' : item.name %></h1>
+<form method="post" action="<%= isNew ? '/admin/users/new' : '/admin/users/' + item.id %>" class="a-card max-w-xl p-6" novalidate>
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <% const self = !isNew && item.id === user.id; %>
+  <label class="a-label" for="name">Full name</label>
+  <input class="input mb-1" id="name" name="name" value="<%= item.name || '' %>" required>
+  <% if (errors.name) { %><p class="a-err"><%= errors.name %></p><% } %>
+  <label class="a-label mt-4" for="email">Email (sign-in)</label>
+  <input class="input mb-1" id="email" name="email" type="email" value="<%= item.email || '' %>" required>
+  <% if (errors.email) { %><p class="a-err"><%= errors.email %></p><% } %>
+  <label class="a-label mt-4" for="role">Role</label>
+  <select class="input" id="role" name="role" <%= self ? 'disabled' : '' %>><% ROLES.forEach(function (r) { %><option value="<%= r %>" <%= item.role === r ? 'selected' : '' %>><%= r === 'admin' ? 'Administrator (everything)' : 'Editor (content only)' %></option><% }) %></select>
+  <% if (!self) { %>
+    <label class="mt-4 flex items-center gap-2 text-sm font-medium"><input type="hidden" name="active" value="0"><input type="checkbox" name="active" value="1" class="h-4 w-4 accent-forest-500" <%= item.active !== false && item.active !== '0' ? 'checked' : '' %>> Account is active</label>
+  <% } %>
+  <label class="a-label mt-4" for="pass"><%= isNew ? 'Password' : 'New password (leave empty to keep the current one)' %></label>
+  <input class="input mb-1" id="pass" name="pass" type="password" autocomplete="new-password" <%= isNew ? 'required' : '' %>>
+  <p class="a-help">At least 10 characters.</p>
+  <% if (errors.pass) { %><p class="a-err"><%= errors.pass %></p><% } %>
+  <div class="mt-6 flex gap-2"><button class="a-btn-primary">Save user</button><a href="/admin/users" class="a-btn-ghost">Cancel</a></div>
+</form>
+<% if (!isNew) { %>
+<form method="post" action="/admin/users/<%= item.id %>/reset-link" class="a-card mt-5 max-w-xl p-6">
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <h2 class="mb-1">Forgotten password?</h2>
+  <p class="a-help mb-3">Creates a one-time link (valid 60 minutes) that lets <%= item.name %> choose a new password. You can email it or copy it and send it yourself.</p>
+  <label class="mb-3 flex items-center gap-2 text-sm font-medium"><input type="checkbox" name="send" value="1" class="h-4 w-4 accent-forest-500" checked> Email the link to <%= item.email %> (if email is set up)</label>
+  <button class="a-btn-ghost">Create reset link</button>
+</form>
+<% } %>

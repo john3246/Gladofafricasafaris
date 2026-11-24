@@ -1,0 +1,10 @@
+<% if (b.gallery && b.gallery.length) { %>
+<section class="<%= b.t.cls %> py-10 sm:py-14">
+  <div class="container-site">
+    <%- include('_head', { b: b }) %>
+    <div class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
+      <% b.gallery.forEach(function (src, i) { %><div class="media-box aspect-[4/3]"><img src="<%= src %>" alt="<%= (String(b.heading || '').replace(/<[^>]+>/g, '') || 'Tanzania safari') + ' photo ' + (i + 1) %>" width="640" height="480" loading="lazy"></div><% }) %>
+    </div>
+  </div>
+</section>
+<% } %>

@@ -1,0 +1,19 @@
+<div class="mb-6"><nav class="mb-1 text-[13px] text-ink/50"><a class="hover:text-forest-500" href="/admin">Dashboard</a> / My profile</nav><h1>My profile</h1></div>
+<form method="post" action="/admin/profile" class="a-card max-w-xl p-6" novalidate>
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <div class="mb-5 flex items-center gap-4">
+    <span class="flex h-14 w-14 items-center justify-center rounded-full bg-forest-500 text-xl font-bold text-white"><%= user.name.charAt(0).toUpperCase() %></span>
+    <div><p class="font-bold"><%= user.email %></p><span class="<%= user.role === 'admin' ? 'a-badge-amber' : 'a-badge-blue' %>"><%= user.role %></span></div>
+  </div>
+  <label class="a-label" for="name">Your name</label>
+  <input class="input" id="name" name="name" value="<%= values.name %>" required>
+  <% if (errors.name) { %><p class="a-err"><%= errors.name %></p><% } %>
+  <h2 class="mb-1 mt-7">Change password</h2><p class="a-help mb-3">Leave these empty to keep your current password.</p>
+  <label class="a-label" for="currentPass">Current password</label><input class="input" id="currentPass" name="currentPass" type="password" autocomplete="current-password">
+  <% if (errors.currentPass) { %><p class="a-err"><%= errors.currentPass %></p><% } %>
+  <label class="a-label mt-4" for="newPass">New password (10+ characters)</label><input class="input" id="newPass" name="newPass" type="password" autocomplete="new-password">
+  <% if (errors.newPass) { %><p class="a-err"><%= errors.newPass %></p><% } %>
+  <label class="a-label mt-4" for="confirmPass">Repeat new password</label><input class="input" id="confirmPass" name="confirmPass" type="password" autocomplete="new-password">
+  <% if (errors.confirmPass) { %><p class="a-err"><%= errors.confirmPass %></p><% } %>
+  <button class="a-btn-primary mt-6">Save profile</button>
+</form>

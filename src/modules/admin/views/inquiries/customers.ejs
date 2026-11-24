@@ -1,0 +1,17 @@
+<div class="mb-5"><h1>Customers</h1><p class="text-sm text-ink/55">Everyone who has sent a quote request, grouped by email address.</p></div>
+<form class="a-card mb-4 flex gap-3 p-3" method="get"><input class="input !py-2" name="q" value="<%= q %>" placeholder="Search name, email, phone..."><button class="a-btn-ghost">Search</button></form>
+<div class="a-card overflow-x-auto">
+  <table class="a-table w-full min-w-[620px]">
+    <thead><tr><th>Customer</th><th>Phone</th><th class="!text-right">Requests</th><th class="!text-right">Booked</th><th>Last contact</th></tr></thead>
+    <tbody>
+      <% customers.forEach(function (c) { %>
+        <tr>
+          <td><a class="font-semibold hover:text-forest-500" href="/admin/inquiries/<%= c.ids[0] %>"><%= c.name %></a><span class="block text-xs text-ink/50"><%= c.email %></span></td>
+          <td><%= c.phone || '-' %></td><td class="text-right"><%= c.count %></td><td class="text-right"><%= c.booked %></td>
+          <td class="text-xs"><%= new Date(c.last).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) %></td>
+        </tr>
+      <% }) %>
+      <% if (!customers.length) { %><tr><td colspan="5" class="py-10 text-center text-ink/50">No customers yet.</td></tr><% } %>
+    </tbody>
+  </table>
+</div>

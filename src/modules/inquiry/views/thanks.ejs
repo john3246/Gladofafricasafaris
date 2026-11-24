@@ -3,6 +3,13 @@
     <p class="eyebrow">Request received</p>
     <h1 class="mt-2">Asante, <%= name %>!</h1>
     <p class="mt-4">Thank you. A member of our Arusha team will reply within 24 hours with your tailor-made quote.</p>
+    <% if (typeof summary !== 'undefined' && summary) { %>
+      <dl class="mx-auto mt-6 max-w-sm divide-y divide-ink/10 border border-ink/10 text-left text-sm">
+        <div class="flex justify-between gap-4 p-3"><dt class="text-ink/60">Tour</dt><dd class="text-right font-bold"><%= summary.tour || 'Tailor-made safari' %></dd></div>
+        <div class="flex justify-between gap-4 p-3"><dt class="text-ink/60">Dates</dt><dd class="text-right font-bold"><%= summary.startDate ? summary.startDate + (summary.endDate ? ' to ' + summary.endDate : '') : summary.travelMonth || '-' %></dd></div>
+        <div class="flex justify-between gap-4 p-3"><dt class="text-ink/60">Travellers</dt><dd class="text-right font-bold"><%= summary.travellers %></dd></div>
+      </dl>
+    <% } %>
     <a href="/tanzania-safaris" class="btn-primary mt-6">Browse safaris while you wait</a>
   </div>
 </section>

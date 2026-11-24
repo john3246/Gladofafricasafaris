@@ -1,0 +1,17 @@
+<div class="mb-5"><h1>Menus & Navigation</h1><p class="text-sm text-ink/55">Edit the links in the website's top bar and footer. One link per line as <code class="rounded bg-white px-1.5 py-0.5">Label | /address</code>.</p></div>
+<form method="post" action="/admin/menus" class="max-w-3xl space-y-6">
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <section class="a-card p-5 md:p-6">
+    <h2 class="mb-1">Top bar links</h2><p class="a-help mb-3">Shown at the very top of every page (next to the phone number).</p>
+    <textarea class="input font-mono text-[13px]" name="topLinks" rows="5"><%= topLinks %></textarea>
+  </section>
+  <section class="a-card p-5 md:p-6">
+    <h2 class="mb-1">Footer "Important Links"</h2><p class="a-help mb-3">Shown in the website footer.</p>
+    <textarea class="input font-mono text-[13px]" name="footerLinks" rows="8"><%= footerLinks %></textarea>
+  </section>
+  <section class="a-card p-5 text-sm text-ink/70 md:p-6">
+    <h2 class="mb-2">Main menu</h2>
+    <p>The main menu builds itself from your content: the Tours menu lists your <a class="underline" href="/admin/categories">Tour Categories</a>, the Destinations menu lists your <a class="underline" href="/admin/regions">Regions</a> with their destinations, and any page you create with a menu setting appears in the top menu or footer. The links below are extra links you can add by hand.</p>
+  </section>
+  <button class="a-btn-primary"><%- include('../partials/icon', { n: 'check', s: 16 }) %> Save menus</button>
+</form>

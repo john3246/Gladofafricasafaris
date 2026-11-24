@@ -77,3 +77,20 @@ npm run dev
 
 ## Content import (live site -> this project)
 `npm run import:live` pulls the real tours (41, with prices, itineraries, galleries), 20 destinations, 3 blog posts and 30 FAQs from gladofafricasafari.com into `src/data/**/*.json` and saves resized WebP images to `public/images/`. Parsers live in `scripts/import/` (one file per content type). Re-run it whenever the WordPress content changes, then `npm run seed` if using Postgres.
+
+## CMS (/admin)
+Built into the same app: `src/modules/admin/` (auth, dashboard, generic CRUD for tours/destinations/blog/FAQs/reviews/pages, media library, inquiries + customers, users & roles, SEO audit, menus, site settings, audit log + version history).
+- **Storage:** `src/store/` is one document store with two drivers: JSON files in `var/cms/` locally, Postgres (`cms_records`, `cms_media`) when `DATABASE_URL` is connected. Collections seed from `src/data` the first time they are used.
+- **Adding a content type:** add a collection in `src/store/collections.js` and a short definition in `src/modules/admin/resources/defs/` (fields drive the list, form, validation and history screens).
+- **Security:** scrypt password hashes, signed HttpOnly session cookie, per-session CSRF token, login rate limit, roles (`admin`, `editor`).
+- **Public site:** reads the same store, so edits appear immediately (Redis page cache is flushed on every change).
+- **Test:** with the server running, `npm run test:cms` exercises login, every screen and create/edit/publish/delete flows end to end.
+
+### CMS feature list (v2)
+Analytics (first-party, cookie-free) · Bookings with revenue tracking · Inquiry inbox with e-mail replies, quote value and assignee · Newsletter subscribers · Redirects manager (old WordPress URLs pre-loaded) with 404 detector · Bulk actions, sortable columns and CSV export on every list · Command palette (Ctrl+K), Ctrl+S save, unsaved-changes guard · Maintenance mode, announcement bar, Google Analytics ID, default share image, "discourage indexing" · Backup & Restore (JSON) · Profile / password change · Site-health checklist on the dashboard.
+
+### Local database
+`npm run db:local` starts a project-local PostgreSQL 18 (UTF-8, port 5433, data in `var/pgdata`) with no Docker or system install; leave that terminal running, then `npm run migrate` once. Redis: any server on `localhost:6379` (e.g. Memurai on Windows). Set `USE_DB=true` and `DATABASE_URL=postgresql://glad:glad@localhost:5433/glad_safari` in `.env`.
+
+### Nothing is locked (v3)
+Everything public is CMS-driven: **Tour Categories** (rules by tag, level or title word; they build the category pages, the Tours menu and the sitemap), **Regions** (group destinations in the menu, on /destinations and in home sections), **Custom Fields** (extra labelled details on tours, destinations and posts, optionally shown on the site), and **Pages built from sections**. The home page and every new page are ordered lists of sections (hero, text, photo+text, tours, destinations, regions, photo tiles, features, gallery, reviews, blog, FAQ, CTA, custom HTML). To add a new section type: one entry in `src/modules/blocks/blocks.types.js` + one template in `src/views/blocks/`. Tour levels and tags are free text with suggestions. Tests: `scripts/cms-smoke-test.js` and `scripts/cms-builder-test.js` (run against a throwaway server).

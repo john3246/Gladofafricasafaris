@@ -1,32 +1,21 @@
-const { Pool } = require('pg');
+/**
+ * Loads the initial site content (src/data) into the database. Collections seed themselves automatically the
+ * first time the site touches them, so this is only needed to pre-load or to reset a collection:
+ *   node scripts/seed.js            -> seed any empty collection
+ *   node scripts/seed.js --reset tours,faqs   -> DELETE those collections and seed them again from src/data
+ */
 require('dotenv').config();
-
-const sets = {
-  tours: require('../src/data/tours'),
-  destinations: require('../src/data/destinations'),
-  posts: require('../src/data/posts'),
-  faqs: require('../src/data/faqs.json').map((f, i) => ({ ...f, slug: `faq-${i + 1}`, sort: i })),
-};
-
-const upsert = {
-  tours: [
-    `INSERT INTO tours (slug, tier, tags, sort, data) VALUES ($1,$2,$3,$4,$5)
-     ON CONFLICT (slug) DO UPDATE SET tier=$2, tags=$3, sort=$4, data=$5, updated_at=now()`,
-    (r) => [r.slug, r.tier, r.tags, r.sort, r],
-  ],
-  default: (table) => [
-    `INSERT INTO ${table} (slug, sort, data) VALUES ($1,$2,$3)
-     ON CONFLICT (slug) DO UPDATE SET sort=$2, data=$3, updated_at=now()`,
-    (r) => [r.slug, r.sort ?? 0, r],
-  ],
-};
+const { initDb, state } = require('../src/db/pool');
+const c = require('../src/store/collections');
 
 (async () => {
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-  for (const [table, rows] of Object.entries(sets)) {
-    const [sql, params] = upsert[table] || upsert.default(table);
-    for (const r of rows) await pool.query(sql, params(r));
-    console.log(`seeded ${rows.length} ${table}`);
+  await initDb();
+  if (!state.pool) throw new Error('No database connection. Set USE_DB=true and DATABASE_URL.');
+  const reset = (process.argv.find((a) => a.startsWith('--reset=')) || process.argv[process.argv.indexOf('--reset') + 1] || '').split(',').filter((n) => c[n]);
+  for (const name of reset) {
+    await state.pool.query(`DELETE FROM cms_records WHERE collection=$1 OR key=$2`, [name, `seeded:${name}`]);
+    console.log(`reset ${name}`);
   }
-  await pool.end();
+  for (const name of ['tours', 'destinations', 'posts', 'faqs', 'reviews', 'pages', 'settings']) console.log(`${name}: ${await c[name].count()} records`);
+  await state.pool.end();
 })().catch((e) => { console.error(e.message); process.exit(1); });

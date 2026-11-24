@@ -1,0 +1,28 @@
+<%# Quick facts and pricing table: one row per safari category, read from the live tours. params: facts (rows), heading (optional) %>
+<% if (facts && facts.length) { %>
+<section class="bg-white py-8 sm:py-10" aria-labelledby="quick-facts-title">
+  <div class="container-site">
+    <h2 id="quick-facts-title" class="!text-2xl md:!text-3xl"><%= typeof heading !== 'undefined' && heading ? heading : 'Safari prices at a glance' %></h2>
+    <p class="mt-2 max-w-3xl text-sm text-ink/70">Published prices in US dollars per person. The starting price is the cheapest safari in each group; the exact price for your dates is in your free quote.</p>
+    <div class="mt-4 overflow-x-auto rounded-xl ring-1 ring-black/10">
+      <table class="w-full min-w-[720px] text-left text-sm">
+        <caption class="sr-only">Glad Of Africa safari categories with duration, starting price in US dollars, best months and what is included</caption>
+        <thead class="bg-sand text-xs uppercase tracking-wider"><tr>
+          <th scope="col" class="px-4 py-3">Safari category</th><th scope="col" class="px-4 py-3">Duration</th><th scope="col" class="px-4 py-3">Starting price (USD)</th><th scope="col" class="px-4 py-3">Best months</th><th scope="col" class="px-4 py-3">Included</th>
+        </tr></thead>
+        <tbody class="divide-y divide-ink/10">
+          <% facts.forEach(function (r) { %>
+            <tr class="<%= r.current ? 'bg-sand/60' : '' %>">
+              <th scope="row" class="px-4 py-3 font-semibold"><a class="text-forest-500 hover:underline" href="/tanzania-safaris/<%= r.slug %>"><%= r.name %></a><span class="block text-xs font-normal text-ink/55"><%= r.count %> safaris</span></th>
+              <td class="px-4 py-3"><%= r.duration %></td>
+              <td class="px-4 py-3 font-semibold">from <%= r.from %> pp</td>
+              <td class="px-4 py-3"><%= r.months %></td>
+              <td class="px-4 py-3"><%= r.includes %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<% } %>

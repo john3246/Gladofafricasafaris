@@ -1,4 +1,4 @@
-const createContentRepository = require('../../db/contentRepository');
-const seed = require('../../data/faqs.json').map((f, i) => ({ ...f, slug: `faq-${i + 1}`, sort: i }));
+const { faqs } = require('../../store/collections');
+const publicRepository = require('../../store/publicRepository');
 
-module.exports = createContentRepository('faqs', seed);
+module.exports = publicRepository(faqs);

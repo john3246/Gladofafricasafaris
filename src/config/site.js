@@ -11,10 +11,11 @@ module.exports = {
   whatsapp: 'https://wa.me/255695108009',
   email: 'info@gladofafricasafari.com',
   address: { street: '402 Sakina', city: 'Arusha', region: 'Arusha', country: 'TZ', countryName: 'Tanzania' },
-  geo: { lat: -3.3869, lng: 36.683 },
+  geo: { lat: -3.3562, lng: 36.6665 },
   logo: '/images/logo-green.png',
   logoWhite: '/images/logo-white.png',
   defaultOgImage: '/images/og-default.webp',
   themeColor: '#123524',
+  facts: { ratingValue: '5.0', ratingCount: '6', memberOf: 'Tanzania Tourist Board', payments: 'Visa, Mastercard, Pesapal, Bank Transfer', priceRange: '$60 - $6,600', profiles: ['https://www.safaribookings.com/p7538'] },
   social: [{ name: 'Facebook', url: 'https://www.facebook.com/gladofafricasafari' }],
 };
