@@ -7,7 +7,7 @@ const data = require('../../data/leopard-accommodations.json');
 const ROOT = path.join(__dirname, '../../../public/images/accommodations');
 const slugOf = (n) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 const REGION = { 'Arusha National Park': 'Arusha' };
-const title = (s) => s.toLowerCase().replace(/(^|[\s(&'’-])([a-z])/g, (m, p, c) => p + c.toUpperCase()).replace(/\bBy\b/g, 'by').replace(/\bAt\b/g, 'at').replace(/\bOf\b/g, 'of');
+const title = (s) => s.toLowerCase().replace(/(^|[\s(&-])([a-z])/g, (m, p, c) => p + c.toUpperCase()).replace(/\bBy\b/g, 'by').replace(/\bAt\b/g, 'at').replace(/\bOf\b/g, 'of');
 const typeOf = (n) => (/camp/i.test(n) ? 'Tented camp' : /hotel|inn|suites|towers/i.test(n) ? 'Hotel' : /villa|farm|house|ranch/i.test(n) ? 'Villa or farm house' : 'Lodge');
 
 async function download(url, file) {
@@ -35,7 +35,7 @@ async function run() {
     const description = l.paras.slice(0, 3).map(clean).join(' ');
     const old = (await accommodations.get(slug)) || {};
     await accommodations.put({
-      ...old, slug, name: old.name || name, region: old.region || REGION[l.region] || l.region, type: old.type || typeOf(name), kind: old.kind || typeOf(name),
+      ...old, slug, name: old.sourceUrl ? name : old.name || name, region: old.region || REGION[l.region] || l.region, type: old.type || typeOf(name), kind: old.kind || typeOf(name),
       description: old.description || description, image: old.image || local[0] || '', gallery: (old.gallery && old.gallery.length) ? old.gallery : local.slice(1),
       facts: old.facts || [], aliases: old.aliases || [], sort: old.sort ?? 500 + created, status: old.status || 'published',
       order: pos, sourceUrl: l.url, sourceName: 'Leopard Tours',
