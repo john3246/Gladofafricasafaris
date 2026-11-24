@@ -86,7 +86,7 @@ async function page() {
   const [docs, allTours] = await Promise.all([accommodations.list(), tours.list()]);
   const liveTours = allTours.filter(isLive);
   const rank = (r) => { const i = REGION_ORDER.indexOf(r); return i === -1 ? 99 : i; };
-  const items = docs.filter(isLive).sort((x, y) => rank(x.region) - rank(y.region) || x.name.localeCompare(y.name))
+  const items = docs.filter(isLive).sort((x, y) => (x.order ?? 1e6) - (y.order ?? 1e6) || rank(x.region) - rank(y.region) || x.name.localeCompare(y.name))
     .map((a, i) => ({ ...withPhoto(a), n: i + 1, region: a.region || 'Other', tours: toursUsing(a, liveTours) }));
   const counts = new Map();
   items.forEach((a) => counts.set(a.region, (counts.get(a.region) || 0) + 1));

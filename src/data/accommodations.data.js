@@ -119,7 +119,7 @@ Gibbs Farm | Lake Manyara | Farm lodge | Cottages
 Lake Eyasi Safari Lodge | Lake Eyasi | Lodge | 16 en-suite rooms in double cottages; solar powered
 `;
 
-const REGIONS = ['Ngorongoro', 'Lake Manyara', 'Tarangire', 'Arusha', 'Serengeti', 'Moshi', 'Lake Victoria', 'Lake Natron', 'Selous Game Reserve', 'Ruaha National Park', 'Lake Eyasi', 'Kilimanjaro'];
+const REGIONS = ['Ngorongoro', 'Lake Manyara', 'Tarangire', 'Arusha', 'Serengeti', 'Moshi', 'Lake Victoria', 'Lake Natron', 'Selous Game Reserve', 'Ruaha National Park', 'Lake Eyasi', 'Kilimanjaro', 'Mkomazi'];
 
 const list = ROWS.trim().split('\n').map((line, i) => {
   const [name, region, kind, facts] = line.split('|').map((s) => s.trim());

@@ -20,7 +20,7 @@ async function download(url, file) {
 
 async function run() {
   let created = 0;
-  for (const l of data) {
+  for (const [pos, l] of data.entries()) {
     const name = title(l.name.replace(/\s+/g, ' '));
     const slug = slugOf(name);
     const dir = path.join(ROOT, slug);
@@ -38,7 +38,7 @@ async function run() {
       ...old, slug, name: old.name || name, region: old.region || REGION[l.region] || l.region, type: old.type || typeOf(name), kind: old.kind || typeOf(name),
       description: old.description || description, image: old.image || local[0] || '', gallery: (old.gallery && old.gallery.length) ? old.gallery : local.slice(1),
       facts: old.facts || [], aliases: old.aliases || [], sort: old.sort ?? 500 + created, status: old.status || 'published',
-      sourceUrl: l.url, sourceName: 'Leopard Tours',
+      order: pos, sourceUrl: l.url, sourceName: 'Leopard Tours',
     });
     created += 1;
   }
