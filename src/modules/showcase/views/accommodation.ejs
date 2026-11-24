@@ -10,7 +10,6 @@
       <p class="mt-1 text-sm font-semibold text-ink/60"><%= item.kind || item.type %></p>
       <p class="mt-4 text-[15.5px] leading-relaxed text-ink/80"><%= item.description %></p>
       <% if (item.facts && item.facts.length) { %><ul class="mt-4 space-y-1.5 text-sm text-ink/75"><% item.facts.forEach(function (f) { %><li class="flex gap-2"><span class="text-forest-500">&bull;</span><span><%= f %></span></li><% }) %></ul><% } %>
-      <% if (item.sourceUrl) { %><p class="mt-4 text-xs text-ink/60">Photos and details: <a href="<%= item.sourceUrl %>" target="_blank" rel="noopener" class="underline hover:text-forest-500"><%= item.sourceName || 'Source' %></a></p><% } %>
       <p class="mt-6 flex flex-wrap gap-3"><a class="btn-primary" href="/get-a-quote">Ask about this place</a><a class="btn-outline" href="/accommodations">All places to stay</a></p>
       <p class="mt-4 text-xs text-ink/55">Availability and rates change through the year. We confirm the property and the price when you book.</p>
     </div>

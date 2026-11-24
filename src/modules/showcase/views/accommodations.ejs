@@ -32,7 +32,6 @@
             <p class="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-forest-500"><%= a.region %></p>
             <h2 class="card-title mt-1"><a href="/accommodations/<%= a.slug %>"><%= a.name %></a></h2>
             <p class="mt-2 line-clamp-4 flex-1 text-sm leading-relaxed text-ink/70"><%= a.description %></p>
-            <% if (a.sourceUrl) { %><p class="mt-2 text-[11px] text-ink/55">Details: <a href="<%= a.sourceUrl %>" target="_blank" rel="noopener" class="underline"><%= a.sourceName || 'Source' %></a></p><% } %>
             <p class="card-cta flex items-center justify-between">
               <a href="/accommodations/<%= a.slug %>" class="line-clamp-2">Read about <%= a.name %> &rarr;</a>
               <% if (a.tours.length) { %><span class="font-sans text-xs font-normal normal-case tracking-normal text-ink/55">On <%= a.tours.length %> safari<%= a.tours.length === 1 ? '' : 's' %></span><% } %>
