@@ -6,7 +6,7 @@ const INSURANCE = require('./insurance.rows');
 const FAQ = require('./faq.rows');
 
 const IDX = { it: 1, fr: 2, de: 3 };
-const exact = { it: new Map(), fr: new Map(), de: new Map(), zh: new Map() };
+const exact = { es: new Map(), it: new Map(), fr: new Map(), de: new Map(), zh: new Map() };
 const norm = (s) => s.replace(/\s+/g, ' ').trim();
 
 for (const row of [...GENERATED, ...STRINGS, ...PAGES, ...INSURANCE, ...FAQ]) {
@@ -14,9 +14,11 @@ for (const row of [...GENERATED, ...STRINGS, ...PAGES, ...INSURANCE, ...FAQ]) {
   for (const lang of Object.keys(IDX)) if (row[IDX[lang]]) exact[lang].set(en, row[IDX[lang]]);
 }
 
+const ES = require('./strings.es');
+for (const row of ES.ROWS) exact.es.set(norm(row[0]), row[1]);
 for (const row of require('./strings.zh').ROWS) exact.zh.set(norm(row[0]), row[1]);
 
-const patterns = PATTERNS.map((row) => ({ re: new RegExp(`^${row[0]}$`), to: { it: row[1], fr: row[2], de: row[3], zh: row[4] } }));
+const patterns = PATTERNS.map((row) => ({ re: new RegExp(`^${row[0]}$`), to: { es: ES.PATTERNS[row[0]], it: row[1], fr: row[2], de: row[3], zh: row[4] } }));
 
 /**
  * The translation of a piece of English text, or null when there is none.
@@ -39,4 +41,4 @@ function translate(core, lang) {
   return null;
 }
 
-module.exports = { translate, stats: () => ({ it: exact.it.size, fr: exact.fr.size, de: exact.de.size, zh: exact.zh.size, patterns: patterns.length }) };
+module.exports = { translate, stats: () => ({ es: exact.es.size, it: exact.it.size, fr: exact.fr.size, de: exact.de.size, zh: exact.zh.size, patterns: patterns.length }) };

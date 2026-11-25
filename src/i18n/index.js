@@ -5,6 +5,7 @@
  */
 const LANGS = [
   { code: 'en', label: 'EN', name: 'English', locale: 'en_US' },
+  { code: 'es', label: 'ES', name: 'Español', locale: 'es_ES' },
   { code: 'it', label: 'IT', name: 'Italiano', locale: 'it_IT' },
   { code: 'fr', label: 'FR', name: 'Français', locale: 'fr_FR' },
   { code: 'de', label: 'DE', name: 'Deutsch', locale: 'de_DE' },

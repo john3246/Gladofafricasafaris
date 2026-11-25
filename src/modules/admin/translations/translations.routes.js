@@ -8,7 +8,7 @@ const { flash } = require('../lib/flash');
 const { requireAdmin } = require('../auth/auth.middleware');
 
 const PAGE = 20;
-const NAMES = { it: 'Italian', fr: 'French', de: 'German', zh: 'Chinese' };
+const NAMES = { es: 'Spanish', it: 'Italian', fr: 'French', de: 'German', zh: 'Chinese' };
 
 /** What the translator would send, and roughly what it costs on each model (about 3.5 characters per token; output is a little longer than input). */
 function estimate() {

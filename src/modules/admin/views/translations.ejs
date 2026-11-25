@@ -1,9 +1,9 @@
 <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
-  <div><h1>Translations</h1><p class="text-sm text-ink/55">Italian, French and German versions of the whole website. New work is translated automatically when the translator is switched on; every sentence can be corrected here.</p></div>
+  <div><h1>Translations</h1><p class="text-sm text-ink/55">Spanish, Chinese, Italian, French and German versions of the whole website. New work is translated automatically when the translator is switched on; every sentence can be corrected here.</p></div>
 </div>
 
 <section class="grid gap-3 sm:grid-cols-3">
-  <% ['it', 'fr', 'de', 'zh'].forEach(function (l) { var s = stats[l]; var all = s.done + s.missing; %>
+  <% ['es', 'zh', 'it', 'fr', 'de'].forEach(function (l) { var s = stats[l]; var all = s.done + s.missing; %>
     <a href="/admin/translations?lang=<%= l %>" class="a-card block p-4 <%= lang === l ? 'ring-2 ring-forest-500' : '' %>">
       <p class="text-xs text-ink/55"><%= names[l] %></p>
       <p class="text-2xl font-bold"><%= all ? Math.round((s.done / all) * 100) : 100 %>%</p>
@@ -20,6 +20,7 @@
     <div class="mt-3 flex flex-wrap gap-2">
       <form method="post" action="/admin/translations/scan"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="a-btn-ghost">1. Read every page</button></form>
       <form method="post" action="/admin/translations/run"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="scan" value="1"><button class="a-btn-primary" <%= cfg.hasKey || cfg.envKey ? '' : 'disabled' %>>Translate everything that is missing</button></form>
+      <% ['es', 'zh'].forEach(function (l) { %><form method="post" action="/admin/translations/run"><input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="scan" value="1"><input type="hidden" name="lang" value="<%= l %>"><button class="a-btn-ghost" <%= cfg.hasKey || cfg.envKey ? '' : 'disabled' %>>Translate <%= names[l] %> only</button></form><% }) %>
     </div>
   </section>
 </div>

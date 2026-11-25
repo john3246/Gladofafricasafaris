@@ -1,6 +1,6 @@
 const Anthropic = require('@anthropic-ai/sdk');
 
-const NAMES = { it: 'Italian', fr: 'French', de: 'German', zh: 'Simplified Chinese' };
+const NAMES = { es: 'Spanish', it: 'Italian', fr: 'French', de: 'German', zh: 'Simplified Chinese' };
 const MARKER = /<\/?[a-z0-9]+\d+\/?>/gi;
 
 const system = (lang) => `You translate website text for Glad Of Africa Safari & Tours, a locally owned Tanzania safari and Kilimanjaro operator in Arusha, from English into ${NAMES[lang]}.

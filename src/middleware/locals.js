@@ -11,7 +11,7 @@ const store = require('../i18n/store');
 function alternatesFor(req) {
   const lang = req.lang || 'en';
   const url = (code) => `${env.siteUrl}${i18n.href(code, req.path === '/' ? '' : req.path)}`;
-  const done = ['it', 'fr', 'de', 'zh'].filter((c) => store.isComplete(c, req.path));
+  const done = store.LANGS.filter((c) => store.isComplete(c, req.path));
   if (lang === 'en' || done.includes(lang)) return [{ lang: 'en', href: url('en') }, ...done.map((c) => ({ lang: c, href: url(c) })), { lang: 'x-default', href: url('en') }];
   return [];
 }

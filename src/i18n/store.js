@@ -7,9 +7,9 @@ const logger = require('../utils/logger');
  * Rows live in the database (CMS > Translations). The dictionary reads this overlay first, so a translation typed in the
  * CMS or produced by the translator wins over the built-in wording. Rows without a language are "waiting for translation".
  */
-const LANGS = ['it', 'fr', 'de', 'zh'];
+const LANGS = ['es', 'it', 'fr', 'de', 'zh'];
 const rows = new Map(); // key -> row
-const overlay = { it: new Map(), fr: new Map(), de: new Map(), zh: new Map() }; // English text -> translation
+const overlay = { es: new Map(), it: new Map(), fr: new Map(), de: new Map(), zh: new Map() }; // English text -> translation
 const status = new Map(); // "it/offers" -> { complete, share }
 const pendingMiss = new Map(); // English text -> kind, waiting to be written
 let loaded = false;

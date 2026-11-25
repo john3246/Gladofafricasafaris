@@ -3,7 +3,7 @@ const { transform } = require('./transform');
 const pageMeta = require('./pageMeta');
 const store = require('./store');
 
-const SKIP = /^\/(?:admin|uploads|images|img|css|js|icons|video|vendor|robots\.txt|sitemap\.xml|llms|healthz|t\/|\.well-known)|^\/(?:it|fr|de|zh)(?:\/|$)|^\/\//;
+const SKIP = /^\/(?:admin|uploads|images|img|css|js|icons|video|vendor|robots\.txt|sitemap\.xml|llms|healthz|t\/|\.well-known)|^\/(?:es|it|fr|de|zh)(?:\/|$)|^\/\//;
 
 /**
  * Language by address: /it/..., /fr/... and /de/... are the same pages in another language. The prefix is removed before routing
@@ -11,7 +11,7 @@ const SKIP = /^\/(?:admin|uploads|images|img|css|js|icons|video|vendor|robots\.t
  * Every sentence that has no translation yet is remembered, so the CMS (and the translator) know what is missing.
  */
 module.exports = (req, res, next) => {
-  const m = req.url.match(/^\/(it|fr|de|zh)(?=\/|\?|$)/);
+  const m = req.url.match(/^\/(es|it|fr|de|zh)(?=\/|\?|$)/);
   req.lang = m ? m[1] : 'en';
   if (m) req.url = req.url.slice(3) || '/';
   if (req.url[0] !== '/') req.url = `/${req.url}`;

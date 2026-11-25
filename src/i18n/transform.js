@@ -6,7 +6,7 @@ const decode = (s) => s.replace(/&(?:amp|lt|gt|quot|apos|rarr|larr|middot|nbsp|b
 const encode = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const encodeAttr = (s) => encode(s).replace(/"/g, '&quot;');
 
-const SKIP_LINK = /^\/(?:admin|uploads|images|img|css|js|icons|video|vendor|robots\.txt|sitemap\.xml|llms|healthz|t\/|blog\/feed\.xml|feed|tours\.json|\.well-known)|^\/(?:it|fr|de|zh)(?:\/|$)|^\/\//;
+const SKIP_LINK = /^\/(?:admin|uploads|images|img|css|js|icons|video|vendor|robots\.txt|sitemap\.xml|llms|healthz|t\/|blog\/feed\.xml|feed|tours\.json|\.well-known)|^\/(?:es|it|fr|de|zh)(?:\/|$)|^\/\//;
 const PAGE_ATTRS = ['placeholder', 'aria-label', 'title', 'alt'];
 const INLINE = new Set(['a', 'abbr', 'b', 'bdi', 'bdo', 'big', 'cite', 'code', 'data', 'dfn', 'em', 'i', 'kbd', 'mark', 'q', 's', 'samp', 'small', 'span', 'strong', 'sub', 'sup', 'time', 'u', 'var', 'wbr', 'br']);
 const LETTERS = /[A-Za-zÀ-ÿ]/;

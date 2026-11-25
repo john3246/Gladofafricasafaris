@@ -63,7 +63,7 @@ function renderSitemap(entries) {
   const urls = [];
   for (const e of entries) {
     const tail = `<lastmod>${e.lastmod || BOOT_DAY}</lastmod>${e.changefreq ? `<changefreq>${e.changefreq}</changefreq>` : ''}<priority>${e.priority}</priority>`;
-    const langs = ['it', 'fr', 'de', 'zh'].filter((c) => i18nStore.isComplete(c, e.loc));
+    const langs = i18nStore.LANGS.filter((c) => i18nStore.isComplete(c, e.loc));
     if (langs.length) {
       const at = (code) => `${env.siteUrl}${i18n.href(code, e.loc === '/' ? '' : e.loc)}`;
       const have = i18n.LANGS.filter((l) => l.code === 'en' || langs.includes(l.code));
