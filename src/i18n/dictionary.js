@@ -18,6 +18,9 @@ const ES = require('./strings.es');
 for (const row of ES.ROWS) exact.es.set(norm(row[0]), row[1]);
 for (const row of require('./strings.zh').ROWS) exact.zh.set(norm(row[0]), row[1]);
 
+// Hand-made translations of the main pages: [English, Spanish, Chinese].
+for (const row of require('./manual.es-zh.json')) { exact.es.set(norm(row[0]), row[1]); exact.zh.set(norm(row[0]), row[2]); }
+
 const patterns = PATTERNS.map((row) => ({ re: new RegExp(`^${row[0]}$`), to: { es: ES.PATTERNS[row[0]], it: row[1], fr: row[2], de: row[3], zh: row[4] } }));
 
 /**
