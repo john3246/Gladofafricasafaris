@@ -49,6 +49,7 @@ function createApp() {
   app.use('/admin', require('./modules/admin/admin.routes'));
   app.use('/uploads', require('./modules/admin/media/media.public'));
 
+  app.use(require('./middleware/noDashes')); // outermost on the way out: runs after translation and the page cache
   app.use(require('./i18n/middleware')); // /it, /fr, /de: the same pages in Italian, French and German
   // Public forms (quote request, newsletter) have no login: refuse posts that come from another website.
   app.use(require('./middleware/sameSite'));
