@@ -227,6 +227,7 @@ function lodge(core, lang, base) {
   const zh = lang === 'zh';
   let m;
   if (core === 'Where You Stay: Safari Lodges, Camps & Hotels in Tanzania') return zh ? '住在哪里：坦桑尼亚游猎酒店、营地与宾馆' : 'Dónde alojarse: lodges, campamentos y hoteles de safari en Tanzania';
+  if (core === '<a1>Ask about this place</a1><a2>All places to stay</a2>') return zh ? '<a1>咨询此住宿</a1><a2>全部住宿</a2>' : '<a1>Preguntar por este alojamiento</a1><a2>Todos los alojamientos</a2>';
   if (NAMES.has(core)) return core;
   if ((m = core.match(/^<a1>([^<]+)<\/a1>$/)) && NAMES.has(m[1])) return core;
   if ((m = core.match(/^<span1>•<\/span1><span2>([^<]+)<\/span2>$/))) return facts.has(m[1]) ? `<span1>•</span1><span2>${facts.get(m[1])[i]}</span2>` : null;
