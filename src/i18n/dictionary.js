@@ -27,6 +27,9 @@ const patterns = PATTERNS.map((row) => ({ re: new RegExp(`^${row[0]}$`), to: { e
  * The translation of a piece of English text, or null when there is none.
  * Patterns: $1 is the matched text as it is, {1} is the matched text translated (recursively).
  */
+// Accommodation labels and templated descriptions are put together from parts when there is no whole sentence.
+const { lodge } = require('./lodges.es-zh');
+
 function translate(core, lang) {
   if (!exact[lang]) return null;
   const own = store.get(lang, core);
@@ -41,7 +44,7 @@ function translate(core, lang) {
         .replace(/\$(\d)/g, (x, i) => m[Number(i)] || '');
     }
   }
-  return null;
+  return lodge(core, lang, (t) => translate(t, lang));
 }
 
 // Repeated labels on the cards, Spanish and Chinese only.
