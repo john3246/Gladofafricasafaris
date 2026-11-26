@@ -46,7 +46,7 @@
   .prose-site li { @apply mb-1.5; }
   .prose-site h4 { @apply mb-2 mt-5 text-xl; }
   .prose-site a { @apply font-semibold text-forest-500 underline; }
-  .prose-site blockquote { @apply my-6 border-l-4 border-gold bg-sand px-5 py-3 font-serif text-xl italic; }
+  .prose-site blockquote { @apply my-6 bg-sand px-5 py-3 font-serif text-xl italic; }
   .prose-site img { @apply my-6 h-auto max-w-full rounded-lg; }
   .prose-site iframe { @apply my-6 aspect-video w-full rounded-lg; }
   .prose-site hr { @apply my-8 border-ink/15; }

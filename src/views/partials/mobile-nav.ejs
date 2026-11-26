@@ -3,16 +3,16 @@
     <li><a class="block py-2 font-bold" href="/">Home</a></li>
     <li>
       <a class="block py-2 font-bold" href="/tanzania-safaris">Tours</a>
-      <ul class="mb-2 border-l-2 border-forest-400 pl-4"><% nav.tourStyles.forEach(function (s) { %><li><a class="block py-1.5" href="<%= s.href %>"><%= s.label %></a></li><% }) %></ul>
+      <ul class="mb-2 pl-4"><% nav.tourStyles.forEach(function (s) { %><li><a class="block py-1.5" href="<%= s.href %>"><%= s.label %></a></li><% }) %></ul>
     </li>
     <li>
       <a class="block py-2 font-bold" href="/destinations">Destinations</a>
-      <ul class="mb-2 border-l-2 border-forest-400 pl-4"><% nav.destinationGroups.forEach(function (g) { %><li><a class="block py-1.5" href="<%= g.href %>"><%= g.title %></a></li><% }) %></ul>
+      <ul class="mb-2 pl-4"><% nav.destinationGroups.forEach(function (g) { %><li><a class="block py-1.5" href="<%= g.href %>"><%= g.title %></a></li><% }) %></ul>
     </li>
     <li><a class="block py-2 font-bold" href="/tanzania-safaris/group">Group Safaris</a></li>
     <li>
       <a class="block py-2 font-bold" href="/experiences">Experiences</a>
-      <ul class="mb-2 border-l-2 border-forest-400 pl-4"><% (nav.experiences || []).forEach(function (e) { %><li><a class="block py-1.5" href="<%= e.href %>"><%= e.label %></a></li><% }) %></ul>
+      <ul class="mb-2 pl-4"><% (nav.experiences || []).forEach(function (e) { %><li><a class="block py-1.5" href="<%= e.href %>"><%= e.label %></a></li><% }) %></ul>
     </li>
     <% nav.topLinks.forEach(function (l) { %><li><a class="block py-2 font-bold" href="<%= l.href %>"><%= l.label %></a></li><% }) %>
     <li><a class="block py-2 font-bold" href="/contact-us">Contact</a></li>

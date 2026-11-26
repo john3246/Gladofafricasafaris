@@ -13,7 +13,7 @@
       <% if (post.image) { %><div class="media-box mt-6 aspect-[16/9]"><img src="<%= post.image %>" alt="<%= post.imageAlt || post.title %>" width="1100" height="620" fetchpriority="high"></div><% } %>
 
       <% if (tocHtml) { %>
-        <nav aria-label="Table of contents" class="my-8 border-l-4 border-forest-500 bg-sand p-5 lg:hidden">
+        <nav aria-label="Table of contents" class="my-8 bg-sand p-5 lg:hidden">
           <p class="eyebrow">In this article</p>
           <ol class="mt-2 list-decimal space-y-1 pl-5 text-[15px]"><% heads.forEach(function (t) { %><li><a class="hover:text-forest-500 hover:underline" href="#<%= t.id %>"><%= t.text %></a></li><% }) %></ol>
         </nav>
@@ -43,7 +43,7 @@
 
     <aside class="min-w-0 space-y-6 lg:sticky lg:top-28 lg:h-fit">
       <% if (tocHtml) { %>
-        <nav aria-label="Table of contents" class="hidden border-l-4 border-forest-500 bg-sand p-5 lg:block">
+        <nav aria-label="Table of contents" class="hidden bg-sand p-5 lg:block">
           <p class="eyebrow">In this article</p>
           <ol class="mt-2 list-decimal space-y-1.5 pl-5 text-sm"><% heads.forEach(function (t) { %><li><a class="hover:text-forest-500 hover:underline" href="#<%= t.id %>"><%= t.text %></a></li><% }) %></ol>
         </nav>
